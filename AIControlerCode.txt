@@ -1,0 +1,37 @@
+Scanner scan = new Scanner(System.in);
+
+        Thread ai = new Thread(() -> a.Learning(example, 1));
+        Thread console = new Thread() {
+            public void run() {
+                boolean run = true;
+                while (run) {
+                    System.out.print("-> ");
+                    switch (scan.nextLine()) {
+                        case "/stop":
+                            a.doStop = true;
+                            run = false;
+                            break;
+                        case "/age":
+                            System.out.println(a.age);
+                            break;
+                        case "/set_fault":
+                            try {
+                                a.fault = scan.nextFloat();
+                            } catch (Exception e) {
+                                System.out.println("TypeError: Invalid float number");
+                            }
+                            break;
+                        case "/check":
+                            synchronized (this) {
+                                a.AICheaker(example);
+                            }
+                            break;
+                        default:
+                            System.out.println("CommandError: Can't does this command");
+                            break;
+                    }
+                }
+            }
+        };
+        ai.start();
+        console.start();
