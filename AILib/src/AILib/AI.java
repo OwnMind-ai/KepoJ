@@ -1,43 +1,35 @@
 package AILib;
 
 import AILib.AILib.AIFunctions;
+import AILib.AILib.FileHandler;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AI{
-    private final ArrayList<ArrayList<Neuron>> neurons;
+    private ArrayList<ArrayList<Neuron>> neurons;
     public float fault = 0.0005f;
-    private final AIFunctions taf;
-    public int age;
-    public boolean doStop = false;
-
-    public String ArrayToString(float[][][] array) {
-        StringBuilder str = new StringBuilder("[");
-        for (float[][] floats : array) {
-            str.append("\n[");
-            for (float[] aFloat : floats) {
-                str.append(Arrays.toString(aFloat));
-                str.append(",\n");
-            }
-            str.deleteCharAt(str.length() - 1);
-            str.append("]\n");
-        }
-        str.append(']');
-
-        return str.toString();
-    }
-    public String ArrayToString(float[][] array) {
-        StringBuilder str = new StringBuilder("[");
-        for (float[] floats : array) {
-            str.append(Arrays.toString(floats));
-            str.append(",\n");
-        }
-        str.append(']');
-
-        return str.toString();
-    }
+    private AIFunctions taf;
 
     public AI(int inputNeurons, AIFunctions functionsType){
+        buildAI(inputNeurons, functionsType);
+    }
+
+    public AI(String fileName){
+        double[] AIParameters = FileHandler.readFile(fileName);
+
+        assert(AIParameters != null);
+        this.buildAI((int) AIParameters[1],AIFunctions.values()[(int) AIParameters[(int) AIParameters[0]]]);
+        for(int i = 2; i < (int) AIParameters[0]; i++) {
+            this.addLayer((int) AIParameters[i]);
+        }
+
+        double[] weights = new double[(int) (AIParameters.length - AIParameters[0] - 1)];
+        System.arraycopy(AIParameters, (int) AIParameters[0] + 1, weights, 0, weights.length);
+        this.setWeights(weights);
+    }
+
+    private void buildAI(int inputNeurons, AIFunctions functionsType){
         this.neurons = new ArrayList<>();
         this.neurons.add(new ArrayList<>());
         for (int a = 0; a < inputNeurons; a++) {
@@ -46,11 +38,11 @@ public class AI{
         this.taf = functionsType;
     }
 
-    public void Settings(float fault) {
+    public void setFault(float fault) {
         this.fault = fault;
     }
 
-    public void AddLayer(int neuronsCount) {
+    public void addLayer(int neuronsCount) {
         this.neurons.add(new ArrayList<>());
         int index = this.neurons.size() - 1;
         for (int i = 0; i < neuronsCount; i++) {
@@ -58,49 +50,49 @@ public class AI{
         }
     }
 
-    public float[] Start(float[] inputData){
-        this.LoadTask(inputData);
+    public double[] start(double[] inputData){
+        this.loadTask(inputData);
 
         for (int i = 1; i < this.neurons.size(); i++) {
-            float[] layerOutput = new float[this.neurons.get(i-1).size()];
+            double[] layerOutput = new double[this.neurons.get(i-1).size()];
             for (int a = 0; a < this.neurons.get(i-1).size(); a++)
                 layerOutput[a] = this.neurons.get(i-1).get(a).output;
 
             for (int a = 0; a < this.neurons.get(i).size(); a++)
-                this.neurons.get(i).get(a).DoNeuron(layerOutput);
+                this.neurons.get(i).get(a).doNeuron(layerOutput);
         }
         
-        float[] output = new float[this.neurons.get(this.neurons.size() - 1).size()];
+        double[] output = new double[this.neurons.get(this.neurons.size() - 1).size()];
         for (int a = 0; a < this.neurons.get(this.neurons.size() - 1).size(); a++){
             output[a] = this.neurons.get(this.neurons.size() - 1).get(a).output;
         }
         return output;
     }
 
-    private void LoadTask(float[] inputArray) {
+    private void loadTask(double[] inputArray) {
         for (int i = 0; i < inputArray.length; i++) {
             this.neurons.get(0).get(i).output = inputArray[i];
         }
     }
 
-    private void OutError(float[] output){
+    private void outError(double[] output){
         for (int i = 0; i < output.length; i++)
-            this.neurons.get(this.neurons.size() - 1).get(i).SetError(output[i] - this.neurons.get(this.neurons.size() - 1).get(i).output);
+            this.neurons.get(this.neurons.size() - 1).get(i).setError(output[i] - this.neurons.get(this.neurons.size() - 1).get(i).output);
     }
 
-    private void FindError(){
+    private void findError(){
         for(int i = this.neurons.size()-2; i > 0; i--){
             for(int a = 0; a < this.neurons.get(i).size(); a++){
-                float error = 0;
+                double error = 0;
                 for(int b = 0; b < this.neurons.get(i+1).size(); b++){
                     error+= this.neurons.get(i+1).get(b).weights.get(a) * this.neurons.get(i+1).get(b).error;
                 }
-                this.neurons.get(i).get(a).SetError(error); 
+                this.neurons.get(i).get(a).setError(error);
             }
         }
     }
 
-    private void BackWeights(float ratio) {
+    private void backWeights(float ratio) {
         for (int i = 1; i < this.neurons.size(); i++) {
             for(int a = 0; a < this.neurons.get(i).size(); a++){
                 for (int b = 0; b < this.neurons.get(i).get(a).weights.size(); b++) {
@@ -111,31 +103,31 @@ public class AI{
         }
     }
 
-    public void Learning(float[][][] example, float ratio) {
-        this.age = 0;
-        float sumError = 1;
+    public void learning(double[][][] example, float ratio) {
+        int age = 0;
+        double sumError = 1;
 
-        while (sumError >= this.fault && !this.doStop) {
+        while (sumError >= this.fault) {
             sumError = 0;
-            for (float[][] floats : example) {
-                float[] result = this.Start(floats[0]);
+            for (double[][] doubles : example) {
+                double[] result = this.start(doubles[0]);
                 for (int a = 0; a < result.length; a++)
-                    sumError += (float) (Math.pow((floats[1][a] - result[a]), 2));
+                    sumError += (float) (Math.pow((doubles[1][a] - result[a]), 2));
 
-                this.OutError(floats[1]);
-                this.FindError();
-                this.BackWeights(ratio);
+                this.outError(doubles[1]);
+                this.findError();
+                this.backWeights(ratio);
             }
-            this.age++;
-            //System.out.println(age + "-" + sumError);
+            age++;
+            System.out.println(age + "-" + sumError);
         }
     }
 
-    public int[] AICheaker(float[][][] example){
+    public int[] AIChecker(double[][][] example){
         int[] resultsInfo = {0, 0};
-        for(float[][] i : example){
+        for(double[][] i : example){
             resultsInfo[0]++;
-            float[] answer = this.Start(i[0]);
+            double[] answer = this.start(i[0]);
             for(int a = 0; a < answer.length; a++) {
                 answer[a] = Math.round(answer[a] * 10f) / 10f;
             }
@@ -149,12 +141,12 @@ public class AI{
         return resultsInfo;
     }
 
-    public float[][][] GetWeights() {
-        float[][][] weights = new float[neurons.size()-1][][];
+    public double[][][] getWeights() {
+        double[][][] weights = new double[neurons.size()-1][][];
         for(int i = 1; i < this.neurons.size(); i++){
-            weights[i-1] = new float[this.neurons.get(i).size()][];
+            weights[i-1] = new double[this.neurons.get(i).size()][];
             for(int a = 0; a < weights[i-1].length; a++) {
-                float[] neuronWeights = new float[this.neurons.get(i).get(a).weights.size() + 1];
+                double[] neuronWeights = new double[this.neurons.get(i).get(a).weights.size() + 1];
                 for (int b = 0; b < this.neurons.get(i).get(a).weights.size(); b++)
                     neuronWeights[b] = this.neurons.get(i).get(a).weights.get(b);
                 neuronWeights[this.neurons.get(i).get(a).weights.size()] = this.neurons.get(i).get(a).bias;
@@ -165,14 +157,27 @@ public class AI{
         return weights;
     }
 
-    public float[][] GetErrors() {
-        float[][] errors = new float[neurons.size()-1][];
-        for(int i = 1; i < this.neurons.size(); i++){
-            errors[i-1] = new float[this.neurons.get(i).size()];
-            for(int a = 0; a < errors[i-1].length; a++) {
-               errors[i-1][a] = this.neurons.get(i).get(a).error;
-            }
-        }
-        return errors;
+    public void setWeights(double[] weights) {
+        int index = 0;
+        for(int i = 1; i < this.neurons.size(); i++)
+            for(int a = 0; a < this.neurons.get(i).size(); a++)
+                for(int b = 0; b < this.neurons.get(i).get(a).weights.size() + 1; b++)
+                    this.neurons.get(i).get(a).setWeight(b, weights[index++]);
     }
+
+    public void saveAI(String fileName){
+        double[] weights = Arrays.stream(this.getWeights()).flatMap(Arrays::stream).flatMapToDouble(Arrays::stream).toArray();
+        double[] AIParameters = new double[this.neurons.size() + 2];  //first element - list size(need to handle data in file), last element - AIFunction id
+        AIParameters[0] = AIParameters.length - 1;
+        for(int i = 1; i < AIParameters.length - 1; i++)
+            AIParameters[i] = this.neurons.get(i - 1).size();
+        AIParameters[AIParameters.length - 1] = Arrays.asList(AIFunctions.values()).indexOf(this.taf);
+
+        double[] result = Arrays.copyOf(AIParameters, weights.length + AIParameters.length);
+        System.arraycopy(weights, 0, result, AIParameters.length, weights.length);
+
+        FileHandler.writeToFile(result, fileName);
+    }
+
+    public void saveAI(){ this.saveAI(this.toString() + ".bin");}
 }

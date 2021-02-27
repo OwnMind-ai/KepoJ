@@ -6,35 +6,39 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Neuron{
-    public float output = 0;
-    public float error = 0;
+    public double output = 0;
+    public double error = 0;
     private final AIFunctions activationFunc;
 
     public final static Random random = new Random();
 
-    public ArrayList<Float> weights;
-    public float bias;
+    public ArrayList<Double> weights;
+    public double bias;
 
     public Neuron(int weightsCount, AIFunctions activationFunc){
         this.activationFunc = activationFunc;
         this.weights = new ArrayList<>();
 
         for(int i = 0; i < weightsCount; i++){
-            this.weights.add(Neuron.random.nextFloat());
+            this.weights.add(Neuron.random.nextDouble());
         }
-        this.bias = Neuron.random.nextFloat();
+        this.bias = Neuron.random.nextDouble();
     }
 
-    public void DoNeuron(float[] inputData){
+    public void doNeuron(double[] inputData){
         this.output = 0;
         for(int i = 0; i < inputData.length; i++)
             this.output+= inputData[i] * this.weights.get(i);
         this.output+= this.bias;
-        this.output = this.activationFunc.ActivationRun(this.output);
-
+        this.output = this.activationFunc.activationRun(this.output);
     }
 
-    public void SetError(float error) {
-        this.error = error * this.activationFunc.DerivativeRun(this.output);
+    public void setWeight(int index, double value) {
+        if(index == this.weights.size()) this.bias = value;
+        else this.weights.set(index, value);
+    }
+
+    public void setError(double error) {
+        this.error = error * this.activationFunc.derivativeRun(this.output);
     }
 }
