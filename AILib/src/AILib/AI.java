@@ -1,7 +1,9 @@
 package AILib;
 
 import AILib.AILib.AIFunctions;
+import AILib.AILib.Dataset;
 import AILib.AILib.FileHandler;
+import AILib.AILib.Neuron;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,12 +12,17 @@ public class AI{
     private ArrayList<ArrayList<Neuron>> neurons;
     public float fault = 0.0005f;
     private AIFunctions taf;
+    public String id;
 
     public AI(int inputNeurons, AIFunctions functionsType){
+        this.id = this.toString();
         buildAI(inputNeurons, functionsType);
     }
 
     public AI(String fileName){
+        this.id = fileName.split("\\.")[0];
+        this.id = this.id.split("/")[this.id.split("/").length - 1];
+
         double[] AIParameters = FileHandler.readFile(fileName);
 
         assert(AIParameters != null);
@@ -103,8 +110,8 @@ public class AI{
         }
     }
 
-    public void learning(double[][][] example, float ratio) {
-        int age = 0;
+    public Double[] learning(double[][][] example, float ratio) {
+        ArrayList<Double> errorsLog = new ArrayList<>();
         double sumError = 1;
 
         while (sumError >= this.fault) {
@@ -118,10 +125,13 @@ public class AI{
                 this.findError();
                 this.backWeights(ratio);
             }
-            age++;
-            System.out.println(age + "-" + sumError);
+            errorsLog.add(sumError);
         }
+
+        return (Double[]) errorsLog.toArray();
     }
+
+    public void learning(Dataset dataset, float ratio){ this.learning(dataset.getDatasetArray(), ratio); }
 
     public int[] AIChecker(double[][][] example){
         int[] resultsInfo = {0, 0};
@@ -140,6 +150,8 @@ public class AI{
 
         return resultsInfo;
     }
+
+    public void AIChecker(Dataset dataset){ this.AIChecker(dataset.getDatasetArray()); }
 
     public double[][][] getWeights() {
         double[][][] weights = new double[neurons.size()-1][][];
@@ -180,4 +192,11 @@ public class AI{
     }
 
     public void saveAI(){ this.saveAI(this.toString() + ".bin");}
+    
+    public String getAIParameters(){
+        int[] output = new int[this.neurons.size()];
+        for (int i = 0; i < this.neurons.size(); i++)
+            output[i] = this.neurons.get(i).size();
+        return Arrays.toString(output);
+    }
 }
