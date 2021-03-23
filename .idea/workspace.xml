@@ -6,31 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/aws.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AIControlerCode.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AIControlerCode.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AILib.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/AIFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AILib/AIFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AILib/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/Neuron.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ebanina.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ebanina.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/AIFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/AIFunctions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/ActivationFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/ActivationFunction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/FileHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/Neuron.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wget-log" beforeDir="false" afterPath="$PROJECT_DIR$/wget-log" afterDir="false" />
-    </list>
+    <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -129,7 +105,37 @@
       <option name="presentableId" value="Default" />
       <updated>1610299199532</updated>
     </task>
+    <task id="LOCAL-00001" summary="AIHandler base code">
+      <created>1616514621077</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616514621077</updated>
+    </task>
+    <task id="LOCAL-00002" summary="AIHandler base code">
+      <created>1616514719674</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1616514719674</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="AIHandler base code" />
+    <option name="LAST_COMMIT_MESSAGE" value="AIHandler base code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

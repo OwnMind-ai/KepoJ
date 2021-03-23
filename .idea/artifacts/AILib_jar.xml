@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AILib:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AILib_jar</output-path>
+    <root id="archive" name="AILib.jar">
+      <element id="module-output" name="AILib" />
+    </root>
+  </artifact>
+</component>
