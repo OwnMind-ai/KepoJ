@@ -6,7 +6,31 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code" />
+    <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
+      <change afterPath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/BufferKeys.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AIHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AIHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/IUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/IUserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AILib/Dataset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AILib/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/ActionsMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/ActionsMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/HandlerAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/HandlerAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/IUserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/IUserInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/UserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/UserInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/AIFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/AIFunctions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/ActivationFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/ActivationFunction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/Dataset.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/Dataset.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/FileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/FileHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/Neuron.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/Neuron.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/App.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +44,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -50,7 +75,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -132,6 +157,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="AIHandler base code" />

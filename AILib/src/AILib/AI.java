@@ -119,7 +119,7 @@ public class AI{
             for (double[][] doubles : example) {
                 double[] result = this.start(doubles[0]);
                 for (int a = 0; a < result.length; a++)
-                    sumError += (float) (Math.pow((doubles[1][a] - result[a]), 2));
+                    sumError += Math.pow((doubles[1][a] - result[a]), 2);
 
                 this.outError(doubles[1]);
                 this.findError();
@@ -128,30 +128,35 @@ public class AI{
             errorsLog.add(sumError);
         }
 
-        return (Double[]) errorsLog.toArray();
+        return errorsLog.toArray(new Double[0]);
     }
 
     public void learning(Dataset dataset, float ratio){ this.learning(dataset.getDatasetArray(), ratio); }
 
-    public int[] AIChecker(double[][][] example){
+    public int[] AIChecker(double[][][] example, int roundRate){
         int[] resultsInfo = {0, 0};
-        for(double[][] i : example){
+        for(double[][] dataset : example){
             resultsInfo[0]++;
-            double[] answer = this.start(i[0]);
-            for(int a = 0; a < answer.length; a++) {
-                answer[a] = Math.round(answer[a] * 10f) / 10f;
-            }
-            if(Arrays.equals(answer,i[1]))
+            double[] result = this.start(dataset[0]);
+            float[] answer = new float[result.length];
+            float[] exampleOutput = new float[dataset[1].length];
+            for(int i = 0; i < dataset[1].length; i++)
+                exampleOutput[i] = (float) dataset[1][i];
+
+            for(int i = 0; i < answer.length; i++)
+                answer[i] = (float) ((float) Math.round(result[i] * Math.pow(10, roundRate)) / Math.pow(10, roundRate));
+
+            if(Arrays.equals(answer, exampleOutput))
                 resultsInfo[1]++;
 
-            System.out.print("Output: " + Arrays.toString(answer) + " Example: " + Arrays.toString(i[1]) + "\n");
+            System.out.print("Output: " + Arrays.toString(answer) + " Example: " + Arrays.toString(exampleOutput) + "\n");
         }
         System.out.print(Arrays.toString(resultsInfo) + "\n");
 
         return resultsInfo;
     }
 
-    public void AIChecker(Dataset dataset){ this.AIChecker(dataset.getDatasetArray()); }
+    public int[] AIChecker(Dataset dataset, int roundRate){ return this.AIChecker(dataset.getDatasetArray(), roundRate); }
 
     public double[][][] getWeights() {
         double[][][] weights = new double[neurons.size()-1][][];

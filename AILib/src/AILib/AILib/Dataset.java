@@ -12,7 +12,7 @@ public class Dataset{
     public Dataset(String fileName){
         double[] file = FileHandler.readFile(fileName);
 
-        assert file != null;
+        assert file != null : "";
         double[][][] result = new double[(int) file[0]][2][];
 
         int counter = 3;

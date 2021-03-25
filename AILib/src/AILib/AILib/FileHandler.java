@@ -9,7 +9,7 @@ public class FileHandler {
             for (double value : array)
                 dos.writeDouble(value);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(fileName + " (No such file or directory)");
         }
     }
 
@@ -21,7 +21,7 @@ public class FileHandler {
 
             return result;
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(fileName + " (No such file or directory)");
         }
         return null;
     }
