@@ -11,7 +11,7 @@ public class App {
         AI ai = null;
 
         try {
-            System.out.print("Open exist or build new AI?(o/b)\n-> ");
+            System.out.print("Open exist or build new AI?[o/b]\n-> ");
             String input = scanner.nextLine();
             if (input.toLowerCase(Locale.ROOT).equals("o")) {
                 System.out.print("\nType AI's filepath\n-> ");
@@ -19,17 +19,24 @@ public class App {
             } else if (input.toLowerCase(Locale.ROOT).equals("b")) {
                 System.out.print("Type first layer neurons count\n-> ");
                 int firstNeurons = Integer.parseInt(scanner.nextLine());
+
+                System.out.print("\nChoose AIFunction:\n");
+                for(int i = 0; i < AIFunctions.values().length; i++) {
+                    System.out.println("[" + i + "] " + AIFunctions.values()[i].toString());
+                }
+                System.out.println("->");
                 int AIFunctionsIndex = Integer.parseInt(scanner.nextLine());
+
                 ai = new AI(firstNeurons, AIFunctions.values()[AIFunctionsIndex]);
 
                 while (!input.equals("end")) {
                     try {
                         System.out.print(
                                 "\nActions:\n" +
-                                        "1. [addLayer NEURONS_COUNT]\n" +
-                                        "2. [saveAI FILEPATH]\n" +
-                                        "3. [end]\n" +
-                                        "-> ");
+                                "1. [addLayer NEURONS_COUNT]\n" +
+                                "2. [saveAI FILEPATH]\n" +
+                                "3. [end]\n" +
+                                "-> ");
                         input = scanner.nextLine();
                         if (input.split(" ")[0].equals("addLayer"))
                             ai.addLayer(Integer.parseInt(input.split(" ")[1]));

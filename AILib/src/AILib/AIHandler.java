@@ -15,6 +15,7 @@ public class AIHandler extends Thread{
     private final ActionsMap actions;
     private int autoSaveDelay = 0;
     private String autoSaveFilepath = null;
+    private boolean autoSaveInterrupted = false;
 
     public AIHandler(AI ai){
         this.actions = this.buildActions();
@@ -58,6 +59,9 @@ public class AIHandler extends Thread{
             }
             this.userInterface.printInterface(this.getParameters(),this.actions);
         }
+
+        this.autoSaveInterrupted = true;
+        this.ai.fault = Float.MAX_VALUE;
     }
 
     public HashMap<String, String> getParameters(){
@@ -100,11 +104,11 @@ public class AIHandler extends Thread{
     private void trainAI(String fileName, float ratio){
         Thread aiThread = new Thread(() -> {
             this.ai.learning(new Dataset(fileName), ratio);
-            this.userInterface.addToBuffer(BufferKeys.LEARNING_STATUS, "\nLearning complete. Use [diagnose] to check\n");
+            this.userInterface.addToBuffer(BufferKeys.LEARNING_STATUS, "\nLearning complete. Use [diagnostic] to check\n");
         });
         if(this.autoSaveDelay > 0 && this.autoSaveFilepath != null){
             Thread autoSaveThread = new Thread(() -> {
-                while (true){
+                while (!this.autoSaveInterrupted){
                     this.ai.saveAI(this.autoSaveFilepath);
                     try {
                         Thread.sleep(this.autoSaveDelay * 1000L);
