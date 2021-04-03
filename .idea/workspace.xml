@@ -8,17 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AIControlerCode.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AIHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AIHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/ActionsMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/ActionsMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/HandlerAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/HandlerAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/IUserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/IUserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/AIFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AILib/AIFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AILib/Dataset.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AILib/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AILib/Neuron.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -78,18 +78,18 @@ public class AI{
         return output;
     }
 
-    private void loadTask(double[] inputArray) {       //Loads input array to first layer neurons respectively
+    protected void loadTask(double[] inputArray) {       //Loads input array to first layer neurons respectively
         for (int i = 0; i < inputArray.length; i++) {
             this.neurons.get(0).get(i).output = inputArray[i];  //Importing data to array
         }
     }
 
-    private void outError(double[] output){           //Calculates error of output layer
+    protected void outError(double[] output){           //Calculates error of output layer
         for (int i = 0; i < output.length; i++)
             this.neurons.get(this.neurons.size() - 1).get(i).setError(output[i] - this.neurons.get(this.neurons.size() - 1).get(i).output);
     }
 
-    private void findError(){                         //Calculates error of all neurons(without output layer)
+    protected void findError(){                         //Calculates error of all neurons(without output layer)
         for(int i = this.neurons.size()-2; i > 0; i--){
             for(int a = 0; a < this.neurons.get(i).size(); a++){
                 double error = 0;
@@ -100,7 +100,7 @@ public class AI{
         }
     }
 
-    private void backWeights(float ratio) {    //Changing weights of neurons. Ratio - learning coefficient
+    protected void backWeights(float ratio) {    //Changing weights of neurons. Ratio - learning coefficient
         for (int i = 1; i < this.neurons.size(); i++) {
             for(int a = 0; a < this.neurons.get(i).size(); a++){
                 for (int b = 0; b < this.neurons.get(i).get(a).weights.size(); b++) {
