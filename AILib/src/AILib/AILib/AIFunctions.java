@@ -1,6 +1,7 @@
 package AILib.AILib;
 
 public enum AIFunctions{
+    //Functions list
     SIGMOID((x) -> (1f/(1f + Math.pow(Math.E, -x))),
             (x) -> x * (1 - x)),
     RELU   ((x) -> Math.max(0,x),
@@ -24,6 +25,6 @@ public enum AIFunctions{
     }
 }
 
-interface ActivationFunction{
+interface ActivationFunction{     //Lambda interface
     double run(double input);
 }

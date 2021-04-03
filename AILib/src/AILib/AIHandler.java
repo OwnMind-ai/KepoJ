@@ -10,9 +10,9 @@ import java.util.Date;
 import java.util.HashMap;
 
 public class AIHandler extends Thread{
-    private UserInterface userInterface;
+    private UserInterface userInterface;            //UI class, with which user will be interacts
     private final AI ai;
-    private final ActionsMap actions;
+    private final ActionsMap actions;               //User actions
     private int autoSaveDelay = 0;
     private String autoSaveFilepath = null;
     private boolean autoSaveInterrupted = false;
@@ -20,6 +20,8 @@ public class AIHandler extends Thread{
     public AIHandler(AI ai){
         this.actions = this.buildActions();
         this.ai = ai;
+
+        //Pre-created UI
         this.userInterface = new UserInterface() {
             public String getDocumentation(HashMap<String, String> param, ActionsMap actionsList) {
                 StringBuilder output = new StringBuilder();
@@ -47,6 +49,8 @@ public class AIHandler extends Thread{
     @Override
     public void run(){
         this.userInterface.printInterface(this.getParameters(),this.actions);
+
+        //For-cycle works, while [userInput] doesn't equals ["exit"]
         for(String[] userInput = this.userInterface.userInput("->");
             !userInput[0].equals("exit");
             userInput = this.userInterface.userInput("->")
@@ -60,11 +64,11 @@ public class AIHandler extends Thread{
             this.userInterface.printInterface(this.getParameters(),this.actions);
         }
 
-        this.autoSaveInterrupted = true;
-        this.ai.fault = Float.MAX_VALUE;
+        this.autoSaveInterrupted = true;        //Stopping autoSave thread
+        this.ai.fault = Float.MAX_VALUE;        //Stopping learning thread
     }
 
-    public HashMap<String, String> getParameters(){
+    public HashMap<String, String> getParameters(){                 //Sets parameters of AI for using in UI class
         HashMap<String, String> param = new HashMap<>();
         param.put("id", this.ai.id);
         param.put("structure", this.ai.getAIParameters());
@@ -72,7 +76,7 @@ public class AIHandler extends Thread{
         return param;
     }
 
-    public ActionsMap buildActions(){
+    public ActionsMap buildActions(){                               //Sets user actions for using in UI class
         ActionsMap map = new ActionsMap();
         map.put("runAI","Starts current AI by indicated dataset. [runAI FILEPATH]", (args) -> this.runAI(args[0]));
         map.put("trainAI", "Trains current AI by indicated dataset. [trainAI FILEPATH RATIO]",(args) -> this.trainAI(args[0], Float.parseFloat(args[1])));
@@ -88,8 +92,9 @@ public class AIHandler extends Thread{
         return map;
     }
 
+    //Runs the dataset through the AI and prints the result
     private void runAI(String fileName){
-        Dataset dataset = new Dataset(fileName);
+        Dataset dataset = new Dataset(fileName);           //Getting dataset
         StringBuilder text = new StringBuilder();
         for (int i = 0; i < dataset.getDatasetArray().length; i++) {
             text.append("\nInput: ")
@@ -101,17 +106,17 @@ public class AIHandler extends Thread{
         this.userInterface.printText(text.toString());
     }
 
-    private void trainAI(String fileName, float ratio){
-        Thread aiThread = new Thread(() -> {
+    private void trainAI(String fileName, float ratio){    //Trains AI in a separate thread(optionally, with auto save)
+        Thread aiThread = new Thread(() -> {               //AI learning thread
             this.ai.learning(new Dataset(fileName), ratio);
             this.userInterface.addToBuffer(BufferKeys.LEARNING_STATUS, "\nLearning complete. Use [diagnostic] to check\n");
         });
-        if(this.autoSaveDelay > 0 && this.autoSaveFilepath != null){
-            Thread autoSaveThread = new Thread(() -> {
+        if(this.autoSaveDelay > 0 && this.autoSaveFilepath != null){   //Checking for enabled auto save
+            Thread autoSaveThread = new Thread(() -> {     //Auto save thread
                 while (!this.autoSaveInterrupted){
                     this.ai.saveAI(this.autoSaveFilepath);
                     try {
-                        Thread.sleep(this.autoSaveDelay * 1000L);
+                        Thread.sleep(this.autoSaveDelay * 1000L);    //Waiting for next save iteration
                     } catch (InterruptedException ignored){}
                 }
             });
@@ -124,13 +129,13 @@ public class AIHandler extends Thread{
         this.ai.AIChecker(new Dataset(fileName), roundRate);
     }
 
-    private void saveAI(String fileName){
+    private void saveAI(String fileName){       //Saving AI to filepath
         try{
             this.ai.saveAI(fileName);
             this.userInterface.printText("Save done! Directory: " + fileName);
         }
         catch(Exception e){
-            this.userInterface.printText("Error, saving cannot be performed in the specified directory.");
+            this.userInterface.printText("Error, saving cannot be performed in the following directory.");
         }
     }
 }

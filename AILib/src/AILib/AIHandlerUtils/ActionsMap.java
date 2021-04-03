@@ -3,7 +3,9 @@ package AILib.AIHandlerUtils;
 import java.util.ArrayList;
 
 public class ActionsMap{
+    //Keys list, elements bind to [descriptions] and [actions] elements respectively
     private final ArrayList<String> keys;
+    //Descriptions about action functional and how-to-use for user
     private final ArrayList<String> descriptions;
     private final ArrayList<HandlerAction> actions;
 
