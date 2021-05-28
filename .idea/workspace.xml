@@ -9,6 +9,17 @@
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/AILib_jar/AILib.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/AILib_jar/AILib.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/ActionsMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/ActionsMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/IUserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/IUserInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/UserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/UserInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/AIFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/AIFunctions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/Dataset.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/Dataset.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/FileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/FileHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/Neuron.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/Neuron.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +41,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
-      </MavenGeneralSettings>
-    </option>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />

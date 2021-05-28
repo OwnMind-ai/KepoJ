@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AI{
-    private ArrayList<ArrayList<Neuron>> neurons;     //Dynamic array of Neurons classes
+    protected ArrayList<ArrayList<Neuron>> neurons;     //Dynamic array of Neurons classes
     public float fault = 0.0005f;       //Minimal error of neural network
-    private AIFunctions aiFunctions;    //Contains activation and derivative functions from AIFunctions enum
+    protected AIFunctions aiFunctions;  //Contains activation and derivative functions from AIFunctions enum
     public String id;                   //Id of AI class. Used in AIHandler object
 
     public AI(int inputNeurons, AIFunctions functionsType){    //Initialization by pre-creating first layer
