@@ -6,27 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AIHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/ActionsMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/BufferKeys.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/HandlerAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/IUserInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AIHandlerUtils/UserInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandler$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/ActionsMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/BufferKeys.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/HandlerAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/IUserInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AIHandlerUtils/UserInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wget-log" beforeDir="false" />
-    </list>
+    <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
