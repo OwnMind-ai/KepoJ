@@ -11,17 +11,12 @@ public class AI{
     protected ArrayList<ArrayList<Neuron>> neurons;     //Dynamic array of Neurons classes
     public float fault = 0.0005f;       //Minimal error of neural network
     protected AIFunctions aiFunctions;  //Contains activation and derivative functions from AIFunctions enum
-    public String id;                   //Id of AI class. Used in AIHandler object
 
-    public AI(int inputNeurons, AIFunctions functionsType){    //Initialization by pre-creating first layer
-        this.id = this.toString();                             //Dynamic ID
+    public AI(int inputNeurons, AIFunctions functionsType){    //Initialization by pre-creating first layer         //Dynamic ID
         buildAI(inputNeurons, functionsType);
     }
 
     public AI(String fileName){                          //Initialization by import of existing AI
-        this.id = fileName.split("\\.")[0];
-        this.id = this.id.split("/")[this.id.split("/").length - 1];  // Specific ID(fileName)
-
         double[] AIParameters = FileHandler.readFile(fileName);       //AI's file data
 
         assert(AIParameters != null);
@@ -117,7 +112,7 @@ public class AI{
         }
     }
 
-    public Double[] learning(double[][][] example, float ratio){  //Trains AI by following dataset arrat and learning ratio
+    public Double[] learning(double[][][] example, float ratio){  //Trains AI by following dataset array and learning ratio
         ArrayList<Double> errorsLog = new ArrayList<>();
         double sumError = Double.MAX_VALUE;     //(setting to maximum value for first while iteration)
 
@@ -140,7 +135,7 @@ public class AI{
     }
 
     //Learning by following Dataset class
-    public void learning(Dataset dataset, float ratio){ this.learning(dataset.getDatasetArray(), ratio); }
+    public Double[] learning(Dataset dataset, float ratio){ return this.learning(dataset.getDatasetArray(), ratio); }
 
     public int[] AIChecker(double[][][] example, int roundRate){   //Compare dataset array and AI output
         int[] resultsInfo = {0, 0};             //resultInfo[0] - dataset length, resultInfo[1] - AI and dataset matches
@@ -216,12 +211,4 @@ public class AI{
 
     //Saving AI without arguments to unique filepath
     public void saveAI(){ this.saveAI(this.toString() + ".bin");}
-
-    //Returns text representation of AI's structure
-    public String getAIParameters(){
-        int[] output = new int[this.neurons.size()];
-        for (int i = 0; i < this.neurons.size(); i++)
-            output[i] = this.neurons.get(i).size();
-        return Arrays.toString(output);
-    }
 }
