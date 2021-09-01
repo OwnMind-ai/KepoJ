@@ -1,7 +1,6 @@
-package AILib.AILib;
+package AILib.utills;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 public class Neuron{
     public double output = 0;    //Output value of neuron. Changing after [this::doNeuron] method
@@ -23,11 +22,20 @@ public class Neuron{
         this.bias = Neuron.random.nextDouble();
     }
 
+    public Neuron(double[] weights, AIFunctions activationFunc){
+        this.neuronFunctions = activationFunc;
+        this.weights = new ArrayList<>();
+
+        for(double weight : weights) {
+            this.weights.add(weight);
+        }
+    }
+
     //Simulates the direct passage of a dataset through a neuron and sets result to [this.output]
     public void doNeuron(double[] inputData){
         this.output = 0;
         for(int i = 0; i < inputData.length; i++)
-            this.output+= inputData[i] * this.weights.get(i);
+            this.output+= inputData[i] * (this.weights.get(i) == null ? 0 : this.weights.get(i));
         this.output+= this.bias;
         this.output = this.neuronFunctions.activationRun(this.output);
     }

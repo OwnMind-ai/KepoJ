@@ -1,4 +1,4 @@
-package AILib.AILib;
+package AILib.utills;
 
 import java.util.Arrays;
 

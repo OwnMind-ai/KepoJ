@@ -6,7 +6,23 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code" />
+    <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/AIFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/utills/AIFunctions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/utills/Dataset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/utills/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/utills/Neuron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/AILib_jar/AILib.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/AIFunctions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/ActivationFunction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/Dataset.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/FileHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/Neuron.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/App.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -50,7 +66,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/AILib/src" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -73,6 +91,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="AILib" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="App" />
       <method v="2">
@@ -84,7 +109,7 @@
       <module name="AILib" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AILib.AILib.*" />
+          <option name="PATTERN" value="AILib.utills.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -95,9 +120,11 @@
     <list>
       <item itemvalue="Application.App" />
       <item itemvalue="Application.main" />
+      <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
@@ -110,6 +137,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1610299199532</updated>
+      <workItem from="1624662652483" duration="173000" />
+      <workItem from="1625219361223" duration="142000" />
+      <workItem from="1625645043444" duration="19189000" />
+      <workItem from="1625679993257" duration="7332000" />
+      <workItem from="1625729884709" duration="1911000" />
+      <workItem from="1625748058244" duration="3459000" />
+      <workItem from="1625842366347" duration="1222000" />
+      <workItem from="1625844558850" duration="11653000" />
+      <workItem from="1625865895231" duration="5715000" />
+      <workItem from="1625993262568" duration="438000" />
+      <workItem from="1629126053368" duration="593000" />
     </task>
     <task id="LOCAL-00001" summary="AIHandler base code">
       <created>1616514621077</created>
@@ -127,6 +165,9 @@
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

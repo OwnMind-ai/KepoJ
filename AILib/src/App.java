@@ -1,16 +1,18 @@
 import AILib.AI;
-import AILib.AILib.AIFunctions;
-import AILib.AILib.Dataset;
+import AILib.utills.AIFunctions;
+import AILib.utills.Dataset;
+import AILib.utills.StaticLayer;
+
+import javax.xml.crypto.Data;
 
 public class App {
     public static void main(String[] args) {
-        Dataset data =new Dataset("/home/ownmind/GitRepositories/AILib/dat.bin");
-        AI ai = new AI(9, AIFunctions.SIGMOID);
-        ai.addLayer(4);
-        ai.addLayer(3);
-        ai.addLayer(2);
+        AI ai = new AI(9);
+        ai.addAll(new StaticLayer(4, AIFunctions.SIGMOID),
+            new StaticLayer(3, AIFunctions.SIGMOID),
+            new StaticLayer(2, AIFunctions.SIGMOID));
 
-        ai.learning(data, 1f);
-        ai.AIChecker(data, 1);
+        ai.learning(new Dataset("dat.bin").getDatasetArray(), 1);
+        ai.AIChecker(new Dataset("dat.bin").getDatasetArray(), 1);
     }
 }

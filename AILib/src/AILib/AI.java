@@ -1,120 +1,84 @@
 package AILib;
 
-import AILib.AILib.AIFunctions;
-import AILib.AILib.Dataset;
-import AILib.AILib.FileHandler;
-import AILib.AILib.Neuron;
+import AILib.utills.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AI{
-    protected ArrayList<ArrayList<Neuron>> neurons;     //Dynamic array of Neurons classes
-    public float fault = 0.0005f;       //Minimal error of neural network
-    protected AIFunctions aiFunctions;  //Contains activation and derivative functions from AIFunctions enum
+    public ArrayList<Layer> layers;     //Dynamic array of Neurons classes
+    public float fault = 0.0005f;          //Minimal error of neural network1
 
-    public AI(int inputNeurons, AIFunctions functionsType){    //Initialization by pre-creating first layer         //Dynamic ID
-        buildAI(inputNeurons, functionsType);
+    public AI(int inputNeurons){    //Initialization by pre-creating first layer         //Dynamic ID
+        buildAI(inputNeurons);
     }
 
     public AI(String fileName){                          //Initialization by import of existing AI
         double[] AIParameters = FileHandler.readFile(fileName);       //AI's file data
 
         assert(AIParameters != null);
-        this.buildAI((int) AIParameters[1],AIFunctions.values()[(int) AIParameters[(int) AIParameters[0]]]);
-        for(int i = 2; i < (int) AIParameters[0]; i++)
-            this.addLayer((int) AIParameters[i]);        //Initialization layers
+        this.buildAI((int) AIParameters[1]);
+        for(int i = 2; i < (int) AIParameters[0]; i+= 2) {
+            //Initialization layers
+            Layer layer = AIParameters[i] >= 0 ?
+                    new StaticLayer((int) Math.abs(AIParameters[i]), AIFunctions.values()[(int) AIParameters[i + 1]]) :
+                    null;  //Dynamic layers will added soon
+            this.addLayer(layer);
+        }
 
         double[] weights = new double[(int) (AIParameters.length - AIParameters[0] - 1)];
         System.arraycopy(AIParameters, (int) AIParameters[0] + 1, weights, 0, weights.length);
         this.setWeights(weights);     //Setting weights from file data
     }
 
-    private void buildAI(int inputNeurons, AIFunctions functionsType){    //Building AI structure
-        this.neurons = new ArrayList<>();
-        this.neurons.add(new ArrayList<>());
-        for (int a = 0; a < inputNeurons; a++) {
-            this.neurons.get(0).add(new Neuron(1,functionsType));   //Adding Neurons classes to array
-        }
-        this.aiFunctions = functionsType;
+    private void buildAI(int neuronsCount){    //Building AI structure
+        this.layers = new ArrayList<>();
+        this.layers.add(new StaticLayer(neuronsCount, neuronsCount, AIFunctions.IDENTICAL));
     }
 
     public void setFault(float fault) {
         this.fault = fault;
     }
 
-    public void addLayer(int neuronsCount) {         //Adds layer to [this.neurons] array and adds neurons to it
-        this.neurons.add(new ArrayList<>());         //Adding layer array
-        int index = this.neurons.size() - 1;
-        for (int i = 0; i < neuronsCount; i++) {
-            //Adding initialized Neuron class to layer
-            this.neurons.get(index).add(new Neuron(this.neurons.get(index - 1).size(), this.aiFunctions));
-        }
+    public void addLayer(Layer layer) {              //Adds layer to [this.layers] array and adds neurons to it
+        this.layers.add(layer);                     //Adding layer
+        this.layers.get(this.layers.size() - 1).buildLayer(
+                this.layers.get(this.layers.size() - 2).getWeights().length
+        );
+    }
+
+    public void addAll(Layer... layers){
+        for(Layer layer : layers)
+            this.addLayer(layer);
     }
 
     public double[] start(double[] inputData){      //Runs the input array through neural network and returns output
-        this.loadTask(inputData);
+        this.layers.get(0).setOutputs(inputData);
 
-        for (int i = 1; i < this.neurons.size(); i++) {
-            //Getting output data from previous layer to [layerOutput]
-            double[] layerOutput = new double[this.neurons.get(i-1).size()];
-            for (int a = 0; a < this.neurons.get(i-1).size(); a++)
-                layerOutput[a] = this.neurons.get(i-1).get(a).output;
+        for(int i = 1; i < this.layers.size(); i++)
+            this.layers.get(i).doLayer(this.layers.get(i - 1).getOutputs());
 
-            //Importing previous layer data to every neuron of next layer respectively
-            for (int a = 0; a < this.neurons.get(i).size(); a++)
-                this.neurons.get(i).get(a).doNeuron(layerOutput);
-        }
-
-        //Getting data from output(last) layer of AI to [output]
-        double[] output = new double[this.neurons.get(this.neurons.size() - 1).size()];
-        for (int a = 0; a < this.neurons.get(this.neurons.size() - 1).size(); a++){
-            output[a] = this.neurons.get(this.neurons.size() - 1).get(a).output;
-        }
-        return output;
+        return this.layers.get(this.layers.size() - 1).getOutputs();
     }
 
-    protected void loadTask(double[] inputArray) {       //Loads input array to first layer neurons respectively
-        for (int i = 0; i < inputArray.length; i++) {
-            this.neurons.get(0).get(i).output = inputArray[i];  //Importing data to array
+    private void findError(){               //Calculates error of all neurons(without output layer)
+        for(int i = this.layers.size() - 2; i > 0; i--){
+            this.layers.get(i).findErrors(
+                    this.layers.get(i + 1).getErrors(),
+                    this.layers.get(i + 1).getWeights()
+            );
         }
     }
 
-    protected void outError(double[] output){           //Calculates error of output layer
-        for (int i = 0; i < output.length; i++)
-            this.neurons.get(this.neurons.size() - 1).get(i).setError(output[i] - this.neurons.get(this.neurons.size() - 1).get(i).output);
+    private void backWeights(float ratio) {    //Changing weights of neurons. Ratio - learning coefficient
+        for(int i = 1; i < this.layers.size(); i++)
+           this.layers.get(i).trainLayer(this.layers.get(i - 1).getOutputs(), ratio);
     }
 
-    protected void findError(){                         //Calculates error of all neurons(without output layer)
-        for(int i = this.neurons.size()-2; i > 0; i--){
-            for(int a = 0; a < this.neurons.get(i).size(); a++){
-                double error = 0;
-                for(int b = 0; b < this.neurons.get(i+1).size(); b++)
-                    error+= this.neurons.get(i+1).get(b).weights.get(a) * this.neurons.get(i+1).get(b).error;
-                this.neurons.get(i).get(a).setError(error);
-            }
-        }
-    }
-
-    protected void backWeights(float ratio) {    //Changing weights of neurons. Ratio - learning coefficient
-        for (int i = 1; i < this.neurons.size(); i++) {
-            for(int a = 0; a < this.neurons.get(i).size(); a++){
-                for (int b = 0; b < this.neurons.get(i).get(a).weights.size(); b++) {
-                    //Adding correcting value to weight
-                    this.neurons.get(i).get(a).weights.set(b,
-                            this.neurons.get(i).get(a).weights.get(b) +
-                            this.neurons.get(i-1).get(b).output *
-                            this.neurons.get(i).get(a).error *
-                            ratio);
-                }
-                //Adding correcting value to bias
-                this.neurons.get(i).get(a).bias+= ratio * this.neurons.get(i).get(a).error;
-            }
-        }
-    }
-
-    public Double[] learning(double[][][] example, float ratio){  //Trains AI by following dataset array and learning ratio
+    public double[] learning(double[][][] example, float ratio){  //Trains AI by following dataset array and learning ratio
         ArrayList<Double> errorsLog = new ArrayList<>();
         double sumError = Double.MAX_VALUE;     //(setting to maximum value for first while iteration)
+        int age = 0;
 
         while (sumError >= this.fault) {    //Training continues until the error is less than the minimum([this.fault])
             sumError = 0;
@@ -124,18 +88,21 @@ public class AI{
                 for (int a = 0; a < result.length; a++)
                     sumError += Math.pow((data[1][a] - result[a]), 2);
 
-                this.outError(data[1]);        //Calculates error of output layer
+                this.layers.get(this.layers.size() - 1).datasetOffsetError(data[1]);  //Calculates error of output layer
                 this.findError();              //Calculates error of all neurons(without output layer)
                 this.backWeights(ratio);       //Changing weights of neurons
             }
             errorsLog.add(sumError);
+            if(age % 100 == 0) this.saveAI("AI2.ai");
+            System.out.println(age + " - " + sumError);
+            age++;
         }
 
-        return errorsLog.toArray(new Double[errorsLog.size()]);
+        return errorsLog.stream().mapToDouble(Double::doubleValue).toArray();
     }
 
     //Learning by following Dataset class
-    public Double[] learning(Dataset dataset, float ratio){ return this.learning(dataset.getDatasetArray(), ratio); }
+    public double[] learning(Dataset dataset, float ratio){ return this.learning(dataset.getDatasetArray(), ratio); }
 
     public int[] AIChecker(double[][][] example, int roundRate){   //Compare dataset array and AI output
         int[] resultsInfo = {0, 0};             //resultInfo[0] - dataset length, resultInfo[1] - AI and dataset matches
@@ -169,39 +136,40 @@ public class AI{
     public int[] AIChecker(Dataset dataset, int roundRate){ return this.AIChecker(dataset.getDatasetArray(), roundRate); }
 
     public double[][][] getWeights() {   //Returns a 3D array of the weights(and bias) of all neurons
-        double[][][] weights = new double[neurons.size()-1][][];
-        for(int i = 1; i < this.neurons.size(); i++){
-            weights[i-1] = new double[this.neurons.get(i).size()][];
-            for(int a = 0; a < weights[i-1].length; a++) {
-                double[] neuronWeights = new double[this.neurons.get(i).get(a).weights.size() + 1];
-                for (int b = 0; b < this.neurons.get(i).get(a).weights.size(); b++)
-                    neuronWeights[b] = this.neurons.get(i).get(a).weights.get(b);
-                neuronWeights[this.neurons.get(i).get(a).weights.size()] = this.neurons.get(i).get(a).bias;
-
-                weights[i-1][a] = neuronWeights;
+        double[][][] weights = new double[this.layers.size() - 1][][];
+        for(int i = 1; i < this.layers.size(); i++) {
+            weights[i - 1] = this.layers.get(i).getWeights();
+            for(int j = 0; j < this.layers.get(i).getBias().length; j++) {
+                weights[i - 1][j] = Arrays.copyOf(weights[i - 1][j], weights[i - 1][j].length + 1);
+                weights[i - 1][j][weights[i - 1][j].length - 1] = this.layers.get(i).getBias()[j];
             }
         }
+
         return weights;
     }
 
     public void setWeights(double[] weights) {  //Setting weights of neuron's by 1D doubles array
         int index = 0;
-        for(int i = 1; i < this.neurons.size(); i++)
-            for(int a = 0; a < this.neurons.get(i).size(); a++)
-                for(int b = 0; b < this.neurons.get(i).get(a).weights.size() + 1; b++)
-                    this.neurons.get(i).get(a).setWeight(b, weights[index++]);
+        for(int i = 1; i < this.layers.size(); i++)
+            for(int a = 0; a < this.layers.get(i).getWeights().length; a++)
+                for(int b = 0; b < this.layers.get(i).getNeuron(a).weights.size() + 1; b++)
+                    this.layers.get(i).getNeuron(a).setWeight(b, weights[index++]);
     }
 
     public void saveAI(String fileName){    //Writes AI(structure, AI functions index, weights) to following filepath
         //Cast three-dimensional [this.dataset] array to one-dimensional array
-        double[] weights = Arrays.stream(this.getWeights()).flatMap(Arrays::stream).flatMapToDouble(Arrays::stream).toArray();
+        double[] weights = Arrays.stream(this.getWeights())
+                .flatMap(Arrays::stream).flatMapToDouble(Arrays::stream).toArray();
         //First element - list size(need to handle data in file), last element - AIFunction id
-        double[] AIParameters = new double[this.neurons.size() + 2];
-        AIParameters[0] = AIParameters.length - 1;
-        for(int i = 1; i < AIParameters.length - 1; i++)
-            AIParameters[i] = this.neurons.get(i - 1).size();
-        AIParameters[AIParameters.length - 1] = Arrays.asList(AIFunctions.values()).indexOf(this.aiFunctions);
-
+        ArrayList<Double> AIParametersList = new ArrayList<>();
+        AIParametersList.add((double) (this.layers.size() * 2 - 1));
+        AIParametersList.add((double) this.layers.get(0).getWeights().length);
+        for(int i = 1; i < this.layers.size(); i++) {
+            AIParametersList.add((double) this.layers.get(i).getWeights().length);
+            AIParametersList.add((double) Arrays.asList(AIFunctions.values())
+                    .indexOf(this.layers.get(i).getAIFunction()));
+        }
+        double[] AIParameters = AIParametersList.stream().mapToDouble(Double::doubleValue).toArray();
         //Merging [AIParameters] and AI's weights arrays
         double[] result = Arrays.copyOf(AIParameters, weights.length + AIParameters.length);
         System.arraycopy(weights, 0, result, AIParameters.length, weights.length);
