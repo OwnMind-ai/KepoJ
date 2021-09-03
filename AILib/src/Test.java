@@ -1,8 +1,6 @@
 import AILib.utills.AIFunctions;
-import AILib.utills.ConvolutionalLayer;
+import AILib.layers.ConvolutionalLayer;
 import AILib.utills.Neuron;
-
-import java.util.Arrays;
 
 public class Test {
     public static void main(String[] args){

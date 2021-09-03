@@ -1,9 +1,12 @@
-package AILib.utills;
+package AILib.layers;
+
+import AILib.utills.AIFunctions;
+import AILib.utills.Neuron;
 
 import java.util.Collections;
 import java.util.Random;
 
-public class ConvolutionalLayer implements Layer{
+public class ConvolutionalLayer implements Layer {
     private final AIFunctions aiFunctions;  //Contains activation and derivative functions from AIFunctions enum
     private final Neuron[] neurons;    //Array of neurons
 
@@ -62,12 +65,12 @@ public class ConvolutionalLayer implements Layer{
     }
 
     @Override
-    public void doLayer(double[] data) {
+    public double[] doLayer(double[] data) {
         for(Neuron neuron : this.neurons) {
             neuron.doNeuron(data);
         }
 
-        this.getOutputs();
+        return this.getOutputs();
     }
 
     @Override
@@ -150,5 +153,10 @@ public class ConvolutionalLayer implements Layer{
     @Override
     public AIFunctions getAIFunction() {
         return this.aiFunctions;
+    }
+
+    @Override
+    public int getNeuronsLength() {
+        return this.neurons.length;
     }
 }

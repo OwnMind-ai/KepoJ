@@ -1,9 +1,7 @@
 import AILib.AI;
 import AILib.utills.AIFunctions;
 import AILib.utills.Dataset;
-import AILib.utills.StaticLayer;
-
-import javax.xml.crypto.Data;
+import AILib.layers.StaticLayer;
 
 public class App {
     public static void main(String[] args) {

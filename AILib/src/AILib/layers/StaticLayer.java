@@ -1,6 +1,9 @@
-package AILib.utills;
+package AILib.layers;
 
-public class StaticLayer implements Layer{
+import AILib.utills.AIFunctions;
+import AILib.utills.Neuron;
+
+public class StaticLayer implements Layer {
     private final AIFunctions aiFunctions;  //Contains activation and derivative functions from AIFunctions enum
     private final Neuron[] neurons;    //Array of neurons
     
@@ -21,12 +24,12 @@ public class StaticLayer implements Layer{
     }
 
     @Override
-    public void doLayer(double[] data) {
+    public double[] doLayer(double[] data) {
         for(Neuron neuron : this.neurons) {
             neuron.doNeuron(data);
         }
 
-        this.getOutputs();
+        return this.getOutputs();
     }
 
     @Override
@@ -63,6 +66,11 @@ public class StaticLayer implements Layer{
             result[i] = this.neurons[i].bias;
 
         return result;
+    }
+
+    @Override
+    public int getNeuronsLength() {
+        return this.neurons.length;
     }
 
     @Override

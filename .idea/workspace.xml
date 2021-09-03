@@ -8,20 +8,19 @@
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AI2.ai" beforeDir="false" afterPath="$PROJECT_DIR$/AI2.ai" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/AIFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/utills/AIFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/utills/Dataset.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/utills/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/AILib/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/utills/Neuron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/utills/ConvolutionalLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/layers/ConvolutionalLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/utills/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/layers/Layer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/utills/StaticLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/layers/StaticLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AILib/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/AILib_jar/AILib.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/AILib/AI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/AIFunctions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/ActivationFunction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/Dataset.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/FileHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/AILib/Neuron.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/utills/ConvolutionalLayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/utills/Layer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/utills/StaticLayer.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AILib/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AILib/Test.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +108,7 @@
       <module name="AILib" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AILib.utills.*" />
+          <option name="PATTERN" value="AILib.layers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

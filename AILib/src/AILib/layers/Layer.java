@@ -1,9 +1,12 @@
-package AILib.utills;
+package AILib.layers;
+
+import AILib.utills.AIFunctions;
+import AILib.utills.Neuron;
 
 public interface Layer {
     void buildLayer(int weightsCount);
 
-    void doLayer(double[] data);
+    double[] doLayer(double[] data);
     void trainLayer(double[] outputs, float ratio);
     void setOutputs(double[] outputs);
     void findErrors(double[] errors, double[][] weights);
@@ -14,5 +17,6 @@ public interface Layer {
     double[] getErrors();
     double[] getOutputs();
     double[] getBias();
+    int getNeuronsLength();
     AIFunctions getAIFunction();
 }

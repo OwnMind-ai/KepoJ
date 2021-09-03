@@ -1,5 +1,8 @@
 package AILib;
 
+import AILib.layers.InputLayer;
+import AILib.layers.Layer;
+import AILib.layers.StaticLayer;
 import AILib.utills.*;
 
 import java.util.ArrayList;
@@ -33,7 +36,7 @@ public class AI{
 
     private void buildAI(int neuronsCount){    //Building AI structure
         this.layers = new ArrayList<>();
-        this.layers.add(new StaticLayer(neuronsCount, neuronsCount, AIFunctions.IDENTICAL));
+        this.layers.add(new InputLayer(neuronsCount));
     }
 
     public void setFault(float fault) {
@@ -43,7 +46,7 @@ public class AI{
     public void addLayer(Layer layer) {              //Adds layer to [this.layers] array and adds neurons to it
         this.layers.add(layer);                     //Adding layer
         this.layers.get(this.layers.size() - 1).buildLayer(
-                this.layers.get(this.layers.size() - 2).getWeights().length
+                this.layers.get(this.layers.size() - 2).getNeuronsLength()
         );
     }
 
