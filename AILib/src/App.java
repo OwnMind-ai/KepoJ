@@ -1,11 +1,12 @@
-import AILib.AI;
+import AILib.agents.AI;
+import AILib.agents.SupervisedAgent;
 import AILib.utills.AIFunctions;
 import AILib.utills.Dataset;
 import AILib.layers.StaticLayer;
 
 public class App {
     public static void main(String[] args) {
-        AI ai = new AI(9);
+        SupervisedAgent ai = new SupervisedAgent(9);
         ai.addAll(new StaticLayer(4, AIFunctions.SIGMOID),
             new StaticLayer(3, AIFunctions.SIGMOID),
             new StaticLayer(2, AIFunctions.SIGMOID));

@@ -36,7 +36,7 @@ public class InputLayer implements Layer{
     }
 
     @Override
-    public void datasetOffsetError(double[] dataset) {
+    public void setError(double[] dataset) {
 
     }
 

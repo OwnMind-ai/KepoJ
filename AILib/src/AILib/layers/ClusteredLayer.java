@@ -51,7 +51,7 @@ public class ClusteredLayer implements Layer{
     }
 
     @Override
-    public void datasetOffsetError(double[] dataset) {
+    public void setError(double[] dataset) {
 
     }
 

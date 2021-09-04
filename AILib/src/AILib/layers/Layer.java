@@ -10,7 +10,7 @@ public interface Layer {
     void trainLayer(double[] outputs, float ratio);
     void setOutputs(double[] outputs);
     void findErrors(double[] errors, double[][] weights);
-    void datasetOffsetError(double[] dataset);
+    void setError(double[] errors);
     Neuron getNeuron(int index);
 
     double[][] getWeights();

@@ -104,9 +104,9 @@ public class ConvolutionalLayer implements Layer {
     }
 
     @Override
-    public void datasetOffsetError(double[] dataset) {
+    public void setError(double[] errors) {
         for(int i = 0; i < this.neurons.length; i++)
-            this.neurons[i].setError(dataset[i] - this.neurons[i].output);
+            this.neurons[i].setError(errors[i]);
     }
 
     @Override

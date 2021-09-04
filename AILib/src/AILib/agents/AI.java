@@ -1,4 +1,4 @@
-package AILib;
+package AILib.agents;
 
 import AILib.layers.InputLayer;
 import AILib.layers.Layer;
@@ -8,8 +8,8 @@ import AILib.utills.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class AI{
-    public ArrayList<Layer> layers;     //Dynamic array of Neurons classes
+public class AI implements Agent{
+    protected ArrayList<Layer> layers;     //Dynamic array of Neurons classes
     public float fault = 0.0005f;          //Minimal error of neural network1
 
     public AI(int inputNeurons){    //Initialization by pre-creating first layer         //Dynamic ID
@@ -63,49 +63,6 @@ public class AI{
 
         return this.layers.get(this.layers.size() - 1).getOutputs();
     }
-
-    private void findError(){               //Calculates error of all neurons(without output layer)
-        for(int i = this.layers.size() - 2; i > 0; i--){
-            this.layers.get(i).findErrors(
-                    this.layers.get(i + 1).getErrors(),
-                    this.layers.get(i + 1).getWeights()
-            );
-        }
-    }
-
-    private void backWeights(float ratio) {    //Changing weights of neurons. Ratio - learning coefficient
-        for(int i = 1; i < this.layers.size(); i++)
-           this.layers.get(i).trainLayer(this.layers.get(i - 1).getOutputs(), ratio);
-    }
-
-    public double[] learning(double[][][] example, float ratio){  //Trains AI by following dataset array and learning ratio
-        ArrayList<Double> errorsLog = new ArrayList<>();
-        double sumError = Double.MAX_VALUE;     //(setting to maximum value for first while iteration)
-        int age = 0;
-
-        while (sumError >= this.fault) {    //Training continues until the error is less than the minimum([this.fault])
-            sumError = 0;
-            for (double[][] data : example) {
-                //Calculating current error by example
-                double[] result = this.start(data[0]);
-                for (int a = 0; a < result.length; a++)
-                    sumError += Math.pow((data[1][a] - result[a]), 2);
-
-                this.layers.get(this.layers.size() - 1).datasetOffsetError(data[1]);  //Calculates error of output layer
-                this.findError();              //Calculates error of all neurons(without output layer)
-                this.backWeights(ratio);       //Changing weights of neurons
-            }
-            errorsLog.add(sumError);
-            if(age % 100 == 0) this.saveAI("AI2.ai");
-            System.out.println(age + " - " + sumError);
-            age++;
-        }
-
-        return errorsLog.stream().mapToDouble(Double::doubleValue).toArray();
-    }
-
-    //Learning by following Dataset class
-    public double[] learning(Dataset dataset, float ratio){ return this.learning(dataset.getDatasetArray(), ratio); }
 
     public int[] AIChecker(double[][][] example, int roundRate){   //Compare dataset array and AI output
         int[] resultsInfo = {0, 0};             //resultInfo[0] - dataset length, resultInfo[1] - AI and dataset matches
