@@ -11,6 +11,14 @@ public class QAgent extends AI{
         super(fileName);
     }
 
+    public void learningIteration(double reward, double[] nextState, double discountFactor, float ratio){
+        double[] nextQValues = this.start(nextState);
+        this.setError(reward, nextQValues, discountFactor);
+
+        this.findError();
+        this.backWeights(ratio);
+    }
+
     private void setError(double reward, double[] nextQValues, double discountFactor){
         double[] errors = new double[this.layers.get(this.layers.size() - 1).getNeuronsLength()];
         Arrays.fill(errors, 0);
@@ -22,5 +30,19 @@ public class QAgent extends AI{
                 reward + maxQ * discountFactor - this.layers.get(this.layers.size() - 1).getOutputs()[maxQIndex];
 
         this.layers.get(this.layers.size() - 1).setError(errors);
+    }
+
+    private void findError(){               //Calculates error of all neurons(without output layer)
+        for(int i = this.layers.size() - 2; i > 0; i--){
+            this.layers.get(i).findErrors(
+                    this.layers.get(i + 1).getErrors(),
+                    this.layers.get(i + 1).getWeights()
+            );
+        }
+    }
+
+    private void backWeights(float ratio) {    //Changing weights of neurons. Ratio - learning coefficient
+        for(int i = 1; i < this.layers.size(); i++)
+            this.layers.get(i).trainLayer(this.layers.get(i - 1).getOutputs(), ratio);
     }
 }
