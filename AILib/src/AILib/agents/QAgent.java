@@ -29,7 +29,7 @@ public class QAgent extends AI{
         errors[maxQIndex] =
                 reward + maxQ * discountFactor - this.layers.get(this.layers.size() - 1).getOutputs()[maxQIndex];
 
-        this.layers.get(this.layers.size() - 1).setError(errors);
+        this.layers.get(this.layers.size() - 1).setErrors(errors);
     }
 
     private void findError(){               //Calculates error of all neurons(without output layer)

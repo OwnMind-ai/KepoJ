@@ -3,6 +3,7 @@ package AILib.layers;
 import AILib.utills.AIFunctions;
 import AILib.utills.Neuron;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 
@@ -64,6 +65,24 @@ public class ConvolutionalLayer implements Layer {
         }
     }
 
+    /*
+     * data[0] and data[1] - core size
+     * data[2] and data[3] - previous layer size
+     * data[4] - AIFunction index
+     */
+
+    @Override
+    public double[] getArchivedData() {
+        return new double[]{
+                this.coreSizeX,
+                this.coreSizeY,
+                this.previousLayerX,
+                this.previousLayerY,
+                Arrays.asList(AIFunctions.values())
+                        .indexOf(this.aiFunctions)
+        };
+    }
+
     @Override
     public double[] doLayer(double[] data) {
         for(Neuron neuron : this.neurons) {
@@ -104,7 +123,7 @@ public class ConvolutionalLayer implements Layer {
     }
 
     @Override
-    public void setError(double[] errors) {
+    public void setErrors(double[] errors) {
         for(int i = 0; i < this.neurons.length; i++)
             this.neurons[i].setError(errors[i]);
     }
@@ -148,11 +167,6 @@ public class ConvolutionalLayer implements Layer {
             result[i] = this.neurons[i].bias;
 
         return result;
-    }
-
-    @Override
-    public AIFunctions getAIFunction() {
-        return this.aiFunctions;
     }
 
     @Override

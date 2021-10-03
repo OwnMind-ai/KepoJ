@@ -1,6 +1,5 @@
 package AILib.layers;
 
-import AILib.utills.AIFunctions;
 import AILib.utills.Neuron;
 
 public class InputLayer implements Layer{
@@ -36,7 +35,7 @@ public class InputLayer implements Layer{
     }
 
     @Override
-    public void setError(double[] dataset) {
+    public void setErrors(double[] dataset) {
 
     }
 
@@ -71,7 +70,7 @@ public class InputLayer implements Layer{
     }
 
     @Override
-    public AIFunctions getAIFunction() {
-        return null;
+    public double[] getArchivedData() {
+        return new double[]{this.getNeuronsLength()};
     }
 }

@@ -8,6 +8,6 @@ public interface Agent {
     void addLayer(Layer layer);
     void addAll(Layer... layers);
 
-    void saveAI(String fileName);
-    void saveAI();
+    void save(String fileName);
+    void save();
 }

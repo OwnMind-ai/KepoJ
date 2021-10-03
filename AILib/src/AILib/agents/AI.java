@@ -2,13 +2,19 @@ package AILib.agents;
 
 import AILib.layers.InputLayer;
 import AILib.layers.Layer;
+import AILib.layers.Layers;
 import AILib.layers.StaticLayer;
 import AILib.utills.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class AI implements Agent{
+    public static double VERSION = 1.1d;
+    public static double LAYER_SPLITTER = -256;
+    public static double WEIGHTS_START = -257;
+
     protected ArrayList<Layer> layers;     //Dynamic array of Neurons classes
     public float fault = 0.0005f;          //Minimal error of neural network1
 
@@ -18,19 +24,31 @@ public class AI implements Agent{
 
     public AI(String fileName){                          //Initialization by import of existing AI
         double[] AIParameters = FileHandler.readFile(fileName);       //AI's file data
-
         assert(AIParameters != null);
-        this.buildAI((int) AIParameters[1]);
-        for(int i = 2; i < (int) AIParameters[0]; i+= 2) {
+        this.layers = new ArrayList<>();
+
+        int i = 2;
+        if(AIParameters[i] == Arrays.asList(Layers.values()).indexOf(Layers.INPUT_LAYER)){
+            this.layers.add(
+                    Layers.values()[(int) AIParameters[i]].getInstance(
+                        new double[]{AIParameters[i + 1]}
+            ));
+            i+= 2;
+        }
+        while(AIParameters[i] != AI.WEIGHTS_START){
             //Initialization layers
-            Layer layer = AIParameters[i] >= 0 ?
-                    new StaticLayer((int) Math.abs(AIParameters[i]), AIFunctions.values()[(int) AIParameters[i + 1]]) :
-                    null;  //Dynamic layers will added soon
-            this.addLayer(layer);
+            if(AIParameters[i] == AI.LAYER_SPLITTER){
+                double[] data = new double[Layers.values()[(int) AIParameters[i + 1]].getDataLength()];
+                System.arraycopy(AIParameters, i + 2, data, 0, data.length);
+                this.addLayer(
+                        Layers.values()[(int) AIParameters[i + 1]].getInstance(data)
+                );
+            }
+            i+= 1;
         }
 
-        double[] weights = new double[(int) (AIParameters.length - AIParameters[0] - 1)];
-        System.arraycopy(AIParameters, (int) AIParameters[0] + 1, weights, 0, weights.length);
+        double[] weights = new double[(int) (AIParameters.length - i - 1)];
+        System.arraycopy(AIParameters, i + 1, weights, 0, weights.length);
         this.setWeights(weights);     //Setting weights from file data
     }
 
@@ -116,19 +134,22 @@ public class AI implements Agent{
                     this.layers.get(i).getNeuron(a).setWeight(b, weights[index++]);
     }
 
-    public void saveAI(String fileName){    //Writes AI(structure, AI functions index, weights) to following filepath
+    public void save(String fileName){    //Writes AI(structure, weights) to following filepath
         //Cast three-dimensional [this.dataset] array to one-dimensional array
         double[] weights = Arrays.stream(this.getWeights())
                 .flatMap(Arrays::stream).flatMapToDouble(Arrays::stream).toArray();
-        //First element - list size(need to handle data in file), last element - AIFunction id
         ArrayList<Double> AIParametersList = new ArrayList<>();
-        AIParametersList.add((double) (this.layers.size() * 2 - 1));
-        AIParametersList.add((double) this.layers.get(0).getWeights().length);
-        for(int i = 1; i < this.layers.size(); i++) {
-            AIParametersList.add((double) this.layers.get(i).getWeights().length);
-            AIParametersList.add((double) Arrays.asList(AIFunctions.values())
-                    .indexOf(this.layers.get(i).getAIFunction()));
+        AIParametersList.add(AI.VERSION);
+        for (Layer layer : this.layers) {
+            AIParametersList.add(AI.LAYER_SPLITTER);
+
+            AIParametersList.add((double) Layers.getLayerID(layer.getClass()));
+            double[] data = layer.getArchivedData();
+            for (double d : data)
+                AIParametersList.add(d);
         }
+        AIParametersList.add(AI.WEIGHTS_START);
+
         double[] AIParameters = AIParametersList.stream().mapToDouble(Double::doubleValue).toArray();
         //Merging [AIParameters] and AI's weights arrays
         double[] result = Arrays.copyOf(AIParameters, weights.length + AIParameters.length);
@@ -138,5 +159,5 @@ public class AI implements Agent{
     }
 
     //Saving AI without arguments to unique filepath
-    public void saveAI(){ this.saveAI(this.toString() + ".bin");}
+    public void save(){ this.save(this.toString() + ".bin");}
 }

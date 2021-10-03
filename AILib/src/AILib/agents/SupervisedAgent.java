@@ -35,7 +35,7 @@ public class SupervisedAgent extends AI{
             errors[i] = dataset[i] - outputs[i];
         }
 
-        this.layers.get(this.layers.size() - 1).setError(errors);
+        this.layers.get(this.layers.size() - 1).setErrors(errors);
     }
 
     public double[] learning(double[][][] example, float ratio){  //Trains AI by following dataset array and learning ratio

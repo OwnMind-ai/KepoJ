@@ -3,6 +3,8 @@ package AILib.layers;
 import AILib.utills.AIFunctions;
 import AILib.utills.Neuron;
 
+import java.util.Arrays;
+
 public class StaticLayer implements Layer {
     private final AIFunctions aiFunctions;  //Contains activation and derivative functions from AIFunctions enum
     private final Neuron[] neurons;    //Array of neurons
@@ -21,6 +23,20 @@ public class StaticLayer implements Layer {
     public void buildLayer(int weightsCount){
         for (int i = 0; i < this.neurons.length; i++)
             this.neurons[i] = new Neuron(weightsCount, this.aiFunctions);
+    }
+
+    /*
+    * data[0] - neurons length
+    * data[1] - AIFunction index
+    */
+
+    @Override
+    public double[] getArchivedData() {
+        return new double[]{
+                this.getNeuronsLength(),
+                Arrays.asList(AIFunctions.values())
+                        .indexOf(this.aiFunctions)
+        };
     }
 
     @Override
@@ -74,12 +90,7 @@ public class StaticLayer implements Layer {
     }
 
     @Override
-    public AIFunctions getAIFunction() {
-        return this.aiFunctions;
-    }
-
-    @Override
-    public void setError(double[] errors) {
+    public void setErrors(double[] errors) {
         for(int i = 0; i < this.neurons.length; i++)
             this.neurons[i].setError(errors[i]);
     }
