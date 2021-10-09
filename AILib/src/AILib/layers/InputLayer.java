@@ -1,6 +1,6 @@
 package AILib.layers;
 
-import AILib.utills.Neuron;
+import AILib.entities.Neuron;
 
 public class InputLayer implements Layer{
     private double[] outputs;

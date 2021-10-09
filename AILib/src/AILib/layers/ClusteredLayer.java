@@ -1,7 +1,6 @@
 package AILib.layers;
 
-import AILib.utills.AIFunctions;
-import AILib.utills.Neuron;
+import AILib.entities.Neuron;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -131,7 +130,7 @@ public class ClusteredLayer implements Layer{   // !!! ON FREEZE !!!
     }
 
     @Override
-    public double[] getArchivedData() {  // TODO: убрать этот метод и сделать метод который будет возвращать коды для сохранения
+    public double[] getArchivedData() {
         return null;
     }
 

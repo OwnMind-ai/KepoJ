@@ -1,4 +1,4 @@
-package AILib.utills;
+package AILib.entities;
 
 import java.util.*;
 

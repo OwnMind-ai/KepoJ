@@ -1,7 +1,7 @@
 package AILib.layers;
 
-import AILib.utills.AIFunctions;
-import AILib.utills.Neuron;
+import AILib.entities.AIFunctions;
+import AILib.entities.Neuron;
 
 import java.util.Arrays;
 

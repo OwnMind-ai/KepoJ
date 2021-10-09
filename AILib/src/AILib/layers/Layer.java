@@ -1,6 +1,6 @@
 package AILib.layers;
 
-import AILib.utills.Neuron;
+import AILib.entities.Neuron;
 
 public interface Layer {
     void buildLayer(int weightsCount);

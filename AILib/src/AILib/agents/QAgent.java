@@ -2,7 +2,7 @@ package AILib.agents;
 
 import java.util.Arrays;
 
-public class QAgent extends AI{
+public class QAgent extends NeuralNetwork {
     public QAgent(int inputNeurons) {
         super(inputNeurons);
     }

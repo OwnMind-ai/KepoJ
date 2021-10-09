@@ -1,4 +1,4 @@
-package AILib.utills;
+package AILib.entities;
 
 public enum AIFunctions{
     //Functions list

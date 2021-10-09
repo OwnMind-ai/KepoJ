@@ -1,6 +1,5 @@
-import AILib.agents.AI;
 import AILib.agents.SupervisedAgent;
-import AILib.utills.Dataset;
+import AILib.entities.Dataset;
 
 public class Test {
     public static void main(String[] args){

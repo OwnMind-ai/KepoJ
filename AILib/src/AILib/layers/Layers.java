@@ -1,6 +1,6 @@
 package AILib.layers;
 
-import AILib.utills.AIFunctions;
+import AILib.entities.AIFunctions;
 
 public enum Layers {
     INPUT_LAYER{

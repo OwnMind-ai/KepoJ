@@ -8,8 +8,21 @@
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/agents/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/agents/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/agents/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/agents/Agent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/agents/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/agents/NeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/agents/QAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/agents/QAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/agents/SupervisedAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/agents/SupervisedAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/layers/ClusteredLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/layers/ClusteredLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/layers/ConvolutionalLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/layers/ConvolutionalLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/layers/InputLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/layers/InputLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/layers/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/layers/Layer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/layers/Layers.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/layers/Layers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/layers/StaticLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/layers/StaticLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/utills/AIFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/entities/AIFunctions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/utills/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/entities/Dataset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/utills/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/AILib/entities/Neuron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/AILib/src/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test1.ai" beforeDir="false" afterPath="$PROJECT_DIR$/test1.ai" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +81,11 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/AILib/src/AILib/AILib" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="AILib.entities" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Test">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -179,7 +195,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/AILib/src/AILib/layers/ClusteredLayer.java</url>
-          <line>59</line>
+          <line>58</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

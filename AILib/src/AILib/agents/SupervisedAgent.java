@@ -1,10 +1,10 @@
 package AILib.agents;
 
-import AILib.utills.Dataset;
+import AILib.entities.Dataset;
 
 import java.util.ArrayList;
 
-public class SupervisedAgent extends AI{
+public class SupervisedAgent extends NeuralNetwork {
     public SupervisedAgent(int inputNeurons) {
         super(inputNeurons);
     }
