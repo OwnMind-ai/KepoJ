@@ -93,38 +93,6 @@ public class NeuralNetwork implements Agent{
         return this.layers.get(this.layers.size() - 1).getOutputs();
     }
 
-    // TODO: mov AIChecker to external class
-    public int[] AIChecker(double[][][] example, int roundRate){   // Compare dataset array and AI output
-        int[] resultsInfo = {0, 0};             // resultInfo[0] - dataset length, resultInfo[1] - AI and dataset matches
-        for(double[][] dataset : example){
-            resultsInfo[0]++;
-            double[] result = this.start(dataset[0]);   // Contains AI's output. Will be casted to float[] answer soon
-            float[] answer = new float[result.length];
-            for(int i = 0; i < answer.length; i++)
-                answer[i] = (float) ((float) Math.round(result[i] * Math.pow(10, roundRate)) / Math.pow(10, roundRate));
-
-            //Casting dataset array to float
-            float[] exampleOutput = new float[dataset[1].length];
-            for(int i = 0; i < dataset[1].length; i++)
-                exampleOutput[i] = (float) dataset[1][i];
-
-            /*
-                Casting values to float [] is needed to normalize the output and make the output readable
-            */
-            //Matching dataset array with AI's output
-            if(Arrays.equals(answer, exampleOutput))
-                resultsInfo[1]++;
-
-            System.out.print("Output: " + Arrays.toString(answer) + " Example: " + Arrays.toString(exampleOutput) + "\n");
-        }
-        System.out.print(Arrays.toString(resultsInfo) + "\n");
-
-        return resultsInfo;
-    }
-
-    //Checking AI by following Dataset class
-    public int[] AIChecker(Dataset dataset, int roundRate){ return this.AIChecker(dataset.getDatasetArray(), roundRate); }
-
     public double[][][] getWeights() {   //Returns a 3D array of the weights(and bias) of all neurons
         double[][][] weights = new double[this.layers.size() - 1][][];
         for(int i = 1; i < this.layers.size(); i++) {
