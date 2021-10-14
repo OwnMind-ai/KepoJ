@@ -5,8 +5,56 @@
       <artifact name="AILib:jar" />
     </artifacts-to-build>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code" />
+    <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AILib.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/agents/Agent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/agents/NeuralNetwork.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/agents/QAgent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/agents/SupervisedAgent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/entities/AIFunctions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/entities/Dataset.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/entities/Neuron.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/layers/ClusteredLayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/layers/ConvolutionalLayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/layers/InputLayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/layers/Layer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/layers/Layers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/layers/StaticLayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/utills/AgentChecker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/AILib/utills/FileHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib/src/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/agents/Agent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/agents/NeuralNetwork.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/agents/QAgent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/agents/SupervisedAgent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/entities/AIFunctions.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/entities/ActivationFunction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/entities/Dataset.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/entities/Neuron.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/layers/ClusteredLayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/layers/ConvolutionalLayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/layers/ForEachFunction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/layers/InputLayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/layers/Layer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/layers/Layers$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/layers/Layers$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/layers/Layers$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/layers/Layers$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/layers/Layers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/layers/StaticLayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/utills/AgentChecker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/AILib/utills/FileHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AILib/Test.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +100,8 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/AILib/src" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -62,9 +111,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$/AILib/src/AILib/AILib" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
       <recent name="AILib.entities" />
     </key>
   </component>
@@ -160,11 +211,41 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/home/ownmind/GitRepositories/AILib/out" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
@@ -183,5 +264,8 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/AILib$App.ic" NAME="App Coverage Results" MODIFIED="1634208130305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

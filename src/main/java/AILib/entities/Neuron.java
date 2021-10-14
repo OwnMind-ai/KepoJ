@@ -1,6 +1,7 @@
 package AILib.entities;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Neuron{
     public double output = 0;    //Output value of neuron. Changing after [this::doNeuron] method

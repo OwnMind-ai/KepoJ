@@ -11,7 +11,7 @@ public class App {
             new StaticLayer(3, AIFunctions.SIGMOID),
             new StaticLayer(2, AIFunctions.SIGMOID));
 
-        ai.learning(new Dataset("dat.bin").getDatasetArray(), 1);
-        new AgentChecker(ai, true).check(new Dataset("dat.bin"), 1);
+        ai.learning(new Dataset("/home/ownmind/Documents/dat.bin").getDatasetArray(), 1);
+        new AgentChecker(ai, true).check(new Dataset("/home/ownmind/Documents/dat.bin"), 1);
     }
 }
