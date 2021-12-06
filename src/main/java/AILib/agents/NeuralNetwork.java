@@ -9,11 +9,6 @@ import AILib.utills.FileHandler;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/*
-* NeuralNetwork is base class to neural network agents,
-* has neural structure and can 
-*/
-
 public class NeuralNetwork implements Agent{
     public static double VERSION = 1.1d;         // Version of saving format, not used in program
     public static double LAYER_SPLITTER = -256;  // Code of start layer's structure description
