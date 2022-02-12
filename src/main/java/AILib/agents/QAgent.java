@@ -12,7 +12,7 @@ public class QAgent extends NeuralNetwork {
     }
 
     public void learningIteration(double reward, double[] nextState, double discountFactor, float ratio){
-        double[] nextQValues = this.start(nextState);
+        double[] nextQValues = this.react(nextState);
         this.setError(reward, nextQValues, discountFactor);
 
         this.findError();

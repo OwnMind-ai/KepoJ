@@ -8,8 +8,8 @@ import java.util.Collections;
 import java.util.Random;
 
 public class ConvolutionalLayer implements Layer {
-    private final AIFunctions aiFunctions;  //Contains activation and derivative functions from AIFunctions enum
-    private final Neuron[] neurons;    //Array of neurons
+    private final AIFunctions aiFunctions;
+    private final Neuron[] neurons;
 
     public final int layerSizeX;
     public final int layerSizeY;
@@ -86,7 +86,7 @@ public class ConvolutionalLayer implements Layer {
     @Override
     public double[] doLayer(double[] data) {
         for(Neuron neuron : this.neurons) {
-            neuron.doNeuron(data);
+            neuron.excite(data);
         }
 
         return this.getOutputs();

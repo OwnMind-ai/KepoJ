@@ -6,7 +6,7 @@ import AILib.entities.Dataset;
 import java.util.Arrays;
 
 public class AgentChecker {
-    private Agent agent;
+    private final Agent agent;
     private boolean prints;
 
     public AgentChecker(Agent agent){
@@ -22,23 +22,18 @@ public class AgentChecker {
         this.prints = prints;
     }
 
-    public int check(double[][][] dataset, double roundRate){  // Returns count of passed tests
+    public int check(double[][][] dataset, double roundRate){
         int result = 0;
         for(double[][] data : dataset){
-            double[] output = this.agent.start(data[0]);  // Contains AI's output. Will be casted to float[] answer soon
+            double[] output = this.agent.react(data[0]);
             float[] answer = new float[output.length];
             for(int i = 0; i < answer.length; i++)
                 answer[i] = (float) ((float) Math.round(output[i] * Math.pow(10, roundRate)) / Math.pow(10, roundRate));
 
-            //Casting dataset array to float
             float[] exampleOutput = new float[data[1].length];
             for(int i = 0; i < data[1].length; i++)
                 exampleOutput[i] = (float) data[1][i];
 
-            /*
-                Casting values to float [] is needed to normalize the output and make the output readable
-            */
-            //Matching dataset array with AI's output
             if(Arrays.equals(answer, exampleOutput))
                 result++;
 
@@ -56,5 +51,5 @@ public class AgentChecker {
         return result;
     }
 
-    public int check(Dataset dataset, double roundRate){ return this.check(dataset.getDatasetArray(), roundRate); }
+    public int check(Dataset dataset, double roundRate){ return this.check(dataset.toArray(), roundRate); }
 }

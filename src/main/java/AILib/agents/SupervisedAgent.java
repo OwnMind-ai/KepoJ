@@ -62,5 +62,5 @@ public class SupervisedAgent extends NeuralNetwork {
         return errorsLog.stream().mapToDouble(Double::doubleValue).toArray();
     }
 
-    public double[] learning(Dataset dataset, float ratio){ return this.learning(dataset.getDatasetArray(), ratio); }
+    public double[] learning(Dataset dataset, float ratio){ return this.learning(dataset.toArray(), ratio); }
 }

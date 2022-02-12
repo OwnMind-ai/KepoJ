@@ -19,11 +19,8 @@ public enum AIFunctions{
 
     IDENTICAL ((x) -> x, (x) -> 1),
 
-    SIGMOID_BOUND_2 ((x) -> (2 / (1 + Math.pow(Math.E, -x))),
-                     (x) -> (x * (2 - x))),
-
-    BOUNDED_LEAKY_RELU_BOUND_2 ((x) -> (Math.min(2 + 0.01 * x, Math.max(0.01 * x, x))),
-                                (x) -> ((x <= 0 || x >= 2) ? 0.01f : 1)),;
+    THRESHOLD((x) -> x >= 0 ? 1 : 0,
+            (x) -> x != 0 ? 0 : 1);
 
     private final ActivationFunction activation;
     private final ActivationFunction derivative;

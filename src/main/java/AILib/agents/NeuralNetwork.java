@@ -1,6 +1,5 @@
 package AILib.agents;
 
-import AILib.entities.Dataset;
 import AILib.layers.InputLayer;
 import AILib.layers.Layer;
 import AILib.layers.Layers;

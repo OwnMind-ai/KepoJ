@@ -10,10 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AILib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AILib.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/Agent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/NeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/QAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/QAgent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/SupervisedAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/SupervisedAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/entities/AIFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/entities/AIFunctions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/entities/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/entities/Dataset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/entities/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/entities/Neuron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/ConvolutionalLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/ConvolutionalLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/StaticLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/StaticLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/utills/AgentChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/utills/AgentChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +41,7 @@
         <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -60,6 +73,8 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -74,12 +89,19 @@
       <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$/AILib/src/AILib/AILib" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="AILib.entities" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="AILib.agents" />
+      <recent name="AILib.entities" />
+    </key>
   </component>
-  <component name="RunManager" selected="Maven.AILib [clean,deploy]">
+  <component name="RunManager" selected="JUnit.NeuralNetworkTest.react">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -91,6 +113,38 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="App" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NeuralNetworkTest.react" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AILib" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="AILib.agents.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="AILib.agents" />
+      <option name="MAIN_CLASS_NAME" value="AILib.agents.NeuralNetworkTest" />
+      <option name="METHOD_NAME" value="react" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NeuronTest.doNeuron" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AILib" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="AILib.entities.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="AILib.entities" />
+      <option name="MAIN_CLASS_NAME" value="AILib.entities.NeuronTest" />
+      <option name="METHOD_NAME" value="doNeuron" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -124,7 +178,15 @@
     <list>
       <item itemvalue="Application.App" />
       <item itemvalue="Maven.AILib [clean,deploy]" />
+      <item itemvalue="JUnit.NeuronTest.doNeuron" />
+      <item itemvalue="JUnit.NeuralNetworkTest.react" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.NeuralNetworkTest.react" />
+        <item itemvalue="JUnit.NeuronTest.doNeuron" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

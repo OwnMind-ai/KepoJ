@@ -4,50 +4,49 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Neuron{
-    public double output = 0;    //Output value of neuron. Changing after [this::doNeuron] method
-    public double error = 0;     //Error of neuron, set by [this::setError] method
+    public double output = 0;
+    public double error = 0;
     private final AIFunctions neuronFunctions;
 
     public final static Random random = new Random();
 
     public ArrayList<Double> weights;
-    public double bias;          //Weight, input is always 1
+    public double bias;
 
     public Neuron(int weightsCount, AIFunctions activationFunc){
         this.neuronFunctions = activationFunc;
         this.weights = new ArrayList<>();
 
-        //Setting random weights
         for(int i = 0; i < weightsCount; i++)
-            this.weights.add(Neuron.random.nextDouble());
-        this.bias = Neuron.random.nextDouble();
+            this.weights.add(Neuron.random.nextDouble() * 2 - 1);
+        this.bias = Neuron.random.nextDouble() * 2 - 1;
     }
 
     public Neuron(double[] weights, AIFunctions activationFunc){
         this.neuronFunctions = activationFunc;
         this.weights = new ArrayList<>();
 
-        for(double weight : weights) {
-            this.weights.add(weight);
-        }
+        assert weights.length > 0 : "Neuron haven't any weights";
+        for(int i = 0; i < weights.length - 1; i++)
+            this.weights.add(weights[i]);
+        this.bias = weights[weights.length - 1];
     }
 
-    //Simulates the direct passage of a dataset through a neuron and sets result to [this.output]
-    public void doNeuron(double[] inputData){
+    public double excite(double[] inputData){
         this.output = 0;
         for(int i = 0; i < inputData.length; i++)
             this.output+= inputData[i] * (this.weights.get(i) == null ? 0 : this.weights.get(i));
         this.output+= this.bias;
         this.output = this.neuronFunctions.activationRun(this.output);
+
+        return output;
     }
 
-    //Sets specific weight or bias to neuron
     public void setWeight(int index, double value) {
         if(index == this.weights.size()) this.bias = value;
         else this.weights.set(index, value);
     }
 
-    //Sets error to [this.error] with pre-multiplication by the derivative
     public void setError(double error) {
         this.error = error * this.neuronFunctions.derivativeRun(this.output);
     }

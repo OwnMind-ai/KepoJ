@@ -5,20 +5,19 @@ import AILib.utills.FileHandler;
 import java.util.Arrays;
 
 public class Dataset{
-    private final double[][][] dataset;    //3D-array of dataset values
+    private final double[][][] dataset;
 
     public Dataset(double[][][] dataset){
         this.dataset = dataset;
-    }    //Initialization by dataset array
+    }
 
-    public Dataset(String fileName){                                    //Initialization by filepath
+    public Dataset(String fileName){
         double[] file = FileHandler.readFile(fileName);
 
-        assert file != null : "";
+        assert file != null : "Can't read the file " + fileName;
         double[][][] result = new double[(int) file[0]][2][];
 
-        //Wrapping a one-dimensional array into a three-dimensional one
-        int counter = 3;    //Starts from index 3, 'cause previous indexes refer to array parameters values
+        int counter = 3;
         for (int x = 0; x < result.length; x++) {
             for (int y = 0; y < result[x].length; y++) {
                 result[x][y] = new double[(int) file[y + 1]];
@@ -29,21 +28,19 @@ public class Dataset{
         this.dataset = result;
     }
 
-    public double[][][] getDatasetArray(){
+    public double[][][] toArray(){
         return this.dataset;
     }
 
-    public void writeToFile(String fileName){      //Writes dataset to following filepath
+    public void writeToFile(String fileName){
         double[] datasetParameters = new double[]{
                 this.dataset.length,
                 this.dataset[0][0].length,
                 this.dataset[0][1].length
         };
 
-        //Cast three-dimensional [this.dataset] array to one-dimensional array
         double[] datasetArray = Arrays.stream(this.dataset).flatMap(Arrays::stream).flatMapToDouble(Arrays::stream).toArray();
 
-        //Merging [datasetParameters] and [datasetArray]
         double[] result = Arrays.copyOf(datasetParameters, datasetArray.length + datasetParameters.length);
         System.arraycopy(datasetArray, 0, result, datasetParameters.length, datasetArray.length);
 
