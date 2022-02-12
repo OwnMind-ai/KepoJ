@@ -34,7 +34,7 @@ public class ClusteredLayer implements Layer{   // !!! ON FREEZE !!!
     }
 
     @Override
-    public void trainLayer(double[] outputs, float ratio) {
+    public void trainLayer(double[] outputs, double ratio) {
         this.forEachNeuron(outputs, (layerData, layer) -> layer.trainLayer(layerData, ratio));
     }
 

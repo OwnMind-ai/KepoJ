@@ -14,7 +14,7 @@ public class NeuralNetwork implements Agent{
     public static double WEIGHTS_START = -257;   // Code of start neural network weights enumeration
 
     protected ArrayList<Layer> layers;
-    public float fault = 0.0005f;
+    public double fault = 0.0005d;
 
     public NeuralNetwork(int inputNeurons){    //Initialization by pre-creating first layer
         buildAI(inputNeurons);
@@ -54,7 +54,7 @@ public class NeuralNetwork implements Agent{
         this.layers.add(new InputLayer(neuronsCount));
     }
 
-    public void setFault(float fault) {
+    public void setFault(double fault) {
         this.fault = fault;
     }
 

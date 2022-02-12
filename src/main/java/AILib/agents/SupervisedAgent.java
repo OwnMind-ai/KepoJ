@@ -2,6 +2,7 @@ package AILib.agents;
 
 import AILib.entities.Dataset;
 
+import javax.xml.ws.Action;
 import java.util.ArrayList;
 
 public class SupervisedAgent extends NeuralNetwork {
@@ -22,7 +23,7 @@ public class SupervisedAgent extends NeuralNetwork {
         }
     }
 
-    private void backWeights(float ratio) {
+    private void backWeights(double ratio) {
         for(int i = 1; i < this.layers.size(); i++)
             this.layers.get(i).trainLayer(this.layers.get(i - 1).getOutputs(), ratio);
     }
@@ -38,7 +39,8 @@ public class SupervisedAgent extends NeuralNetwork {
         this.layers.get(this.layers.size() - 1).setErrors(errors);
     }
 
-    public double[] learning(double[][][] example, float ratio){
+    @Action
+    public double[] train(double[][][] example, double ratio){
         ArrayList<Double> errorsLog = new ArrayList<>();
         double sumError = Double.MAX_VALUE;
         int age = 0;
@@ -62,5 +64,5 @@ public class SupervisedAgent extends NeuralNetwork {
         return errorsLog.stream().mapToDouble(Double::doubleValue).toArray();
     }
 
-    public double[] learning(Dataset dataset, float ratio){ return this.learning(dataset.toArray(), ratio); }
+    public double[] train(Dataset dataset, float ratio){ return this.train(dataset.toArray(), ratio); }
 }

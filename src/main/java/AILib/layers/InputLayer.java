@@ -20,7 +20,7 @@ public class InputLayer implements Layer{
     }
 
     @Override
-    public void trainLayer(double[] outputs, float ratio) {
+    public void trainLayer(double[] outputs, double ratio) {
 
     }
 

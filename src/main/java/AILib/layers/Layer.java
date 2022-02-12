@@ -6,7 +6,7 @@ public interface Layer {
     void buildLayer(int weightsCount);
 
     double[] doLayer(double[] data);
-    void trainLayer(double[] outputs, float ratio);
+    void trainLayer(double[] outputs, double ratio);
     void setOutputs(double[] outputs);
     void findErrors(double[] errors, double[][] weights);
     void setErrors(double[] errors);

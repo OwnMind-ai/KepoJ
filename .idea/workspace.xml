@@ -10,22 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AILib.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AILib.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/Agent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/QAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/QAgent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/SupervisedAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/SupervisedAgent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/entities/AIFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/entities/AIFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/entities/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/entities/Dataset.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/entities/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/entities/Neuron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/ClusteredLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/ClusteredLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/ConvolutionalLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/ConvolutionalLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/InputLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/InputLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/Layer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/StaticLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/StaticLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/utills/AgentChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/utills/AgentChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +93,7 @@
       <recent name="AILib.entities" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeuralNetworkTest.react">
+  <component name="RunManager" selected="JUnit.SupervisedAgentTest.lines">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -149,6 +141,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SupervisedAgentTest.lines" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AILib" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="AILib.agents.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="AILib.agents" />
+      <option name="MAIN_CLASS_NAME" value="AILib.agents.SupervisedAgentTest" />
+      <option name="METHOD_NAME" value="lines" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AILib [clean,deploy]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -177,12 +185,14 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="Maven.AILib [clean,deploy]" />
       <item itemvalue="JUnit.NeuronTest.doNeuron" />
       <item itemvalue="JUnit.NeuralNetworkTest.react" />
+      <item itemvalue="Maven.AILib [clean,deploy]" />
+      <item itemvalue="JUnit.SupervisedAgentTest.lines" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SupervisedAgentTest.lines" />
         <item itemvalue="JUnit.NeuralNetworkTest.react" />
         <item itemvalue="JUnit.NeuronTest.doNeuron" />
       </list>

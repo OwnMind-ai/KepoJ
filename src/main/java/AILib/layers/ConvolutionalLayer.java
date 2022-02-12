@@ -93,7 +93,7 @@ public class ConvolutionalLayer implements Layer {
     }
 
     @Override
-    public void trainLayer(double[] outputs, float ratio) {
+    public void trainLayer(double[] outputs, double ratio) {
         for (Neuron neuron : this.neurons) {
             for (int j = 0; j < neuron.weights.size(); j++)
                 if (neuron.weights.get(j) != null) {
