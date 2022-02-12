@@ -13,7 +13,7 @@ public class SupervisedAgent extends NeuralNetwork {
         super(fileName);
     }
 
-    private void findError(){               //Calculates error of all neurons(without output layer)
+    private void findError(){
         for(int i = this.layers.size() - 2; i > 0; i--){
             this.layers.get(i).findErrors(
                     this.layers.get(i + 1).getErrors(),
@@ -22,7 +22,7 @@ public class SupervisedAgent extends NeuralNetwork {
         }
     }
 
-    private void backWeights(float ratio) {    //Changing weights of neurons. Ratio - learning coefficient
+    private void backWeights(float ratio) {
         for(int i = 1; i < this.layers.size(); i++)
             this.layers.get(i).trainLayer(this.layers.get(i - 1).getOutputs(), ratio);
     }
@@ -38,22 +38,21 @@ public class SupervisedAgent extends NeuralNetwork {
         this.layers.get(this.layers.size() - 1).setErrors(errors);
     }
 
-    public double[] learning(double[][][] example, float ratio){  //Trains AI by following dataset array and learning ratio
+    public double[] learning(double[][][] example, float ratio){
         ArrayList<Double> errorsLog = new ArrayList<>();
-        double sumError = Double.MAX_VALUE;     //(setting to maximum value for first while iteration)
+        double sumError = Double.MAX_VALUE;
         int age = 0;
 
-        while (sumError >= this.fault) {    //Training continues until the error is less than the minimum([this.fault])
+        while (sumError >= this.fault) {
             sumError = 0;
             for (double[][] data : example) {
-                //Calculating current error by example
-                double[] result = this.start(data[0]);
+                double[] result = this.react(data[0]);
                 for (int a = 0; a < result.length; a++)
                     sumError += Math.pow((data[1][a] - result[a]), 2);
 
-                this.datasetOffset(data[1]);  //Calculates error of output layer
-                this.findError();              //Calculates error of all neurons(without output layer)
-                this.backWeights(ratio);       //Changing weights of neurons
+                this.datasetOffset(data[1]);
+                this.findError();
+                this.backWeights(ratio);
             }
             errorsLog.add(sumError);
             System.out.println(age + " - " + sumError);
@@ -63,6 +62,5 @@ public class SupervisedAgent extends NeuralNetwork {
         return errorsLog.stream().mapToDouble(Double::doubleValue).toArray();
     }
 
-    //Learning by following Dataset class
     public double[] learning(Dataset dataset, float ratio){ return this.learning(dataset.getDatasetArray(), ratio); }
 }

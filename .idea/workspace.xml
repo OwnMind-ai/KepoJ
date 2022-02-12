@@ -10,9 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/Agent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/NeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/SupervisedAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/SupervisedAgent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
