@@ -55,22 +55,6 @@ public enum Layers {
         public int getDataLength() {
             return 5;
         }
-    },
-    CLUSTERED_LAYER{
-        @Override
-        public Layer getInstance(double[] data) {
-            return null;
-        }
-
-        @Override
-        public Class getLayerClass() {
-            return ClusteredLayer.class;
-        }
-
-        @Override
-        public int getDataLength() {
-            return 0;
-        }
     };
 
     public abstract Layer getInstance(double[] data);
