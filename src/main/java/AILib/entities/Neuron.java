@@ -1,19 +1,21 @@
 package AILib.entities;
 
+import AILib.functions.ActivationFunction;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Neuron{
     public double output = 0;
     public double error = 0;
-    private final AIFunctions neuronFunctions;
+    private final ActivationFunction neuronFunctions;
 
     public final static Random random = new Random();
 
     public ArrayList<Double> weights;
     public double bias;
 
-    public Neuron(int weightsCount, AIFunctions activationFunc){
+    public Neuron(int weightsCount, ActivationFunction activationFunc){
         this.neuronFunctions = activationFunc;
         this.weights = new ArrayList<>();
 
@@ -22,7 +24,7 @@ public class Neuron{
         this.bias = Neuron.random.nextDouble() * 2 - 1;
     }
 
-    public Neuron(double[] weights, AIFunctions activationFunc){
+    public Neuron(double[] weights, ActivationFunction activationFunc){
         this.neuronFunctions = activationFunc;
         this.weights = new ArrayList<>();
 
@@ -37,7 +39,7 @@ public class Neuron{
         for(int i = 0; i < inputData.length; i++)
             this.output+= inputData[i] * (this.weights.get(i) == null ? 0 : this.weights.get(i));
         this.output+= this.bias;
-        this.output = this.neuronFunctions.activationRun(this.output);
+        this.output = this.neuronFunctions.activate(this.output);
 
         return output;
     }
@@ -48,6 +50,6 @@ public class Neuron{
     }
 
     public void setError(double error) {
-        this.error = error * this.neuronFunctions.derivativeRun(this.output);
+        this.error = error * this.neuronFunctions.derivative(this.output);
     }
 }

@@ -1,14 +1,14 @@
 package AILib.layers;
 
-import AILib.entities.AIFunctions;
 import AILib.entities.Neuron;
+import AILib.functions.ActivationFunction;
+import AILib.functions.StandardFunctions;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 
 public class ConvolutionalLayer implements Layer {
-    private final AIFunctions aiFunctions;
+    private final ActivationFunction aiFunctions;
     private final Neuron[] neurons;
 
     public final int layerSizeX;
@@ -20,7 +20,7 @@ public class ConvolutionalLayer implements Layer {
 
     public ConvolutionalLayer(int coreSizeX, int coreSizeY,
                               int previousLayerX, int previousLayerY,
-                              AIFunctions aiFunctions){
+                              ActivationFunction aiFunctions){
         this.aiFunctions = aiFunctions;
 
         this.coreSizeX = coreSizeX;
@@ -31,6 +31,12 @@ public class ConvolutionalLayer implements Layer {
         this.layerSizeY = ConvolutionalLayer.calculateLayersSize(coreSizeY, previousLayerY);
 
         this.neurons = new Neuron[this.layerSizeX * this.layerSizeY];
+    }
+
+    public ConvolutionalLayer(int coreSizeX, int coreSizeY,
+                              int previousLayerX, int previousLayerY,
+                              StandardFunctions aiFunctions){
+        this(coreSizeX, coreSizeY, previousLayerX, previousLayerY, aiFunctions.get());
     }
 
     private static int calculateLayersSize(int coreSize, int previousLayerSize){
@@ -73,14 +79,14 @@ public class ConvolutionalLayer implements Layer {
 
     @Override
     public double[] getArchivedData() {
-        return new double[]{
+        return null; /* new double[]{
                 this.coreSizeX,
                 this.coreSizeY,
                 this.previousLayerX,
                 this.previousLayerY,
                 Arrays.asList(AIFunctions.values())
                         .indexOf(this.aiFunctions)
-        };
+        }; */
     }
 
     @Override

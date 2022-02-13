@@ -1,23 +1,20 @@
 package AILib.layers;
 
-import AILib.entities.AIFunctions;
 import AILib.entities.Neuron;
-
-import java.util.Arrays;
+import AILib.functions.ActivationFunction;
+import AILib.functions.StandardFunctions;
 
 public class StaticLayer implements Layer {
-    private final AIFunctions aiFunctions;
+    private final ActivationFunction aiFunctions;
     private final Neuron[] neurons;
     
-    public StaticLayer(int neuronCount, AIFunctions functions){
+    public StaticLayer(int neuronCount, ActivationFunction functions){
         this.aiFunctions = functions;
         this.neurons = new Neuron[neuronCount];
     }
 
-    public StaticLayer(int neuronCount, int weightsCount, AIFunctions functions){
-        this.aiFunctions = functions;
-        this.neurons = new Neuron[neuronCount];
-        this.buildLayer(weightsCount);
+    public StaticLayer(int neuronsCount, StandardFunctions function){
+        this(neuronsCount, function.get());
     }
 
     public void buildLayer(int weightsCount){
@@ -32,11 +29,11 @@ public class StaticLayer implements Layer {
 
     @Override
     public double[] getArchivedData() {
-        return new double[]{
+        return null; /* new double[]{
                 this.getNeuronsLength(),
-                Arrays.asList(AIFunctions.values())
+                Arrays.asList(ActivationFunction.values())
                         .indexOf(this.aiFunctions)
-        };
+        }; */
     }
 
     @Override

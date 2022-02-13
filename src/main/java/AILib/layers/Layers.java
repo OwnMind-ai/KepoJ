@@ -1,7 +1,5 @@
 package AILib.layers;
 
-import AILib.entities.AIFunctions;
-
 public enum Layers {
     INPUT_LAYER{
 
@@ -23,7 +21,7 @@ public enum Layers {
     STATIC_LAYER{
         @Override
         public Layer getInstance(double[] data) {
-            return new StaticLayer((int) data[0], AIFunctions.values()[(int) data[1]]);
+            return null; /*new StaticLayer((int) data[0], AIFunctions.values()[(int) data[1]]);*/
         }
 
         @Override
@@ -39,13 +37,13 @@ public enum Layers {
     CONVOLUTIONAL_LAYER{
         @Override
         public Layer getInstance(double[] data) {
-            return new ConvolutionalLayer(
+            return null; /* new ConvolutionalLayer(
                     (int) data[0],
                     (int) data[1],
                     (int) data[2],
                     (int) data[3],
                     AIFunctions.values()[(int) data[4]]
-            );
+            ); */
         }
 
         @Override
