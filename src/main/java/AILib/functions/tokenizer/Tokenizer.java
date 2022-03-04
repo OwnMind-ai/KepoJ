@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class Tokenizer implements IStream<IToken>{
     private static final String whitespaces = " \n\t";
-    private static final String[] operators = {"+", "-", "*", "/", "**"};
+    private static final String[] operators = {"+", "-", "*", "/", "%", "**"};
     private static final String digits = "0123456789";
     private static final String punctuation = ",()";
     private static final String letters = "abcdefghijklmnopqrstuvwxyz";

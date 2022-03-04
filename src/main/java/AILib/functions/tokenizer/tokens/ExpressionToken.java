@@ -1,11 +1,11 @@
 package AILib.functions.tokenizer.tokens;
 
 public class ExpressionToken implements IToken{
-    public final String operator;
+    public final OperatorToken operator;
     public final IToken left;
     public final IToken right;
 
-    public ExpressionToken(String operator, IToken left, IToken right) {
+    public ExpressionToken(OperatorToken operator, IToken left, IToken right) {
         this.operator = operator;
         this.left = left;
         this.right = right;
@@ -14,7 +14,7 @@ public class ExpressionToken implements IToken{
     @Override
     public String toString() {
         return "ExpressionToken{" +
-                "operator='" + operator + '\'' +
+                "operator='" + operator.operator + '\'' +
                 ", left=" + left +
                 ", right=" + right +
                 '}';
