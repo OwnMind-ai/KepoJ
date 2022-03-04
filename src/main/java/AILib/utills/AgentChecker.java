@@ -26,13 +26,12 @@ public class AgentChecker {
         int result = 0;
         for(double[][] data : dataset){
             double[] output = this.agent.react(data[0]);
-            float[] answer = new float[output.length];
+            double[] answer = new double[output.length];
             for(int i = 0; i < answer.length; i++)
-                answer[i] = (float) ((float) Math.round(output[i] * Math.pow(10, roundRate)) / Math.pow(10, roundRate));
+                answer[i] = Math.round(output[i] * Math.pow(10, roundRate)) / Math.pow(10, roundRate);
 
-            float[] exampleOutput = new float[data[1].length];
-            for(int i = 0; i < data[1].length; i++)
-                exampleOutput[i] = (float) data[1][i];
+            double[] exampleOutput = new double[data[1].length];
+            System.arraycopy(data[1], 0, exampleOutput, 0, data[1].length);
 
             if(Arrays.equals(answer, exampleOutput))
                 result++;
@@ -46,7 +45,7 @@ public class AgentChecker {
         }
 
         if (this.prints)
-            System.out.print(result + "/" + dataset.length);
+            System.out.println(result + "/" + dataset.length);
 
         return result;
     }

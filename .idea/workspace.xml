@@ -11,6 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/utills/AgentChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/utills/AgentChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/layers/ClusteredLayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/layers/ForEachFunction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/layers/Layers$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/layers/Layers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/layers/Layers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/utills/AgentChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/utills/AgentChecker.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,10 +29,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
-        <option value="JUnit5 Test Class" />
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="package-info" />
+        <option value="Class" />
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -61,7 +68,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/ParticleAutomata" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -82,6 +89,7 @@
       <recent name="AILib.entities" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="AILib.functions.tokenizer" />
       <recent name="AILib.agents" />
       <recent name="AILib.entities" />
     </key>
@@ -110,49 +118,63 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NeuralNetworkTest.react" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CharsStreamTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AILib" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AILib.agents.*" />
+          <option name="PATTERN" value="AILib.functions.tokenizer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="AILib.agents" />
-      <option name="MAIN_CLASS_NAME" value="AILib.agents.NeuralNetworkTest" />
-      <option name="METHOD_NAME" value="react" />
+      <option name="PACKAGE_NAME" value="AILib.functions.tokenizer" />
+      <option name="MAIN_CLASS_NAME" value="AILib.functions.tokenizer.CharsStreamTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CharsStreamTest.next" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AILib" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="AILib.functions.tokenizer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="AILib.functions.tokenizer" />
+      <option name="MAIN_CLASS_NAME" value="AILib.functions.tokenizer.CharsStreamTest" />
+      <option name="METHOD_NAME" value="next" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NeuronTest.doNeuron" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TokenizerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AILib" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AILib.functions.*" />
+          <option name="PATTERN" value="AILib.functions.tokenizer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="AILib.entities" />
-      <option name="MAIN_CLASS_NAME" value="AILib.entities.NeuronTest" />
-      <option name="METHOD_NAME" value="doNeuron" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="AILib.functions.tokenizer" />
+      <option name="MAIN_CLASS_NAME" value="AILib.functions.tokenizer.TokenizerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SupervisedAgentTest.lines" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TokenizerTest.next" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AILib" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AILib.agents.*" />
+          <option name="PATTERN" value="AILib.functions.tokenizer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="AILib.agents" />
-      <option name="MAIN_CLASS_NAME" value="AILib.agents.SupervisedAgentTest" />
-      <option name="METHOD_NAME" value="lines" />
+      <option name="PACKAGE_NAME" value="AILib.functions.tokenizer" />
+      <option name="MAIN_CLASS_NAME" value="AILib.functions.tokenizer.TokenizerTest" />
+      <option name="METHOD_NAME" value="next" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -186,18 +208,20 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="JUnit.NeuronTest.doNeuron" />
-      <item itemvalue="JUnit.NeuralNetworkTest.react" />
-      <item itemvalue="JUnit.SupervisedAgentTest.lines" />
       <item itemvalue="Maven.AILib [clean,deploy]" />
+      <item itemvalue="JUnit.CharsStreamTest" />
+      <item itemvalue="JUnit.CharsStreamTest.next" />
+      <item itemvalue="JUnit.TokenizerTest.next" />
+      <item itemvalue="JUnit.TokenizerTest" />
       <item itemvalue="JUnit.All in AILib" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in AILib" />
-        <item itemvalue="JUnit.SupervisedAgentTest.lines" />
-        <item itemvalue="JUnit.NeuralNetworkTest.react" />
-        <item itemvalue="JUnit.NeuronTest.doNeuron" />
+        <item itemvalue="JUnit.TokenizerTest" />
+        <item itemvalue="JUnit.TokenizerTest.next" />
+        <item itemvalue="JUnit.CharsStreamTest.next" />
+        <item itemvalue="JUnit.CharsStreamTest" />
       </list>
     </recent_temporary>
   </component>
