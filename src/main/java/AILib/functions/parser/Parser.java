@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Parser {
     public static final PunctuationToken delimiterStart = new PunctuationToken("(");
     private static final PunctuationToken delimiterStop = new PunctuationToken(")");
-    private static final PunctuationToken delimiterSeparator = new PunctuationToken(",");
+    public static final PunctuationToken delimiterSeparator = new PunctuationToken(",");
 
     private final Tokenizer tokenizer;
 
@@ -45,15 +45,15 @@ public class Parser {
 
         this.skipToken(Parser.delimiterStart);
         while (!this.tokenizer.eof()){
-            if(isFollowingToken(Parser.delimiterSeparator)) break;
+            if(isFollowingToken(Parser.delimiterStop)) break;
             if(isFirst){ isFirst = false; } else {
-                this.skipToken(Parser.delimiterStop);
+                this.skipToken(Parser.delimiterSeparator);
             }
-            if(isFollowingToken(Parser.delimiterSeparator)) break;
+            if(isFollowingToken(Parser.delimiterStop)) break;
             tokens.add(parser.run());
         }
 
-        this.skipToken(Parser.delimiterSeparator);
+        this.skipToken(Parser.delimiterStop);
         return tokens.toArray(new IToken[0]);
     }
 
@@ -110,7 +110,6 @@ public class Parser {
 
     public ExpressionToken parse() throws Exception {
         IToken token = parseExpression();
-        System.out.println(token);
         assert token instanceof ExpressionToken;
         return (ExpressionToken) token;
     }

@@ -35,9 +35,9 @@ public class CharsStream implements IStream<Character>{
     }
 
     public Character previous(String skip){
-        for (int i = this.index - 1; i >= 0; i--) {
+        for (int i = this.index - 1; i >= 0; i--)
             if (skip.indexOf(this.source[i]) <= -1) return this.source[i];
-        }
+
         return null;
     }
 

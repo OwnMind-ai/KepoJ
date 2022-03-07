@@ -14,13 +14,10 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/parser/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/CharsStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/CharsStream.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/Tokenizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/functions/tokenizer/TokenizerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/functions/tokenizer/TokenizerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/functions/parser/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/functions/parser/ParserTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/AILib/functions/parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/functions/parser/Parser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/AILib/functions/tokenizer/Tokenizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/functions/tokenizer/Tokenizer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main$Lambda.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/functions/parser/ParserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/functions/parser/ParserTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/functions/tokenizer/TokenizerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/functions/tokenizer/TokenizerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -325,11 +322,6 @@
           <url>file://$PROJECT_DIR$/AILib/src/AILib/layers/ClusteredLayer.java</url>
           <line>58</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AILib/functions/parser/Parser.java</url>
-          <line>111</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

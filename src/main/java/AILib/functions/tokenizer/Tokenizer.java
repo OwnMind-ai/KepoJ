@@ -35,9 +35,12 @@ public class Tokenizer implements IStream<IToken>{
 
         if(String.copyValueOf(new char[]{ch}).equals("-")){
             Character previous = this.charsStream.previous(whitespaces);
-            System.out.println(previous);
-            if (previous == null || previous == Parser.delimiterStart.punc)
+            if (previous == null ||
+                previous == Parser.delimiterStart.punc ||
+                previous == Parser.delimiterSeparator.punc)
+
                  return this.readNumber();
+
             else return this.readOperator();
         }
 
