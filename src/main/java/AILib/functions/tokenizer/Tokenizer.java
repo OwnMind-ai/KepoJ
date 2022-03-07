@@ -1,5 +1,6 @@
 package AILib.functions.tokenizer;
 
+import AILib.functions.parser.Parser;
 import AILib.functions.tokenizer.tokens.*;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.Arrays;
 public class Tokenizer implements IStream<IToken>{
     private static final String whitespaces = " \n\t";
     private static final String[] operators = {"+", "-", "*", "/", "%", "**"};
-    private static final String digits = "0123456789";
+    private static final String digits = "-0123456789";
     private static final String punctuation = ",()";
     private static final String letters = "abcdefghijklmnopqrstuvwxyz";
 
@@ -31,6 +32,14 @@ public class Tokenizer implements IStream<IToken>{
         if (this.charsStream.eof()) return null;
 
         char ch = this.charsStream.peek();
+
+        if(String.copyValueOf(new char[]{ch}).equals("-")){
+            Character previous = this.charsStream.previous(whitespaces);
+            System.out.println(previous);
+            if (previous == null || previous == Parser.delimiterStart.punc)
+                 return this.readNumber();
+            else return this.readOperator();
+        }
 
         if(isDigit(ch))
             return this.readNumber();
@@ -108,14 +117,12 @@ public class Tokenizer implements IStream<IToken>{
     @Override
     public IToken peek() {
         if (this.current == null) {
-            // TODO: Make normal peek
             try {
                 this.current = this.readNext();
             } catch (Exception ignored) {
                 return this.current;
             }
         }
-
         return this.current;
     }
 

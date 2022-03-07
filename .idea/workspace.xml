@@ -11,13 +11,16 @@
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/parser/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/CharsStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/CharsStream.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/Tokenizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/tokens/ExpressionToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/tokens/ExpressionToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/EvalTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/functions/tokenizer/TokenizerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/functions/tokenizer/TokenizerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/functions/parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/functions/parser/Parser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/AILib/functions/tokenizer/Tokenizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/functions/tokenizer/Tokenizer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/utills/AgentChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/utills/AgentChecker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/EvalTest$Lambda.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/EvalTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main$Lambda.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/functions/parser/ParserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/functions/parser/ParserTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/functions/tokenizer/TokenizerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/functions/tokenizer/TokenizerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,10 +33,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="package-info" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="Enum" />
         <option value="JUnit5 Test Class" />
       </list>
     </option>
@@ -120,22 +123,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CharsStreamTest.next" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AILib" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="AILib.functions.tokenizer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="AILib.functions.tokenizer" />
-      <option name="MAIN_CLASS_NAME" value="AILib.functions.tokenizer.CharsStreamTest" />
-      <option name="METHOD_NAME" value="next" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ParserTest.parse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AILib" />
       <extension name="coverage">
@@ -163,6 +150,22 @@
       <option name="PACKAGE_NAME" value="AILib.functions.tokenizer" />
       <option name="MAIN_CLASS_NAME" value="AILib.functions.tokenizer.TokenizerTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TokenizerTest.getAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AILib" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="AILib.functions.tokenizer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="AILib.functions.tokenizer" />
+      <option name="MAIN_CLASS_NAME" value="AILib.functions.tokenizer.TokenizerTest" />
+      <option name="METHOD_NAME" value="getAll" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -211,20 +214,20 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="Maven.AILib [clean,deploy]" />
-      <item itemvalue="JUnit.CharsStreamTest.next" />
       <item itemvalue="JUnit.TokenizerTest.next" />
       <item itemvalue="JUnit.TokenizerTest" />
       <item itemvalue="JUnit.All in AILib" />
       <item itemvalue="JUnit.ParserTest.parse" />
+      <item itemvalue="JUnit.TokenizerTest.getAll" />
+      <item itemvalue="Maven.AILib [clean,deploy]" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ParserTest.parse" />
+        <item itemvalue="JUnit.TokenizerTest.getAll" />
         <item itemvalue="JUnit.All in AILib" />
         <item itemvalue="JUnit.TokenizerTest" />
         <item itemvalue="JUnit.TokenizerTest.next" />
-        <item itemvalue="JUnit.CharsStreamTest.next" />
       </list>
     </recent_temporary>
   </component>
@@ -322,6 +325,11 @@
           <url>file://$PROJECT_DIR$/AILib/src/AILib/layers/ClusteredLayer.java</url>
           <line>58</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/AILib/functions/parser/Parser.java</url>
+          <line>111</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

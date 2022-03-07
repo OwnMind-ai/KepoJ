@@ -6,7 +6,7 @@ import AILib.functions.tokenizer.tokens.*;
 import java.util.ArrayList;
 
 public class Parser {
-    private static final PunctuationToken delimiterStart = new PunctuationToken("(");
+    public static final PunctuationToken delimiterStart = new PunctuationToken("(");
     private static final PunctuationToken delimiterStop = new PunctuationToken(")");
     private static final PunctuationToken delimiterSeparator = new PunctuationToken(",");
 
@@ -35,6 +35,7 @@ public class Parser {
     }
 
     private boolean isFollowingToken(IToken token){
+        if(this.tokenizer.peek() == null) return false;
         return this.tokenizer.peek().equals(token);
     }
 
@@ -98,9 +99,8 @@ public class Parser {
     }
 
     private IToken parseCall(IToken token) throws Exception {
-        if(!this.isFollowingToken(Parser.delimiterStart)) return token;
+        if(!this.isFollowingToken(Parser.delimiterStart) || !(token instanceof NameToken)) return token;
 
-        assert token instanceof NameToken;
         return new CallToken(
                 ((NameToken) token).name,
                 this.delimited(
@@ -110,6 +110,7 @@ public class Parser {
 
     public ExpressionToken parse() throws Exception {
         IToken token = parseExpression();
+        System.out.println(token);
         assert token instanceof ExpressionToken;
         return (ExpressionToken) token;
     }

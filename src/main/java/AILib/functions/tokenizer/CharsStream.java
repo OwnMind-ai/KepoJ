@@ -34,6 +34,13 @@ public class CharsStream implements IStream<Character>{
         return this.index >= this.source.length;
     }
 
+    public Character previous(String skip){
+        for (int i = this.index - 1; i >= 0; i--) {
+            if (skip.indexOf(this.source[i]) <= -1) return this.source[i];
+        }
+        return null;
+    }
+
     public int getColumn(){
         return this.index;
     }
