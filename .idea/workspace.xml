@@ -10,13 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/compiler/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/compiler/Compiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/compiler/ElementaryFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/compiler/ElementaryFunctions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/parser/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/CharsStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/CharsStream.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/Tokenizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedAgentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedAgentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AILib/functions/parser/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/functions/parser/ParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/functions/compiler/Compiler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/functions/compiler/Compiler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/functions/compiler/ElementaryFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/functions/compiler/ElementaryFunctions.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/AILib/functions/parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/functions/parser/Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/functions/tokenizer/Tokenizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/functions/tokenizer/Tokenizer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/agents/SupervisedAgentTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/agents/SupervisedAgentTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/functions/parser/ParserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/functions/parser/ParserTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,9 +35,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
-        <option value="Class" />
         <option value="Interface" />
         <option value="Enum" />
+        <option value="Class" />
         <option value="JUnit5 Test Class" />
       </list>
     </option>
@@ -90,13 +94,14 @@
       <recent name="AILib.entities" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="AILib.functions.compiler" />
       <recent name="AILib.functions.parser" />
       <recent name="AILib.functions.tokenizer" />
       <recent name="AILib.agents" />
       <recent name="AILib.entities" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ParserTest.parse">
+  <component name="RunManager" selected="JUnit.CompilerTest.compile">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -116,6 +121,22 @@
       <module name="AILib" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompilerTest.compile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AILib" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="AILib.functions.compiler.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="AILib.functions.compiler" />
+      <option name="MAIN_CLASS_NAME" value="AILib.functions.compiler.CompilerTest" />
+      <option name="METHOD_NAME" value="compile" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -167,22 +188,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TokenizerTest.next" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AILib" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="AILib.functions.tokenizer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="AILib.functions.tokenizer" />
-      <option name="MAIN_CLASS_NAME" value="AILib.functions.tokenizer.TokenizerTest" />
-      <option name="METHOD_NAME" value="next" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AILib [clean,deploy]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -211,20 +216,20 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="JUnit.TokenizerTest.next" />
       <item itemvalue="JUnit.TokenizerTest" />
       <item itemvalue="JUnit.All in AILib" />
       <item itemvalue="JUnit.ParserTest.parse" />
       <item itemvalue="JUnit.TokenizerTest.getAll" />
+      <item itemvalue="JUnit.CompilerTest.compile" />
       <item itemvalue="Maven.AILib [clean,deploy]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CompilerTest.compile" />
         <item itemvalue="JUnit.ParserTest.parse" />
         <item itemvalue="JUnit.TokenizerTest.getAll" />
         <item itemvalue="JUnit.All in AILib" />
         <item itemvalue="JUnit.TokenizerTest" />
-        <item itemvalue="JUnit.TokenizerTest.next" />
       </list>
     </recent_temporary>
   </component>

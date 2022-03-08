@@ -1,5 +1,6 @@
 package AILib.agents;
 
+import AILib.functions.ActivationFunction;
 import AILib.functions.StandardFunctions;
 import AILib.layers.StaticLayer;
 import AILib.utills.AgentChecker;

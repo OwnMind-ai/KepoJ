@@ -110,8 +110,9 @@ public class Parser {
 
     public ExpressionToken parse() throws Exception {
         IToken token = parseExpression();
-        assert token instanceof ExpressionToken;
-        return (ExpressionToken) token;
+        if(token instanceof ExpressionToken)
+            return (ExpressionToken) token;
+        else return new ExpressionToken(new OperatorToken("+"), token, new NumberToken(0));
     }
 
     interface IParserMethod{
