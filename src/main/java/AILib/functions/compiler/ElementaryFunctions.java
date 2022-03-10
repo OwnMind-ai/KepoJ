@@ -1,12 +1,14 @@
 package AILib.functions.compiler;
 
 public enum ElementaryFunctions {
-    SUM(Double::sum, "+"),
-    SUBTRACT((x, y) -> x - y, "-"),
-    MULTIPLICATION((x, y) -> x * y, "*"),
-    DIVISION((x, y) -> x / y, "/"),
-    POW(Math::pow, "**"),
-    SQRT((x, y) -> Math.sqrt(x), "sqrt"),;
+    SUM(args -> args[0] + args[1], "+"),
+    SUBTRACT(args -> args[0] - args[1], "-"),
+    MULTIPLICATION(args -> args[0] * args[1], "*"),
+    DIVISION(args -> args[0] / args[1], "/"),
+    POW(args -> Math.pow(args[0], args[1]), "**"),
+    SQRT(args -> Math.sqrt(args[0]), "sqrt"),
+    MIN(args -> Math.min(args[0], args[1]), "min"),
+    MAX(args -> Math.max(args[0], args[1]), "max");
 
     public final ElementaryFunction function;
     public final String operator;

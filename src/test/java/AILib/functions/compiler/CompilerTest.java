@@ -13,12 +13,10 @@ class CompilerTest {
     @Test
     void compile() throws Exception {
         Compiler compiler = new Compiler(
-                new Parser(new Tokenizer(new CharsStream("12 * x + 3"))),
-                new Parser(new Tokenizer(new CharsStream("3 ** 2 - sqrt(x)")))
+                new Parser(new Tokenizer(new CharsStream("12 * x + 3 - max(sqrt(18), x)")))
         );
 
-        ActivationFunction f = compiler.compile();
-        System.out.println(f.activate(3));
-        System.out.println(f.derivative(9));
+        ElementaryFunction f = compiler.compile();
+        System.out.println(f.run(3));
     }
 }
