@@ -1,22 +1,20 @@
 package AILib.functions.compiler;
 
-import AILib.functions.ActivationFunction;
 import AILib.functions.parser.Parser;
 import AILib.functions.tokenizer.CharsStream;
 import AILib.functions.tokenizer.Tokenizer;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CompilerTest {
 
     @Test
     void compile() throws Exception {
         Compiler compiler = new Compiler(
-                new Parser(new Tokenizer(new CharsStream("12 * x + 3 - max(sqrt(18), x)")))
+                new Parser(new Tokenizer(new CharsStream("min(1 + 0.01 * x, max(0.01 * x, x))")))
         );
 
         ElementaryFunction f = compiler.compile();
-        System.out.println(f.run(3));
+        for (float i = -5; i < 5; i+= 0.5)
+            System.out.println(f.run(i));
     }
 }
