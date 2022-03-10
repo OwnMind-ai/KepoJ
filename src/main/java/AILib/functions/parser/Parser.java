@@ -16,7 +16,7 @@ public class Parser {
         switch (operator.operator){
             case "+": case "-":
                 return 10;
-            case "*": case "/": case "%":
+            case "*": case "/": case "%": case "//":
                 return 20;
             case "**":
                 return 25;
@@ -83,7 +83,7 @@ public class Parser {
     private IToken parseToken() throws Exception {
         if(this.isFollowingToken(Parser.delimiterStart)){
             this.tokenizer.next();
-            ExpressionToken expression = (ExpressionToken) this.parseExpression();
+            IToken expression = this.parseExpression();
             this.skipToken(Parser.delimiterStop);
 
             return expression;

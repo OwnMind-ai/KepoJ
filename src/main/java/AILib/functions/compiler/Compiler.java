@@ -6,7 +6,9 @@ import AILib.functions.tokenizer.tokens.*;
 import java.util.Arrays;
 
 public class Compiler {
-    public static final String argument = "x";
+    private static final String exponent = "e";
+    private static final String pi = "pi";
+    private static final String argument = "x";
 
     private final Parser parser;
 
@@ -44,8 +46,16 @@ public class Compiler {
         if(token instanceof NumberToken) return args -> (((NumberToken) token).value);
         else if (token instanceof NameToken){
             NameToken nameToken = (NameToken) token;
-            if(nameToken.name.equals(argument)) return args -> args[0];
-            else throw new CompileException("Undefined argument", nameToken);
+            switch (nameToken.name) {
+                case argument:
+                    return args -> args[0];
+                case Compiler.exponent:
+                    return args -> Math.E;
+                case Compiler.pi:
+                    return args -> Math.PI;
+                default:
+                    throw new CompileException("Undefined argument", nameToken);
+            }
         }
         else if(token instanceof CallToken){
             CallToken callToken = (CallToken) token;

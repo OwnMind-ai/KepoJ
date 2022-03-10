@@ -11,8 +11,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/compiler/ElementaryFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/compiler/ElementaryFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/functions/compiler/CompilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/functions/compiler/CompilerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/ActivationFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/ActivationFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/compiler/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/compiler/Compiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/parser/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/Tokenizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedAgentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedAgentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +95,7 @@
       <recent name="AILib.entities" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CompilerTest.compile">
+  <component name="RunManager" selected="JUnit.SupervisedAgentTest.lines">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -148,17 +151,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TokenizerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SupervisedAgentTest.lines" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AILib" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AILib.functions.tokenizer.*" />
+          <option name="PATTERN" value="AILib.agents.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="AILib.functions.tokenizer" />
-      <option name="MAIN_CLASS_NAME" value="AILib.functions.tokenizer.TokenizerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="AILib.agents" />
+      <option name="MAIN_CLASS_NAME" value="AILib.agents.SupervisedAgentTest" />
+      <option name="METHOD_NAME" value="lines" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -207,20 +211,20 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="JUnit.TokenizerTest" />
       <item itemvalue="JUnit.All in AILib" />
       <item itemvalue="JUnit.ParserTest.parse" />
       <item itemvalue="JUnit.TokenizerTest.getAll" />
       <item itemvalue="JUnit.CompilerTest.compile" />
       <item itemvalue="Maven.AILib [clean,deploy]" />
+      <item itemvalue="JUnit.SupervisedAgentTest.lines" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SupervisedAgentTest.lines" />
         <item itemvalue="JUnit.CompilerTest.compile" />
         <item itemvalue="JUnit.ParserTest.parse" />
         <item itemvalue="JUnit.TokenizerTest.getAll" />
         <item itemvalue="JUnit.All in AILib" />
-        <item itemvalue="JUnit.TokenizerTest" />
       </list>
     </recent_temporary>
   </component>

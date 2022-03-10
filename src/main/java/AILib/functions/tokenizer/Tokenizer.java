@@ -37,7 +37,7 @@ public class Tokenizer implements IStream<IToken>{
             Character previous = this.charsStream.previous(whitespaces);
             if (previous == null ||
                 previous == Parser.delimiterStart.punc ||
-                previous == Parser.delimiterSeparator.punc)
+                previous == Parser.delimiterSeparator.punc )
 
                  return this.readNumber();
 
