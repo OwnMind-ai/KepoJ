@@ -75,6 +75,16 @@ public class Parser {
                         currentPrecedence
                 );
             }
+        } else if(token instanceof NameToken ||
+                Parser.delimiterStart.equals(token) ||
+                Parser.delimiterSeparator.equals(token)
+        ){
+            return this.buildExpressionTree(
+                    new ExpressionToken(
+                            (OperatorToken) previousToken,
+                            new NumberToken(0),
+                            this.parseToken()
+                    ), currentPrecedence);
         }
 
         return previousToken;
@@ -103,8 +113,7 @@ public class Parser {
 
         return new CallToken(
                 ((NameToken) token).name,
-                this.delimited(
-                        this::parseExpression)
+                this.delimited(this::parseExpression)
         );
     }
 

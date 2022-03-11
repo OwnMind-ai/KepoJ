@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Tokenizer implements IStream<IToken>{
-    private static final String whitespaces = " \n\t";
+    public static final String whitespaces = " \n\t";
     private static final String[] operators = {"+", "-", "*", "/", "%", "**"};
     private static final String digits = "-0123456789";
     private static final String punctuation = ",()";
@@ -35,10 +35,12 @@ public class Tokenizer implements IStream<IToken>{
 
         if(String.copyValueOf(new char[]{ch}).equals("-")){
             Character previous = this.charsStream.previous(whitespaces);
-            if (previous == null ||
+            char next = this.charsStream.peek(2).toCharArray()[1];
+            if ((previous == null ||
                 previous == Parser.delimiterStart.punc ||
-                previous == Parser.delimiterSeparator.punc )
-
+                previous == Parser.delimiterSeparator.punc) &&
+                    isDigit(next)
+            )
                  return this.readNumber();
 
             else return this.readOperator();
@@ -142,6 +144,10 @@ public class Tokenizer implements IStream<IToken>{
         }
 
         return tokens.toArray(new IToken[0]);
+    }
+
+    public Character previous(String skip){
+        return this.charsStream.previous(skip);
     }
 
     private interface IReadWhile {
