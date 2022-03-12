@@ -10,12 +10,11 @@ class CompilerTest {
     @Test
     void compile() throws Exception {
         Compiler compiler = new Compiler(
-                new Parser(new Tokenizer(new CharsStream(" - (-x + (-sqrt(x))) ")))
+                new Parser(new Tokenizer(new CharsStream("x > 2 - 3 || x % 2 == 0")))
         );
         // TODO: Error messages
-        System.out.println(new Parser(new Tokenizer(new CharsStream(" - (-x + (-sqrt(x))) "))).parse());
         ElementaryFunction f = compiler.compile();
         for (float i = -5; i < 5; i+= 0.5)
-            System.out.println(f.run(i));
+            System.out.println(i + " " + f.run(i));
     }
 }

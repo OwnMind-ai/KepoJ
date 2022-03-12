@@ -8,7 +8,9 @@ import java.util.Arrays;
 
 public class Tokenizer implements IStream<IToken>{
     public static final String whitespaces = " \n\t";
-    private static final String[] operators = {"+", "-", "*", "/", "%", "**"};
+    private static final String rawOperators = "+-*/%><=!|&";
+    private static final String[] operators = {"+", "-", "*", "/", "%", "**",
+                                               ">", "<", ">=", "<=", "==", "!=", "||", "&&"};
     private static final String digits = "-0123456789";
     private static final String punctuation = ",()";
     private static final String letters = "abcdefghijklmnopqrstuvwxyz";
@@ -22,7 +24,7 @@ public class Tokenizer implements IStream<IToken>{
 
     private static boolean isDigit(char ch) { return Tokenizer.digits.indexOf(ch) > -1; }
     private static boolean isIdStart(char ch) { return Tokenizer.letters.indexOf(ch) > -1; }
-    private static boolean isOperator(char ch) {return Arrays.asList(Tokenizer.operators).contains(String.valueOf(ch));}
+    private static boolean isOperator(char ch) {return Tokenizer.rawOperators.indexOf(ch) > -1;}
     private static boolean isWhitespace(char ch) { return Tokenizer.whitespaces.indexOf(ch) > -1; }
     private static boolean isPunctuation(char ch) { return Tokenizer.punctuation.indexOf(ch) > -1; }
     private static boolean isId(char ch) {return Tokenizer.isIdStart(ch) || (Tokenizer.digits + "_").indexOf(ch) > -1;}

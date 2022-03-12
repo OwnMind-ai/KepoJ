@@ -14,12 +14,20 @@ public class Parser {
 
     private static int getPrecedence(OperatorToken operator) throws Exception {
         switch (operator.operator){
-            case "+": case "-":
-                return 10;
+            case "||": return 3;
+
+            case "&&": return 4;
+
+            case "<": case ">": case "<=":
+            case ">=": case "==": case "!=":
+                return 7;
+
+            case "+": case "-": return 10;
+
             case "*": case "/": case "%": case "//":
                 return 20;
-            case "**":
-                return 25;
+
+            case "**": return 25;
         }
 
         throw new Exception("Invalid operator");

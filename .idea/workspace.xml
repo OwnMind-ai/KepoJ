@@ -11,11 +11,15 @@
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/compiler/ElementaryFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/compiler/ElementaryFunctions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/parser/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/tokenizer/Tokenizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedAgentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedAgentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AILib/functions/compiler/CompilerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/functions/compiler/CompilerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/functions/compiler/ElementaryFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/functions/compiler/ElementaryFunctions.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/AILib/functions/parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/functions/parser/Parser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/AILib/functions/tokenizer/Tokenizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/functions/tokenizer/Tokenizer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/agents/SupervisedAgentTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/agents/SupervisedAgentTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/functions/compiler/CompilerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/functions/compiler/CompilerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -326,8 +330,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/AILib/functions/parser/Parser.java</url>
-          <line>115</line>
-          <option name="timeStamp" value="7" />
+          <line>68</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

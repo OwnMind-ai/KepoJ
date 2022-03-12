@@ -31,7 +31,7 @@ class SupervisedAgentTest {
                 {{0,0,0,0,0,0,0,0,0},{0.2d,0.2d}}};
 
         ActivationFunction activationFunction = ActivationFunction.generate(
-                "1 / (1 + e ** (-1 * x))",
+                "1 / (1 + e ** (-x))",
                 "x * (1 - x)"
         );
 
