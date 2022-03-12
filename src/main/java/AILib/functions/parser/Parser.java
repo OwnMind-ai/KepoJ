@@ -83,9 +83,10 @@ public class Parser {
                         currentPrecedence
                 );
             }
-        } else if(token instanceof NameToken ||
+        } else if((token instanceof NameToken ||
                 Parser.delimiterStart.equals(token) ||
-                Parser.delimiterSeparator.equals(token)
+                Parser.delimiterSeparator.equals(token)) &&
+                previousToken.equals(new OperatorToken("-"))
         ){
             return this.buildExpressionTree(
                     new ExpressionToken(
