@@ -1,18 +1,16 @@
 package AILib.agents;
 
+import AILib.functions.ActivationFunction;
 import AILib.layers.InputLayer;
 import AILib.layers.Layer;
 import AILib.layers.Layers;
 import AILib.utills.FileHandler;
+import AILib.utills.NeuralNetworkReader;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class NeuralNetwork implements Agent{
-    public static double VERSION = 1.1d;         // Version of saving format, not used in program
-    public static double LAYER_SPLITTER = -256;  // Code of start layer's structure description
-    public static double WEIGHTS_START = -257;   // Code of start neural network weights enumeration
-
     protected ArrayList<Layer> layers;
     public double fault = 0.0005d;
 
@@ -21,33 +19,9 @@ public class NeuralNetwork implements Agent{
     }
 
     public NeuralNetwork(String fileName){
-        double[] parameters = FileHandler.readFile(fileName);
-        assert(parameters != null);
-        this.layers = new ArrayList<>();
 
-        int i = 2;
-        if(parameters[i] == Arrays.asList(Layers.values()).indexOf(Layers.INPUT_LAYER)){
-            this.layers.add(
-                    Layers.values()[(int) parameters[i]].getInstance(
-                        new double[]{parameters[i + 1]}
-            ));
-            i+= 2;
-        }
-        while(parameters[i] != NeuralNetwork.WEIGHTS_START){
-            if(parameters[i] == NeuralNetwork.LAYER_SPLITTER){
-                double[] data = new double[Layers.values()[(int) parameters[i + 1]].getDataLength()];
-                System.arraycopy(parameters, i + 2, data, 0, data.length);
-                this.addLayer(
-                        Layers.values()[(int) parameters[i + 1]].getInstance(data)
-                );
-            }
-            i+= 1;
-        }
-
-        double[] weights = new double[(int) (parameters.length - i - 1)];
-        System.arraycopy(parameters, i + 1, weights, 0, weights.length);
-        this.setWeights(weights);
     }
+
 
     private void buildAI(int neuronsCount){
         this.layers = new ArrayList<>();
@@ -105,9 +79,9 @@ public class NeuralNetwork implements Agent{
                 .flatMap(Arrays::stream).flatMapToDouble(Arrays::stream).toArray();
 
         ArrayList<Double> parametersList = new ArrayList<>();
-        parametersList.add(NeuralNetwork.VERSION);
+        parametersList.add((double) NeuralNetworkReader.VERSION);
         for (Layer layer : this.layers) {
-            parametersList.add(NeuralNetwork.LAYER_SPLITTER);
+            parametersList.add((double) NeuralNetworkReader.LAYER_SPLITTER);
 
             parametersList.add((double) Layers.getLayerID(layer.getClass()));
             double[] data = layer.getArchivedData();
@@ -115,7 +89,7 @@ public class NeuralNetwork implements Agent{
                 parametersList.add(d);
         }
 
-        parametersList.add(NeuralNetwork.WEIGHTS_START);
+        parametersList.add((double) NeuralNetworkReader.WEIGHTS_START);
 
         double[] parameters = parametersList.stream().mapToDouble(Double::doubleValue).toArray();
         double[] result = Arrays.copyOf(parameters, weights.length + parameters.length);
@@ -125,4 +99,6 @@ public class NeuralNetwork implements Agent{
     }
 
     public void save(){ this.save(this.toString() + ".bin");}
+
+    public native int sum(int a, int b);
 }

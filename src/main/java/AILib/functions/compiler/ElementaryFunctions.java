@@ -31,6 +31,7 @@ public enum ElementaryFunctions {
     ROUND(args -> Math.round(args[0]), "round"),
     FLOOR(args -> Math.floor(args[0]), "floor"),
     CEIL(args -> Math.ceil(args[0]), "ceil"),
+    POW_FUNCTION(args -> Math.pow(args[0], args[1]), "pow"),
     RANDOM(args -> Math.random(), "random"),
     IF(args -> args[0] > 0 ? args[1] : args[2], "if");
 

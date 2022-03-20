@@ -16,8 +16,11 @@ public class Compiler {
         this.parser = parser;
     }
 
-    public ElementaryFunction compile() throws Exception {
-        return this.buildFunctionsTree(this.parser.parse());
+    public ElementaryFunction compile(){
+        try { return this.buildFunctionsTree(this.parser.parse()); }
+        catch (Exception e) { e.printStackTrace(); }
+
+        return null;
     }
 
     private ElementaryFunction buildFunctionsTree(ExpressionToken tokensTree) throws CompileException {

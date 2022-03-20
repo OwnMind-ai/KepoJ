@@ -7,9 +7,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class NeuronTest {
 
     @org.junit.jupiter.api.Test
-    void doNeuron() {
+    void excite() {
         Neuron neuron;
-
         neuron = new Neuron(new double[]{1,1,1,1,1}, StandardFunctions.IDENTICAL.get());
         assertEquals(9, neuron.excite(new double[]{1, 3, 5, -1}));
 

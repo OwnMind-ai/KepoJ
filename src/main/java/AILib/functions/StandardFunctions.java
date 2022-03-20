@@ -1,43 +1,37 @@
 package AILib.functions;
 
 public enum StandardFunctions {
-    SIGMOID((x) -> (1f/(1f + Math.pow(Math.E, -x))),
-            (x) -> x * (1 - x)),
+    SIGMOID("1 / (1 + pow(e, -x))",
+            "x * (1 - x)"),
 
-    TANH    ((x) -> ((Math.pow(Math.E, x) - Math.pow(Math.E, -x))/(Math.pow(Math.E, x) + Math.pow(Math.E, -x))),
-            (x) -> (1 - Math.pow(x, 2))),
+    TANH    ("(pow(e, x) - pow(e, -x)) / (pow(e, x) + pow(e, -x))",
+            "1 - pow(x, 2))"),
 
-    RELU   ((x) -> Math.max(0,x),
-            (x) -> (x >= 0 ? 1 : 0)),
+    RELU   ("max(0, x)",
+            "x >= 0"),
 
-    LEAKY_RELU((x) -> Math.max(0.01 * x,x),
-            (x) -> (x >= 0 ? 1 : 0.01 * x)),
+    LEAKY_RELU("max(0.01 * x, x)",
+            "if(x >= 0, 1, 0.01 * x)"),
 
-    BOUNDED_LEAKY_RELU ((x) -> (Math.min(1 + 0.01 * x, Math.max(0.01 * x, x))),
-            (x) -> ((x <= 0 || x >= 1) ? 0.01f : 1)),
+    BOUNDED_LEAKY_RELU ("min(1 + 0.01 * x, max(0.01 * x, x))",
+            "if(x <= 0 || x >= 1, 0.01, 1)"),
 
-    IDENTICAL ((x) -> x, (x) -> 1),
+    IDENTICAL ("x", "1"),
 
-    THRESHOLD((x) -> x >= 0 ? 1 : 0,
-            (x) -> x != 0 ? 0 : 1);
+    THRESHOLD("x >= 0",
+            "x == 0");
 
-    public final ActivationFunction function;
+    public final String activateFunc;
+    public final String derivativeFunc;
 
-    StandardFunctions(IFunction activateFunc, IFunction derivativeFunc){
-        this.function = new ActivationFunction() {
-            @Override
-            public double activate(double value) {
-                return activateFunc.run(value);
-            }
-
-            @Override
-            public double derivative(double value) {
-                return derivativeFunc.run(value);
-            }
-        };
+    StandardFunctions(String activateFunc, String derivativeFunc) {
+        this.activateFunc = activateFunc;
+        this.derivativeFunc = derivativeFunc;
     }
 
-    public ActivationFunction get(){ return this.function; }
+    public ActivationFunction get()  {
+        return new ActivationFunction(activateFunc, derivativeFunc);
+    }
 
     interface IFunction{
         double run(double value);

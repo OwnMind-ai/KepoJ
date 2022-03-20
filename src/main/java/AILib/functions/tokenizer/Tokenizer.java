@@ -23,11 +23,10 @@ public class Tokenizer implements IStream<IToken>{
     }
 
     private static boolean isDigit(char ch) { return Tokenizer.digits.indexOf(ch) > -1; }
-    private static boolean isIdStart(char ch) { return Tokenizer.letters.indexOf(ch) > -1; }
+    private static boolean isIdentifier(char ch) { return Tokenizer.letters.indexOf(ch) > -1; }
     private static boolean isOperator(char ch) {return Tokenizer.rawOperators.indexOf(ch) > -1;}
     private static boolean isWhitespace(char ch) { return Tokenizer.whitespaces.indexOf(ch) > -1; }
     private static boolean isPunctuation(char ch) { return Tokenizer.punctuation.indexOf(ch) > -1; }
-    private static boolean isId(char ch) {return Tokenizer.isIdStart(ch) || (Tokenizer.digits + "_").indexOf(ch) > -1;}
 
     private IToken readNext() throws Exception {
         this.skipWhitespaces();
@@ -57,7 +56,7 @@ public class Tokenizer implements IStream<IToken>{
         if(isPunctuation(ch))
             return new PunctuationToken(this.charsStream.next());
 
-        if(isIdStart(ch))
+        if(isIdentifier(ch))
             return this.readIdentification();
 
         this.throwError("Cant read data");
@@ -81,7 +80,7 @@ public class Tokenizer implements IStream<IToken>{
     }
 
     private IToken readIdentification(){
-        String name = this.readWhile(Tokenizer::isId);
+        String name = this.readWhile(Tokenizer::isIdentifier);
 
         return new NameToken(name);
     }
