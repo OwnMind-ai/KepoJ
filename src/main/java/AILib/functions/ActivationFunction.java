@@ -1,41 +1,22 @@
 package AILib.functions;
 
-import AILib.functions.compiler.ElementaryFunction;
-import AILib.functions.parser.Parser;
-import AILib.functions.tokenizer.CharsStream;
-import AILib.functions.tokenizer.Tokenizer;
-import AILib.functions.compiler.Compiler;
+import java.io.Serializable;
 
-import java.util.Objects;
+public interface ActivationFunction extends Serializable {
+    double activate(double input);
+    double derivative(double input);
 
-public class ActivationFunction {
-    private final String activationCode;
-    private final String derivativeCode;
+    static ActivationFunction create(IActivation activation, IActivation derivative){
+        return new ActivationFunction() {
+            @Override
+            public double activate(double input) { return activation.run(input); }
 
-    private final ElementaryFunction activateFunction;
-    private final ElementaryFunction derivativeFunction;
-
-    public ActivationFunction(String activate, String derivative) {
-        this.activateFunction = new Compiler(new Parser(new Tokenizer(new CharsStream(
-                activate
-        )))).compile();
-
-        this.derivativeFunction = new Compiler(new Parser(new Tokenizer(new CharsStream(
-                derivative
-        )))).compile();
-
-        this.activationCode = activate;
-        this.derivativeCode = derivative;
+            @Override
+            public double derivative(double input) { return derivative.run(input); }
+        };
     }
+}
 
-    public double activate(double value){ return this.activateFunction.run(value); }
-    public double derivative(double value){ return this.derivativeFunction.run(value); }
-
-    public String getActivate(){ return this.activationCode; }
-    public String getDerivative(){ return this.derivativeCode; }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(activationCode, derivativeCode);
-    }
+interface IActivation extends Serializable{
+    double run(double input);
 }

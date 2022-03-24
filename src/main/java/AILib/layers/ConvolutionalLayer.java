@@ -11,6 +11,7 @@ public class ConvolutionalLayer implements Layer {
     private final ActivationFunction aiFunctions;
     private final Neuron[] neurons;
 
+    // TODO: clear this code
     public final int layerSizeX;
     public final int layerSizeY;
     private final int previousLayerX;
@@ -78,24 +79,12 @@ public class ConvolutionalLayer implements Layer {
      */
 
     @Override
-    public double[] getArchivedData() {
-        return null; /* new double[]{
-                this.coreSizeX,
-                this.coreSizeY,
-                this.previousLayerX,
-                this.previousLayerY,
-                Arrays.asList(AIFunctions.values())
-                        .indexOf(this.aiFunctions)
-        }; */
-    }
-
-    @Override
-    public double[] doLayer(double[] data) {
+    public void doLayer(double[] data) {
         for(Neuron neuron : this.neurons) {
             neuron.excite(data);
         }
 
-        return this.getOutputs();
+        this.getOutputs();
     }
 
     @Override
@@ -176,7 +165,7 @@ public class ConvolutionalLayer implements Layer {
     }
 
     @Override
-    public int getNeuronsLength() {
+    public int size() {
         return this.neurons.length;
     }
 }

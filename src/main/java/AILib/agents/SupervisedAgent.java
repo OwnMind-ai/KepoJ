@@ -2,15 +2,16 @@ package AILib.agents;
 
 import AILib.entities.Dataset;
 
-import javax.xml.ws.Action;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class SupervisedAgent extends NeuralNetwork {
+public class SupervisedAgent extends NeuralNetwork implements Serializable {
     public SupervisedAgent(int inputNeurons) {
         super(inputNeurons);
     }
 
-    public SupervisedAgent(String fileName) {
+    public SupervisedAgent(String fileName) throws IOException, ClassNotFoundException {
         super(fileName);
     }
 
@@ -29,7 +30,7 @@ public class SupervisedAgent extends NeuralNetwork {
     }
 
     private void datasetOffset(double[] dataset){
-        double[] errors = new double[this.layers.get(this.layers.size() - 1).getNeuronsLength()];
+        double[] errors = new double[this.layers.get(this.layers.size() - 1).size()];
         double[] outputs = this.layers.get(this.layers.size() - 1).getOutputs();
 
         for(int i = 0; i < outputs.length; i++){
@@ -39,9 +40,7 @@ public class SupervisedAgent extends NeuralNetwork {
         this.layers.get(this.layers.size() - 1).setErrors(errors);
     }
 
-    @Action
-    public double[] train(double[][][] example, double ratio){
-        ArrayList<Double> errorsLog = new ArrayList<>();
+    public void train(double[][][] example, double ratio){
         double sumError = Double.MAX_VALUE;
         int age = 0;
 
@@ -56,13 +55,11 @@ public class SupervisedAgent extends NeuralNetwork {
                 this.findError();
                 this.backWeights(ratio);
             }
-            errorsLog.add(sumError);
+
             System.out.println(age + " - " + sumError);
             age++;
         }
-
-        return errorsLog.stream().mapToDouble(Double::doubleValue).toArray();
     }
 
-    public double[] train(Dataset dataset, float ratio){ return this.train(dataset.toArray(), ratio); }
+    public void train(Dataset dataset, float ratio){ this.train(dataset.toArray(), ratio); }
 }

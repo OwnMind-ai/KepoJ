@@ -2,12 +2,13 @@ package AILib.entities;
 
 import AILib.functions.ActivationFunction;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Neuron{
+public class Neuron implements Serializable {
     public double output = 0;
-    public double error = 0;
+    public transient double error = 0;
     private final ActivationFunction neuronFunctions;
 
     public final static Random random = new Random();

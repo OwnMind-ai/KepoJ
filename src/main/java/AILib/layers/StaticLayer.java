@@ -28,21 +28,9 @@ public class StaticLayer implements Layer {
     */
 
     @Override
-    public double[] getArchivedData() {
-        return null; /* new double[]{
-                this.getNeuronsLength(),
-                Arrays.asList(ActivationFunction.values())
-                        .indexOf(this.aiFunctions)
-        }; */
-    }
-
-    @Override
-    public double[] doLayer(double[] data) {
-        for(Neuron neuron : this.neurons) {
+    public void doLayer(double[] data) {
+        for(Neuron neuron : this.neurons)
             neuron.excite(data);
-        }
-
-        return this.getOutputs();
     }
 
     @Override
@@ -82,7 +70,7 @@ public class StaticLayer implements Layer {
     }
 
     @Override
-    public int getNeuronsLength() {
+    public int size() {
         return this.neurons.length;
     }
 

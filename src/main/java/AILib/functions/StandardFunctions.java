@@ -1,39 +1,38 @@
 package AILib.functions;
 
 public enum StandardFunctions {
-    SIGMOID("1 / (1 + pow(e, -x))",
-            "x * (1 - x)"),
+    SIGMOID(ActivationFunction.create(
+            (x) -> (1f/(1f + Math.pow(Math.E, -x))),
+            (x) -> x * (1 - x))),
 
-    TANH    ("(pow(e, x) - pow(e, -x)) / (pow(e, x) + pow(e, -x))",
-            "1 - pow(x, 2))"),
+    TANH    (ActivationFunction.create(
+            (x) -> ((Math.pow(Math.E, x) - Math.pow(Math.E, -x))/(Math.pow(Math.E, x) + Math.pow(Math.E, -x))),
+            (x) -> (1 - Math.pow(x, 2)))),
 
-    RELU   ("max(0, x)",
-            "x >= 0"),
+    RELU   (ActivationFunction.create(
+            (x) -> Math.max(0,x),
+            (x) -> (x >= 0 ? 1 : 0))),
 
-    LEAKY_RELU("max(0.01 * x, x)",
-            "if(x >= 0, 1, 0.01 * x)"),
+    LEAKY_RELU(ActivationFunction.create(
+            (x) -> Math.max(0.01 * x,x),
+            (x) -> (x >= 0 ? 1 : 0.01 * x))),
 
-    BOUNDED_LEAKY_RELU ("min(1 + 0.01 * x, max(0.01 * x, x))",
-            "if(x <= 0 || x >= 1, 0.01, 1)"),
+    BOUNDED_LEAKY_RELU (ActivationFunction.create(
+            (x) -> (Math.min(1 + 0.01 * x, Math.max(0.01 * x, x))),
+            (x) -> ((x <= 0 || x >= 1) ? 0.01f : 1))),
 
-    IDENTICAL ("x", "1"),
+    IDENTICAL (ActivationFunction.create((x) -> x, (x) -> 1)),
 
-    THRESHOLD("x >= 0",
-            "x == 0");
+    THRESHOLD(ActivationFunction.create(
+            (x) -> x >= 0 ? 1 : 0,
+            (x) -> x != 0 ? 0 : 1));
 
-    public final String activateFunc;
-    public final String derivativeFunc;
-
-    StandardFunctions(String activateFunc, String derivativeFunc) {
-        this.activateFunc = activateFunc;
-        this.derivativeFunc = derivativeFunc;
+    private final ActivationFunction function;
+    StandardFunctions(ActivationFunction function){
+        this.function = function;
     }
 
-    public ActivationFunction get()  {
-        return new ActivationFunction(activateFunc, derivativeFunc);
-    }
-
-    interface IFunction{
-        double run(double value);
+    public ActivationFunction get(){
+        return function;
     }
 }

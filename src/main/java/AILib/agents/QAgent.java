@@ -1,13 +1,15 @@
 package AILib.agents;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class QAgent extends NeuralNetwork {
+public class QAgent extends NeuralNetwork implements Serializable {
     public QAgent(int inputNeurons) {
         super(inputNeurons);
     }
 
-    public QAgent(String fileName) {
+    public QAgent(String fileName) throws IOException, ClassNotFoundException {
         super(fileName);
     }
 
@@ -20,7 +22,7 @@ public class QAgent extends NeuralNetwork {
     }
 
     private void setError(double reward, double[] nextQValues, double discountFactor){
-        double[] errors = new double[this.layers.get(this.layers.size() - 1).getNeuronsLength()];
+        double[] errors = new double[this.layers.get(this.layers.size() - 1).size()];
         Arrays.fill(errors, 0);
         Arrays.sort(nextQValues);
 

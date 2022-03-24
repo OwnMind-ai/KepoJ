@@ -15,8 +15,7 @@ public class InputLayer implements Layer{
     }
 
     @Override
-    public double[] doLayer(double[] data) {
-        return new double[0];
+    public void doLayer(double[] data) {
     }
 
     @Override
@@ -65,12 +64,8 @@ public class InputLayer implements Layer{
     }
 
     @Override
-    public int getNeuronsLength() {
+    public int size() {
         return this.outputs.length;
     }
 
-    @Override
-    public double[] getArchivedData() {
-        return new double[]{this.getNeuronsLength()};
-    }
 }

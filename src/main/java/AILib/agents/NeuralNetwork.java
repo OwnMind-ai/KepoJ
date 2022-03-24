@@ -1,33 +1,31 @@
 package AILib.agents;
 
-import AILib.functions.ActivationFunction;
 import AILib.layers.InputLayer;
 import AILib.layers.Layer;
-import AILib.layers.Layers;
-import AILib.utills.FileHandler;
-import AILib.utills.NeuralNetworkReader;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class NeuralNetwork implements Agent{
+public class NeuralNetwork implements Agent, Serializable {
     protected ArrayList<Layer> layers;
     public double fault = 0.0005d;
 
     public NeuralNetwork(int inputNeurons){    //Initialization by pre-creating first layer
-        buildAI(inputNeurons);
-    }
-
-    public NeuralNetwork(String fileName){
-
-    }
-
-
-    private void buildAI(int neuronsCount){
         this.layers = new ArrayList<>();
-        this.layers.add(new InputLayer(neuronsCount));
+        this.layers.add(new InputLayer(inputNeurons));
     }
 
+    public NeuralNetwork(String fileName) throws IOException, ClassNotFoundException {
+        ObjectInputStream stream = new ObjectInputStream(new FileInputStream(fileName));
+        NeuralNetwork result = (NeuralNetwork) stream.readObject();
+        stream.close();
+
+        this.layers = new ArrayList<>(result.layers);
+        this.fault = result.fault;
+    }
+
+    @Deprecated
     public void setFault(double fault) {
         this.fault = fault;
     }
@@ -35,7 +33,7 @@ public class NeuralNetwork implements Agent{
     public void addLayer(Layer layer) {
         this.layers.add(layer);
         this.layers.get(this.layers.size() - 1).buildLayer(
-                this.layers.get(this.layers.size() - 2).getNeuronsLength()
+                this.layers.get(this.layers.size() - 2).size()
         );
     }
 
@@ -53,11 +51,12 @@ public class NeuralNetwork implements Agent{
         return this.layers.get(this.layers.size() - 1).getOutputs();
     }
 
+    @Deprecated
     public double[][][] getWeights() {
         double[][][] weights = new double[this.layers.size() - 1][][];
         for(int i = 1; i < this.layers.size(); i++) {
             weights[i - 1] = this.layers.get(i).getWeights();
-            for(int j = 0; j < this.layers.get(i).getBias().length; j++) {
+            for(int j = 0; j < this.layers.get(i).size(); j++) {
                 weights[i - 1][j] = Arrays.copyOf(weights[i - 1][j], weights[i - 1][j].length + 1);
                 weights[i - 1][j][weights[i - 1][j].length - 1] = this.layers.get(i).getBias()[j];
             }
@@ -66,39 +65,20 @@ public class NeuralNetwork implements Agent{
         return weights;
     }
 
+    @Deprecated
     public void setWeights(double[] weights) {
         int index = 0;
         for(int i = 1; i < this.layers.size(); i++)
-            for(int a = 0; a < this.layers.get(i).getWeights().length; a++)
+            for(int a = 0; a < this.layers.get(i).size(); a++)
                 for(int b = 0; b < this.layers.get(i).getNeuron(a).weights.size() + 1; b++)
                     this.layers.get(i).getNeuron(a).setWeight(b, weights[index++]);
     }
 
-    public void save(String fileName){
-        double[] weights = Arrays.stream(this.getWeights())
-                .flatMap(Arrays::stream).flatMapToDouble(Arrays::stream).toArray();
-
-        ArrayList<Double> parametersList = new ArrayList<>();
-        parametersList.add((double) NeuralNetworkReader.VERSION);
-        for (Layer layer : this.layers) {
-            parametersList.add((double) NeuralNetworkReader.LAYER_SPLITTER);
-
-            parametersList.add((double) Layers.getLayerID(layer.getClass()));
-            double[] data = layer.getArchivedData();
-            for (double d : data)
-                parametersList.add(d);
-        }
-
-        parametersList.add((double) NeuralNetworkReader.WEIGHTS_START);
-
-        double[] parameters = parametersList.stream().mapToDouble(Double::doubleValue).toArray();
-        double[] result = Arrays.copyOf(parameters, weights.length + parameters.length);
-        System.arraycopy(weights, 0, result, parameters.length, weights.length);
-
-        FileHandler.writeToFile(result, fileName);
+    public void save(String fileName) throws IOException {
+        ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(fileName));
+        stream.writeObject(this);
+        stream.close();
     }
 
-    public void save(){ this.save(this.toString() + ".bin");}
-
-    public native int sum(int a, int b);
+    public void save() throws IOException { this.save(this.toString() + ".bin");}
 }

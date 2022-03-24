@@ -2,10 +2,12 @@ package AILib.layers;
 
 import AILib.entities.Neuron;
 
-public interface Layer {
+import java.io.Serializable;
+
+public interface Layer extends Serializable {
     void buildLayer(int weightsCount);
 
-    double[] doLayer(double[] data);
+    void doLayer(double[] data);
     void trainLayer(double[] outputs, double ratio);
     void setOutputs(double[] outputs);
     void findErrors(double[] errors, double[][] weights);
@@ -16,6 +18,5 @@ public interface Layer {
     double[] getErrors();
     double[] getOutputs();
     double[] getBias();
-    int getNeuronsLength();
-    double[] getArchivedData();
+    int size();
 }
