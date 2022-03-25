@@ -24,7 +24,6 @@ public class QAgent extends NeuralNetwork implements Serializable {
     private void setError(double reward, double[] nextQValues, double discountFactor){
         double[] errors = new double[this.layers.get(this.layers.size() - 1).size()];
         Arrays.fill(errors, 0);
-        Arrays.sort(nextQValues);
 
         double maxQ = Arrays.stream(nextQValues).summaryStatistics().getMax();
         int maxQIndex = Arrays.binarySearch(nextQValues, maxQ);
