@@ -10,7 +10,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class EntityController {
+    public static final String INACTION = "inaction";
+
     private final ArrayList<ActionConfiguration> actions;
+    private Method inactionAction;
     private final ArrayList<Field> parameters;
 
     private Object entity;
@@ -20,7 +23,12 @@ public class EntityController {
         for (Method action : entity.getClass().getDeclaredMethods()) {
             if (action.isAnnotationPresent(Action.class)) {
                 action.setAccessible(true);
-                if (action.getAnnotation(Action.class).id() < 0) {
+                if (action.getAnnotation(Action.class).name().equals(INACTION)){
+                    if(this.inactionAction == null) this.inactionAction = action;
+                    else System.out.println("Inactive action has already taken");  // TODO: make exceptions
+                }
+
+                else if (action.getAnnotation(Action.class).id() < 0) {
                     actions.add(new ActionConfiguration(
                             action.getAnnotation(Action.class),
                             this.actions.size(),
@@ -39,6 +47,8 @@ public class EntityController {
                 else this.parameters.add(parameter);
             }
         }
+
+        System.out.println(actions);
     }
 
     public void bind(Object entity){
@@ -63,15 +73,19 @@ public class EntityController {
         this.parameters = new ArrayList<>();
     }
 
-    public void react() throws Exception {
-        double[] result = agent.react(parameters.stream().mapToDouble(x -> {
+    public double[] getParametersState(){
+        return parameters.stream().mapToDouble(x -> {
             try {
                 return x.getDouble(entity);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
             return 0;
-        }).toArray());
+        }).toArray();
+    }
+
+    public String react() throws Exception {
+        double[] result = agent.react(this.getParametersState());
 
         int max = Arrays.binarySearch(result, Arrays.stream(result).summaryStatistics().getMax());
         ActionConfiguration action = (ActionConfiguration) this.actions.stream()
@@ -79,8 +93,15 @@ public class EntityController {
 
         if (action != null){
             System.out.println(Arrays.toString(result));
-            System.out.println("Invoke: " + action.name);
-            if (action.threshold <= max) action.action.invoke(this.entity);
+            if (action.threshold <= result[max]) {
+                action.action.invoke(this.entity);
+                return action.name;
+            }
+            else if(this.inactionAction != null) {
+                this.inactionAction.invoke(this.entity);
+                return INACTION;
+            }
+            else return null;
         } else { throw new Exception(""); }  //TODO: Make normal exceptions
     }
 }

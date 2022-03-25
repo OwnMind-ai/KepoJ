@@ -20,11 +20,18 @@ public class AnnotationsTest {
 
         while (entity.health > 0) {
             int h = entity.health;
-            entity.react();
+            double reward = 0;
+            switch (entity.react()){
+                case EntityController.INACTION: reward = 0.5; break;
+                case "attack": reward = 1; break;
+                case "dodge": reward = -1; break;
+                default:
+                    System.out.println("Oops");
+            }
 
             agent.learningIteration(
-                    entity.health == h ? -1 : 1,
-                    new double[]{entity.health, entity.attack},
+                    reward,
+                    entity.getParametersState(),
                     0.99, 1
                     );
         }
@@ -43,7 +50,7 @@ class Entity extends EntityController {
         super.bind(this);
     }
 
-    @Action(name = "attack")
+    @Action(name = "attack", threshold = 0.8d)
     public void attackNext(){
         System.out.println("attack");
         this.health-= this.attack;
@@ -52,5 +59,11 @@ class Entity extends EntityController {
     @Action(name = "dodge", threshold = 0.6d)
     public void dodge(){
         System.out.println("dodge");
+    }
+
+    @Action(name = INACTION)
+    public void stay(){
+        System.out.println("stay");
+        this.health-= this.attack/2;
     }
 }

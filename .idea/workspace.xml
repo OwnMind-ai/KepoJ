@@ -11,24 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/QAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/QAgent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/agents/NeuralNetwork.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/agents/NeuralNetwork.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/agents/QAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/agents/QAgent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/agents/SupervisedAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/agents/SupervisedAgent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/entities/Dataset.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/entities/Dataset.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/layers/ConvolutionalLayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/layers/ConvolutionalLayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/layers/InputLayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/layers/InputLayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/layers/Layer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/layers/Layer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/layers/Layers$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/layers/Layers$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/layers/Layers$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/layers/Layers.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/layers/StaticLayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/layers/StaticLayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/utills/FileReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/utills/NeuralNetworkReader$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/utills/NeuralNetworkReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/utills/Lambda.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/utills/NeuralNetworkReaderTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/utills/EntityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/utills/EntityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/entities/AnnotationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/entities/AnnotationsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
