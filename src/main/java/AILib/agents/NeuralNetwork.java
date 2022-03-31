@@ -42,7 +42,7 @@ public class NeuralNetwork implements Agent, Serializable {
             this.addLayer(layer);
     }
 
-    public double[] react(double[] inputData){
+    public double[] react(double... inputData){
         this.layers.get(0).setOutputs(inputData);
 
         for(int i = 1; i < this.layers.size(); i++)

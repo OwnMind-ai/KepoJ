@@ -1,5 +1,7 @@
 package AILib.agents;
 
+import AILib.utills.ArrayUtils;
+
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Arrays;
@@ -26,7 +28,7 @@ public class QAgent extends NeuralNetwork implements Serializable {
         Arrays.fill(errors, 0);
 
         double maxQ = Arrays.stream(nextQValues).summaryStatistics().getMax();
-        int maxQIndex = Arrays.binarySearch(nextQValues, maxQ);
+        int maxQIndex = ArrayUtils.getMaxIndex(nextQValues);
         errors[maxQIndex] =
                 reward + maxQ * discountFactor - this.layers.get(this.layers.size() - 1).getOutputs()[maxQIndex];
 

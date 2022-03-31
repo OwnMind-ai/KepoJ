@@ -15,11 +15,11 @@ public enum StandardFunctions {
 
     LEAKY_RELU(ActivationFunction.create(
             (x) -> Math.max(0.01 * x,x),
-            (x) -> (x >= 0 ? 1 : 0.01 * x))),
+            (x) -> (x >= 0 ? 1 : 0.01))),
 
     BOUNDED_LEAKY_RELU (ActivationFunction.create(
             (x) -> (Math.min(1 + 0.01 * x, Math.max(0.01 * x, x))),
-            (x) -> ((x <= 0 || x >= 1) ? 0.01f : 1))),
+            (x) -> ((x <= 0 || x >= 1) ? 0.01 : 1))),
 
     IDENTICAL (ActivationFunction.create((x) -> x, (x) -> 1)),
 

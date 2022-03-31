@@ -50,20 +50,14 @@ class Entity extends EntityController {
         super.bind(this);
     }
 
-    @Action(name = "attack", threshold = 0.8d)
+    @Action(name = "attack")
     public void attackNext(){
         System.out.println("attack");
         this.health-= this.attack;
     }
 
-    @Action(name = "dodge", threshold = 0.6d)
+    @Action(name = "dodge")
     public void dodge(){
         System.out.println("dodge");
-    }
-
-    @Action(name = INACTION)
-    public void stay(){
-        System.out.println("stay");
-        this.health-= this.attack/2;
     }
 }

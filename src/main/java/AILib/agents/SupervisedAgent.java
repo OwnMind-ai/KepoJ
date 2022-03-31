@@ -61,5 +61,5 @@ public class SupervisedAgent extends NeuralNetwork implements Serializable {
         }
     }
 
-    public void train(Dataset dataset, float ratio){ this.train(dataset.toArray(), ratio); }
+    public void train(Dataset dataset, double ratio){ this.train(dataset.toArray(), ratio); }
 }

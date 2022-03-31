@@ -8,6 +8,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
 
 public class EntityController {
     public static final String INACTION = "inaction";
@@ -48,7 +51,6 @@ public class EntityController {
             }
         }
 
-        System.out.println(actions);
     }
 
     public void bind(Object entity){
@@ -84,16 +86,18 @@ public class EntityController {
         }).toArray();
     }
 
-    public String react() throws Exception {
-        double[] result = agent.react(this.getParametersState());
-
-        int max = Arrays.binarySearch(result, Arrays.stream(result).summaryStatistics().getMax());
-        ActionConfiguration action = (ActionConfiguration) this.actions.stream()
-                    .filter(item -> item.id == max).toArray()[0];
+    public String rawReact(double... data) throws Exception {
+        double[] result = agent.react(data);
+        System.out.println(Arrays.toString(result));
+        // TODO: Fix this shit
+        int maxId = ArrayUtils.getMaxIndex(result);
+        Object[] actions = this.actions.stream()
+                    .filter(item -> item.id == maxId).toArray();
+        assert actions.length > 0;
+        ActionConfiguration action = (ActionConfiguration) actions[0];
 
         if (action != null){
-            System.out.println(Arrays.toString(result));
-            if (action.threshold <= result[max]) {
+            if (action.threshold <= result[maxId]) {
                 action.action.invoke(this.entity);
                 return action.name;
             }
@@ -104,6 +108,16 @@ public class EntityController {
             else return null;
         } else { throw new Exception(""); }  //TODO: Make normal exceptions
     }
+
+    public String react(double... data) throws Exception {
+        double[] input = Arrays.copyOf(this.getParametersState(), parameters.size() + data.length);
+        System.arraycopy(data, 0, input, parameters.size(), data.length);
+
+        return this.rawReact(input);
+    }
+
+    public String react() throws Exception { return this.react(new double[0]); }
+
 }
 
 class ActionConfiguration{
