@@ -70,7 +70,7 @@ public class StaticLayer implements Layer {
     }
 
     @Override
-    public int size() {
+    public int length() {
         return this.neurons.length;
     }
 

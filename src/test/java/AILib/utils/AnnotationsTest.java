@@ -1,12 +1,12 @@
-package AILib.entities;
+package AILib.utils;
 
 import AILib.agents.Agent;
 import AILib.agents.QAgent;
 import AILib.anotations.Action;
 import AILib.anotations.Parameter;
+import AILib.exceptions.EntityParseException;
 import AILib.functions.StandardFunctions;
 import AILib.layers.StaticLayer;
-import AILib.utills.EntityController;
 import org.junit.jupiter.api.Test;
 
 public class AnnotationsTest {
@@ -47,7 +47,11 @@ class Entity extends EntityController {
         this.health = health;
         this.attack = attack;
 
-        super.bind(this);
+        try {
+            super.bind(this);
+        } catch (EntityParseException e) {
+            e.printStackTrace();
+        }
     }
 
     @Action(name = "attack")

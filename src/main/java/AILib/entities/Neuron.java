@@ -1,5 +1,6 @@
 package AILib.entities;
 
+import AILib.exceptions.NeuralNetworkRuntimeException;
 import AILib.functions.ActivationFunction;
 
 import java.io.Serializable;
@@ -20,6 +21,7 @@ public class Neuron implements Serializable {
         this.neuronFunctions = activationFunc;
         this.weights = new ArrayList<>();
 
+        assert weightsCount > 0 : new NeuralNetworkRuntimeException("Neuron haven't any weights");
         for(int i = 0; i < weightsCount; i++)
             this.weights.add(Neuron.random.nextDouble() * 2 - 1);
         this.bias = Neuron.random.nextDouble() * 2 - 1;
@@ -29,13 +31,16 @@ public class Neuron implements Serializable {
         this.neuronFunctions = activationFunc;
         this.weights = new ArrayList<>();
 
-        assert weights.length > 0 : "Neuron haven't any weights";
+        assert weights.length > 0 : new NeuralNetworkRuntimeException("Neuron haven't any weights");
         for(int i = 0; i < weights.length - 1; i++)
             this.weights.add(weights[i]);
         this.bias = weights[weights.length - 1];
     }
 
     public double excite(double[] inputData){
+        assert inputData.length == this.weights.size() :
+            new NeuralNetworkRuntimeException("Invalid input data to neuron: " + inputData.length);
+
         this.output = 0;
         for(int i = 0; i < inputData.length; i++)
             this.output+= inputData[i] * (this.weights.get(i) == null ? 0 : this.weights.get(i));

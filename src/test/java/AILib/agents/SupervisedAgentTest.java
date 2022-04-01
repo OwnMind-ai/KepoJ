@@ -1,9 +1,8 @@
 package AILib.agents;
 
-import AILib.functions.ActivationFunction;
 import AILib.functions.StandardFunctions;
 import AILib.layers.StaticLayer;
-import AILib.utills.AgentChecker;
+import AILib.utils.AgentChecker;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

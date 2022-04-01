@@ -7,4 +7,6 @@ package AILib.agents;
 
 public interface Agent {
     double[] react(double[] data);   // Process environment state
+
+    int outputLength();
 }

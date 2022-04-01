@@ -10,21 +10,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/Agent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/QAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/QAgent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/SupervisedAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/SupervisedAgent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/StandardFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/StandardFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/utills/EntityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/utills/EntityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/entities/AnnotationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/entities/AnnotationsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/agents/NeuralNetwork.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/agents/NeuralNetwork.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/entities/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/entities/Neuron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/ConvolutionalLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/ConvolutionalLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/InputLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/InputLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/Layer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/StaticLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/StaticLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/utills/AgentChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/utils/AgentChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/utills/ArrayUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/utils/ArrayUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/utills/EntityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/utils/EntityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedAgentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedAgentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/entities/AnnotationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/utils/AnnotationsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/entities/NeuronTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/entities/NeuronTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/AILib/agents/QAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/agents/QAgent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/agents/SupervisedAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/agents/SupervisedAgent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/functions/StandardFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/functions/StandardFunctions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/utills/ActionConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/utills/ActionConfiguration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/utills/EntityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/utills/EntityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/entities/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/entities/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/utills/ActionConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/utills/AgentChecker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/utills/EntityController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/agents/SupervisedAgentTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/agents/SupervisedAgentTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/entities/AnnotationsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/entities/Entity.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +103,7 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="AILib.utills" />
       <recent name="" />
       <recent name="AILib.entities" />
     </key>
@@ -106,7 +115,20 @@
       <recent name="AILib.agents" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.NeuronTest.excite">
+    <configuration name="AnnotationsTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AILib.utils.AnnotationsTest" />
+      <module name="AILib" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="AILib.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -133,45 +155,29 @@
       <module name="AILib" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AILib.entities.*" />
+          <option name="PATTERN" value="AILib.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="AILib.entities" />
-      <option name="MAIN_CLASS_NAME" value="AILib.entities.AnnotationsTest" />
+      <option name="PACKAGE_NAME" value="AILib.utils" />
+      <option name="MAIN_CLASS_NAME" value="AILib.utils.AnnotationsTest" />
       <option name="METHOD_NAME" value="main" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NeuralNetworkReaderTest.d" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NeuronTest.excite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AILib" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AILib.utills.*" />
+          <option name="PATTERN" value="AILib.entities.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="AILib.utills" />
-      <option name="MAIN_CLASS_NAME" value="AILib.utills.NeuralNetworkReaderTest" />
-      <option name="METHOD_NAME" value="d" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NeuralNetworkReaderTest.read" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AILib" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="AILib.utills.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="AILib.utills" />
-      <option name="MAIN_CLASS_NAME" value="AILib.utills.NeuralNetworkReaderTest" />
-      <option name="METHOD_NAME" value="read" />
+      <option name="PACKAGE_NAME" value="AILib.entities" />
+      <option name="MAIN_CLASS_NAME" value="AILib.entities.NeuronTest" />
+      <option name="METHOD_NAME" value="excite" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -222,19 +228,19 @@
     <list>
       <item itemvalue="Application.App" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.NeuralNetworkReaderTest.read" />
-      <item itemvalue="JUnit.NeuralNetworkReaderTest.d" />
+      <item itemvalue="Application.AnnotationsTest" />
       <item itemvalue="JUnit.AnnotationsTest.main" />
       <item itemvalue="JUnit.SupervisedAgentTest.lines" />
       <item itemvalue="Maven.AILib [clean,deploy]" />
+      <item itemvalue="JUnit.NeuronTest.excite" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NeuronTest.excite" />
+        <item itemvalue="JUnit.AnnotationsTest.main" />
+        <item itemvalue="Application.AnnotationsTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.SupervisedAgentTest.lines" />
-        <item itemvalue="JUnit.AnnotationsTest.main" />
-        <item itemvalue="JUnit.NeuralNetworkReaderTest.d" />
-        <item itemvalue="JUnit.NeuralNetworkReaderTest.read" />
       </list>
     </recent_temporary>
   </component>

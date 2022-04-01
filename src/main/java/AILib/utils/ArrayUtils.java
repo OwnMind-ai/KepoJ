@@ -1,4 +1,4 @@
-package AILib.utills;
+package AILib.utils;
 
 public class ArrayUtils {
     public static int getMaxIndex(double[] array){

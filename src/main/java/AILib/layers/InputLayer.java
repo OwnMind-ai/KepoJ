@@ -64,7 +64,7 @@ public class InputLayer implements Layer{
     }
 
     @Override
-    public int size() {
+    public int length() {
         return this.outputs.length;
     }
 

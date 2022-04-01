@@ -1,6 +1,6 @@
 package AILib.agents;
 
-import AILib.utills.ArrayUtils;
+import AILib.utils.ArrayUtils;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -15,7 +15,7 @@ public class QAgent extends NeuralNetwork implements Serializable {
         super(fileName);
     }
 
-    public void learningIteration(double reward, double[] nextState, double discountFactor, float ratio){
+    public void learningIteration(double reward, double[] nextState, double discountFactor, double ratio){
         double[] nextQValues = this.react(nextState);
         this.setError(reward, nextQValues, discountFactor);
 
@@ -24,7 +24,7 @@ public class QAgent extends NeuralNetwork implements Serializable {
     }
 
     private void setError(double reward, double[] nextQValues, double discountFactor){
-        double[] errors = new double[this.layers.get(this.layers.size() - 1).size()];
+        double[] errors = new double[this.layers.get(this.layers.size() - 1).length()];
         Arrays.fill(errors, 0);
 
         double maxQ = Arrays.stream(nextQValues).summaryStatistics().getMax();
@@ -44,7 +44,7 @@ public class QAgent extends NeuralNetwork implements Serializable {
         }
     }
 
-    private void backWeights(float ratio) {    //Changing weights of neurons. Ratio - learning coefficient
+    private void backWeights(double ratio) {    //Changing weights of neurons. Ratio - learning coefficient
         for(int i = 1; i < this.layers.size(); i++)
             this.layers.get(i).trainLayer(this.layers.get(i - 1).getOutputs(), ratio);
     }

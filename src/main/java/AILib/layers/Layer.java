@@ -18,5 +18,5 @@ public interface Layer extends Serializable {
     double[] getErrors();
     double[] getOutputs();
     double[] getBias();
-    int size();
+    int length();
 }

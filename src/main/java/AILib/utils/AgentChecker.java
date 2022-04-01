@@ -1,4 +1,4 @@
-package AILib.utills;
+package AILib.utils;
 
 import AILib.agents.Agent;
 import AILib.entities.Dataset;

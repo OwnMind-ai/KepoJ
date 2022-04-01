@@ -4,7 +4,6 @@ import AILib.entities.Dataset;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class SupervisedAgent extends NeuralNetwork implements Serializable {
     public SupervisedAgent(int inputNeurons) {
@@ -30,7 +29,7 @@ public class SupervisedAgent extends NeuralNetwork implements Serializable {
     }
 
     private void datasetOffset(double[] dataset){
-        double[] errors = new double[this.layers.get(this.layers.size() - 1).size()];
+        double[] errors = new double[this.layers.get(this.layers.size() - 1).length()];
         double[] outputs = this.layers.get(this.layers.size() - 1).getOutputs();
 
         for(int i = 0; i < outputs.length; i++){
