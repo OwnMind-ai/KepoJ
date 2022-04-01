@@ -2,6 +2,7 @@ package AILib.utils;
 
 import AILib.agents.Agent;
 import AILib.anotations.Action;
+import AILib.anotations.ActionsList;
 import AILib.anotations.Parameter;
 import AILib.exceptions.EntityParseException;
 
@@ -47,10 +48,34 @@ public class EntityController {
         else this.parameters.add(parameter);
     }
 
+    private void loadActionsList(Method method){
+        method.setAccessible(true);
+        assert method.getParameterCount() == 1 :
+                new EntityParseException(
+                        "ActionsList method \"" + method.getName() + "\" must have one String parameter", this.entity);
+
+        ActionsList annotation = method.getAnnotation(ActionsList.class);
+
+        for (int i = 0; i < annotation.names().length; i++) {
+            ActionConfiguration configuration = new ActionConfiguration(
+                    this.actions.size(),
+                    0,
+                    annotation.names()[i],
+                    method
+            );
+            configuration.isListObject(true);
+
+            this.actions.add(configuration);
+        }
+    }
+
     private void load() {
-        for (Method action : entity.getClass().getDeclaredMethods())
+        for (Method action : entity.getClass().getDeclaredMethods()) {
             if (action.isAnnotationPresent(Action.class))
                 this.loadAction(action);
+            else if (action.isAnnotationPresent(ActionsList.class))
+                this.loadActionsList(action);
+        }
 
         assert this.agent.outputLength() == this.actions.size() :
                 new EntityParseException("Entity has less/more actions than agent provide", this.entity);
@@ -70,7 +95,7 @@ public class EntityController {
         this.load();
     }
 
-    public EntityController(Agent agent, Object entity) throws EntityParseException {
+    public EntityController(Agent agent, Object entity) {
         this.agent = agent;
         this.entity = entity;
 
@@ -102,13 +127,12 @@ public class EntityController {
         double[] result = agent.react(data);
 
         int maxId = ArrayUtils.getMaxIndex(result);
-        // TODO: Move to EntityController::load
-        assert maxId >= 0 && maxId < actions.size() :
-                new EntityParseException("Couldn't find action for agent", this.entity);
         ActionConfiguration action = this.actions.get(maxId);
 
         if (action.threshold <= result[maxId]) {
-        action.action.invoke(this.entity);
+            if(action.isListObject()) action.method.invoke(this.entity, action.name);
+            else action.method.invoke(this.entity);
+
             return action.name;
         }
         else if(this.inactionAction != null) {
@@ -133,21 +157,37 @@ class ActionConfiguration{
     public final int id;
     public final double threshold;
     public final String name;
+    public final Method method;
 
-    public final Method action;
+    private boolean listObject = false;
 
     public ActionConfiguration(Action annotation, Method action){
         this.id = annotation.id();
         this.threshold = annotation.threshold();
         this.name = annotation.name();
-        this.action = action;
+        this.method = action;
     }
 
     public ActionConfiguration(Action annotation, int id, Method action){
         this.id = id;
         this.threshold = annotation.threshold();
         this.name = annotation.name();
-        this.action = action;
+        this.method = action;
+    }
+
+    public ActionConfiguration(int id, double threshold, String name, Method method) {
+        this.id = id;
+        this.threshold = threshold;
+        this.name = name;
+        this.method = method;
+    }
+
+    public void isListObject(boolean value) {
+        this.listObject = value;
+    }
+
+    public boolean isListObject(){
+        return this.listObject;
     }
 
     public int getId() {
@@ -160,7 +200,7 @@ class ActionConfiguration{
                 "id=" + id +
                 ", threshold=" + threshold +
                 ", name='" + name + '\'' +
-                ", action=" + action +
+                ", action=" + method +
                 '}';
     }
 }

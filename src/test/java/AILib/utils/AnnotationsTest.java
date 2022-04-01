@@ -3,6 +3,7 @@ package AILib.utils;
 import AILib.agents.Agent;
 import AILib.agents.QAgent;
 import AILib.anotations.Action;
+import AILib.anotations.ActionsList;
 import AILib.anotations.Parameter;
 import AILib.exceptions.EntityParseException;
 import AILib.functions.StandardFunctions;
@@ -14,7 +15,7 @@ public class AnnotationsTest {
     public void main() throws Exception {
         QAgent agent = new QAgent(2);
         agent.addLayer(new StaticLayer(4, StandardFunctions.SIGMOID));
-        agent.addLayer(new StaticLayer(2, StandardFunctions.SIGMOID));
+        agent.addLayer(new StaticLayer(4, StandardFunctions.SIGMOID));
 
         Entity entity = new Entity(120, 12, agent);
 
@@ -25,6 +26,8 @@ public class AnnotationsTest {
                 case EntityController.INACTION: reward = 0.5; break;
                 case "attack": reward = 1; break;
                 case "dodge": reward = -1; break;
+                case "left": reward = 0.5d; break;
+                case "right": reward = -0.5d; break;
                 default:
                     System.out.println("Oops");
             }
@@ -63,5 +66,11 @@ class Entity extends EntityController {
     @Action(name = "dodge")
     public void dodge(){
         System.out.println("dodge");
+    }
+
+    @ActionsList(names = {"left", "right"})
+    public void move(String action){
+        System.out.println(action);
+        this.health -= 0.1;
     }
 }
