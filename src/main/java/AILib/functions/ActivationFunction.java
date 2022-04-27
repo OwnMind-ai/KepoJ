@@ -6,7 +6,7 @@ public interface ActivationFunction extends Serializable {
     double activate(double input);
     double derivative(double input);
 
-    static ActivationFunction create(IActivation activation, IActivation derivative){
+    static ActivationFunction create(Activatable activation, Activatable derivative){
         return new ActivationFunction() {
             @Override
             public double activate(double input) { return activation.run(input); }
@@ -17,6 +17,6 @@ public interface ActivationFunction extends Serializable {
     }
 }
 
-interface IActivation extends Serializable{
+interface Activatable extends Serializable{
     double run(double input);
 }

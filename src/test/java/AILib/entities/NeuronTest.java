@@ -1,9 +1,8 @@
 package AILib.entities;
 
-import AILib.exceptions.NeuralNetworkRuntimeException;
 import AILib.functions.StandardFunctions;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class NeuronTest {
 

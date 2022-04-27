@@ -22,11 +22,6 @@ public class StaticLayer implements Layer {
             this.neurons[i] = new Neuron(weightsCount, this.aiFunctions);
     }
 
-    /*
-    * data[0] - neurons length
-    * data[1] - AIFunction index
-    */
-
     @Override
     public void doLayer(double[] data) {
         for(Neuron neuron : this.neurons)
@@ -34,7 +29,7 @@ public class StaticLayer implements Layer {
     }
 
     @Override
-    public double[] getOutputs() {
+    public double[] getOutputs() {    // TODO: optimize
         double[] result = new double[this.neurons.length];
         for(int i = 0; i < this.neurons.length; i++)
             result[i] = this.neurons[i].output;

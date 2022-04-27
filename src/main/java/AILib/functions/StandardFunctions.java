@@ -3,11 +3,11 @@ package AILib.functions;
 public enum StandardFunctions {
     SIGMOID(ActivationFunction.create(
             (x) -> (1f/(1f + Math.pow(Math.E, -x))),
-            (x) -> x * (1 - x))),
+            (x) -> (1f/(1f + Math.pow(Math.E, -x))) * (1 - (1f/(1f + Math.pow(Math.E, -x)))))),
 
     TANH    (ActivationFunction.create(
             (x) -> ((Math.pow(Math.E, x) - Math.pow(Math.E, -x))/(Math.pow(Math.E, x) + Math.pow(Math.E, -x))),
-            (x) -> (1 - Math.pow(x, 2)))),
+            (x) -> (1 - Math.pow(((Math.pow(Math.E, x) - Math.pow(Math.E, -x))/(Math.pow(Math.E, x) + Math.pow(Math.E, -x))), 2)))),
 
     RELU   (ActivationFunction.create(
             (x) -> Math.max(0,x),

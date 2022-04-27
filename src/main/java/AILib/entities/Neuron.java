@@ -5,15 +5,13 @@ import AILib.functions.ActivationFunction;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Neuron implements Serializable {
-    public double output = 0;
+    public double output, rawOutput = 0;
     public transient double error = 0;
     private final ActivationFunction neuronFunctions;
-
-    public final static Random random = new Random();
-
     public ArrayList<Double> weights;
     public double bias;
 
@@ -23,8 +21,8 @@ public class Neuron implements Serializable {
 
         assert weightsCount > 0 : new NeuralNetworkRuntimeException("Neuron haven't any weights");
         for(int i = 0; i < weightsCount; i++)
-            this.weights.add(Neuron.random.nextDouble() * 2 - 1);
-        this.bias = Neuron.random.nextDouble() * 2 - 1;
+            this.weights.add(Math.random() * 2 - 1);
+        this.bias = Math.random() * 2 - 1;
     }
 
     public Neuron(double[] weights, ActivationFunction activationFunc){
@@ -41,13 +39,13 @@ public class Neuron implements Serializable {
         assert inputData.length == this.weights.size() :
             new NeuralNetworkRuntimeException("Invalid input data to neuron: " + inputData.length);
 
-        this.output = 0;
+        this.rawOutput = 0;
         for(int i = 0; i < inputData.length; i++)
-            this.output+= inputData[i] * (this.weights.get(i) == null ? 0 : this.weights.get(i));
-        this.output+= this.bias;
-        this.output = this.neuronFunctions.activate(this.output);
+            this.rawOutput+= inputData[i] * (this.weights.get(i) == null ? 0 : this.weights.get(i));
+        this.rawOutput+= this.bias;
+        this.output = this.neuronFunctions.activate(this.rawOutput);
 
-        return output;
+        return this.output;
     }
 
     public void setWeight(int index, double value) {
@@ -56,6 +54,6 @@ public class Neuron implements Serializable {
     }
 
     public void setError(double error) {
-        this.error = error * this.neuronFunctions.derivative(this.output);
+        this.error = error * this.neuronFunctions.derivative(this.rawOutput);
     }
 }

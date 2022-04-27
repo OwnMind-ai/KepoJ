@@ -17,6 +17,8 @@ public interface Layer extends Serializable {
     double[][] getWeights();
     double[] getErrors();
     double[] getOutputs();
+
+    @Deprecated
     double[] getBias();
     int length();
 }

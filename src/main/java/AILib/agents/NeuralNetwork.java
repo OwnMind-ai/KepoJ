@@ -5,6 +5,8 @@ import AILib.layers.InputLayer;
 import AILib.layers.Layer;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
@@ -19,7 +21,7 @@ public class NeuralNetwork implements Agent, Serializable {
     }
 
     public NeuralNetwork(String fileName) throws IOException, ClassNotFoundException {
-        ObjectInputStream stream = new ObjectInputStream(new FileInputStream(fileName));
+        ObjectInputStream stream = new ObjectInputStream(Files.newInputStream(Paths.get(fileName)));
         NeuralNetwork result = (NeuralNetwork) stream.readObject();
         stream.close();
 
@@ -84,7 +86,7 @@ public class NeuralNetwork implements Agent, Serializable {
     }
 
     public void save(String fileName) throws IOException {
-        ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(fileName));
+        ObjectOutputStream stream = new ObjectOutputStream(Files.newOutputStream(Paths.get(fileName)));
         stream.writeObject(this);
         stream.close();
     }
