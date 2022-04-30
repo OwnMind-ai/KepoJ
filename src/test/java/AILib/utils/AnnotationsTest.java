@@ -1,7 +1,7 @@
 package AILib.utils;
 
 import AILib.agents.Agent;
-import AILib.agents.QAgent;
+import AILib.agents.QNeuralNetwork;
 import AILib.anotations.Action;
 import AILib.anotations.ActionsList;
 import AILib.anotations.Parameter;
@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 public class AnnotationsTest {
     @Test
     public void main() throws Exception {
-        QAgent agent = new QAgent(2);
+        QNeuralNetwork agent = new QNeuralNetwork(2);
         agent.addLayer(new StaticLayer(4, StandardFunctions.SIGMOID));
         agent.addLayer(new StaticLayer(4, StandardFunctions.SIGMOID));
 

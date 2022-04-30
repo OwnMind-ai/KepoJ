@@ -7,15 +7,14 @@ import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class QAgentTest {
+class QNeuralNetworkTest {
     @Test
     public void setErrorTest() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        QAgent agent = new QAgent(3);
+        QNeuralNetwork agent = new QNeuralNetwork(3);
         Layer layer = new StaticLayer(3, StandardFunctions.IDENTICAL);
         agent.addLayer(layer);
 

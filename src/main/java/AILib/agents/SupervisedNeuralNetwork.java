@@ -10,14 +10,14 @@ import java.io.Serializable;
  * Neural network class that trains by example's dataset
  * @see NeuralNetwork
  * @see Agent
- * @since 1.1
+ * @since 1.2
  */
-public class SupervisedAgent extends NeuralNetwork implements Serializable {
+public class SupervisedNeuralNetwork extends NeuralNetwork implements Serializable {
     /**
      * @param inputNeurons input layer length
      * @since 1.1
      */
-    public SupervisedAgent(int inputNeurons) {
+    public SupervisedNeuralNetwork(int inputNeurons) {
         super(inputNeurons);
     }
 
@@ -26,7 +26,7 @@ public class SupervisedAgent extends NeuralNetwork implements Serializable {
      * @param fileName path to file
      * @since 1.1
      */
-    public SupervisedAgent(String fileName) throws IOException, ClassNotFoundException {
+    public SupervisedNeuralNetwork(String fileName) throws IOException, ClassNotFoundException {
         super(fileName);
     }
 
@@ -93,6 +93,7 @@ public class SupervisedAgent extends NeuralNetwork implements Serializable {
      * @param fault permissible error
      * @return final neural network loss
      * @since 1.2
+     * @see SupervisedNeuralNetwork#train(Dataset, double, long)
      */
     public double train(Dataset dataset, double ratio, double fault){
         double loss = Double.POSITIVE_INFINITY;
@@ -107,12 +108,13 @@ public class SupervisedAgent extends NeuralNetwork implements Serializable {
     }
 
     /**
-     * Starts a loop in which it adjusts the weights of neurons until the error is less than permissible
+     * Runs a loop in which it adjusts the weights of neurons for a certain number of generations
      * @param dataset list of instructions for agent
      * @param ratio fixed value of learning step reducing
      * @param ages ages count
      * @since 1.2
      * @return final neural network loss
+     * @see SupervisedNeuralNetwork#train(Dataset, double, double)
      */
     public double train(Dataset dataset, double ratio, long ages){
         double loss = Double.POSITIVE_INFINITY;

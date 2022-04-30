@@ -5,19 +5,18 @@ import AILib.utils.ArrayUtils;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Arrays;
-import java.util.LinkedList;
 
 /**
  * Neural network class that provides Q-learning algorithms
  * @see NeuralNetwork
  * @see Agent
- * @since 1.1
+ * @since 1.2
  */
-public class QAgent extends NeuralNetwork implements Serializable {
+public class QNeuralNetwork extends NeuralNetwork implements Serializable {
     /**
      * Iteration counter. Self-increases only after learning iteration work
      * @since 1.2
-     * @see QAgent#learningIteration(double, double[], double, double)
+     * @see QNeuralNetwork#learningIteration(double, double[], double, double)
      */
     public long iteration = 1;
 
@@ -25,7 +24,7 @@ public class QAgent extends NeuralNetwork implements Serializable {
      * @param inputNeurons input layer length
      * @since 1.1
      */
-    public QAgent(int inputNeurons) {
+    public QNeuralNetwork(int inputNeurons) {
         super(inputNeurons);
     }
 
@@ -34,7 +33,7 @@ public class QAgent extends NeuralNetwork implements Serializable {
      * @param fileName path to file
      * @since 1.1
      */
-    public QAgent(String fileName) throws IOException, ClassNotFoundException {
+    public QNeuralNetwork(String fileName) throws IOException, ClassNotFoundException {
         super(fileName);
     }
 
