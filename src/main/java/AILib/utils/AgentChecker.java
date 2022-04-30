@@ -22,9 +22,9 @@ public class AgentChecker {
         this.prints = prints;
     }
 
-    public int check(double[][][] dataset, double roundRate){
+    public int check(Dataset dataset, double roundRate){
         int result = 0;
-        for(double[][] data : dataset){
+        for(double[][] data : dataset.toArray()){
             double[] output = this.agent.react(data[0]);
             double[] answer = new double[output.length];
             for(int i = 0; i < answer.length; i++)
@@ -45,10 +45,8 @@ public class AgentChecker {
         }
 
         if (this.prints)
-            System.out.println(result + "/" + dataset.length);
+            System.out.println(result + "/" + dataset.size());
 
         return result;
     }
-
-    public int check(Dataset dataset, double roundRate){ return this.check(dataset.toArray(), roundRate); }
 }

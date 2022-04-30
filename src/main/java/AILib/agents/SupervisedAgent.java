@@ -64,31 +64,65 @@ public class SupervisedAgent extends NeuralNetwork implements Serializable {
             last.getNeuron(i).error = dataset[i] - last.getNeuron(i).output;
     }
 
-    /** Starts a loop in which it adjusts the weights of neurons until the error is less than critical
-     * @param dataset list of instructions for agent
+    /**
+     * Computes one training cycle
+     * @param dataset unpacked dataset
      * @param ratio fixed value of learning step reducing
-     * @since 1.1
+     * @return neural network error
+     * @since 1.2
      */
-    public void train(double[][][] dataset, double ratio){
-        double sumError = Double.POSITIVE_INFINITY;
-        int age = 0;
+    private double trainIteration(double[][][] dataset, double ratio){
+        double loss = 0;
 
-        while (sumError >= this.fault) {
-            sumError = 0;
-            for (double[][] data : dataset) {
-                double[] result = this.react(data[0]);
-                for (int a = 0; a < result.length; a++)
-                    sumError += Math.pow((data[1][a] - result[a]), 2);
+        for (double[][] data : dataset) {
+            double[] result = this.react(data[0]);
+            for (int a = 0; a < result.length; a++)
+                loss += Math.pow((data[1][a] - result[a]), 2);
 
-                this.datasetOffset(data[1]);
-                this.findError();
-                this.backWeights(ratio);
-            }
-
-            System.out.println(age + " - " + sumError);
-            age++;
+            this.datasetOffset(data[1]);
+            this.findError();
+            this.backWeights(ratio);
         }
+
+        return loss;
     }
 
-    public void train(Dataset dataset, double ratio){ this.train(dataset.toArray(), ratio); }
+    /** Starts a loop in which it adjusts the weights of neurons until the error is less than permissible
+     * @param dataset list of instructions for agent
+     * @param ratio fixed value of learning step reducing
+     * @param fault permissible error
+     * @return final neural network loss
+     * @since 1.2
+     */
+    public double train(Dataset dataset, double ratio, double fault){
+        double loss = Double.POSITIVE_INFINITY;
+        double[][][] unpackedDataset = dataset.toArray();
+
+        for(long age = 0; loss >= fault; age++) {
+           loss = this.trainIteration(unpackedDataset, ratio);
+           System.out.println(age + " - " + loss);
+        }
+
+        return loss;
+    }
+
+    /**
+     * Starts a loop in which it adjusts the weights of neurons until the error is less than permissible
+     * @param dataset list of instructions for agent
+     * @param ratio fixed value of learning step reducing
+     * @param ages ages count
+     * @since 1.2
+     * @return final neural network loss
+     */
+    public double train(Dataset dataset, double ratio, long ages){
+        double loss = Double.POSITIVE_INFINITY;
+        double[][][] unpackedDataset = dataset.toArray();
+
+        for(long age = 0; age <= ages; age++) {
+            loss = this.trainIteration(unpackedDataset, ratio);
+            System.out.println(age + " - " + loss);
+        }
+
+        return loss;
+    }
 }

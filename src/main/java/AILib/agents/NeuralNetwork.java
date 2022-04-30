@@ -18,10 +18,6 @@ import java.util.Objects;
  */
 public class NeuralNetwork implements Agent, Serializable {
     protected ArrayList<Layer> layers;
-    /**
-     * Permissible error during training
-     */
-    public double fault = 0.0005d;
 
     /**
      * @param inputNeurons input layer length
@@ -43,12 +39,6 @@ public class NeuralNetwork implements Agent, Serializable {
         stream.close();
 
         this.layers = new ArrayList<>(result.layers);
-        this.fault = result.fault;
-    }
-
-    @Deprecated
-    public void setFault(double fault) {
-        this.fault = fault;
     }
 
     /**
