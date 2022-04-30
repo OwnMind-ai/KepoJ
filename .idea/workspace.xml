@@ -10,25 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/Agent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/QAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/QAgent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/anotations/Action.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/anotations/Action.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/anotations/ActionsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/anotations/ActionsList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/anotations/Parameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/anotations/Parameter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/entities/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/entities/Neuron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/ActivationFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/ActivationFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/functions/StandardFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/functions/StandardFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/Layer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/StaticLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/StaticLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/SupervisedAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/SupervisedAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/entities/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/entities/Dataset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/exceptions/AgentException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/exceptions/AgentException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedAgentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedAgentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/entities/NeuronTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/entities/NeuronTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/entities/Neuron.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/entities/Neuron.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/functions/StandardFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/functions/StandardFunctions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/layers/DynamicLayerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/agents/NeuralNetwork.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/agents/NeuralNetwork.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/agents/QAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/agents/QAgent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/agents/SupervisedAgent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/agents/SupervisedAgent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/exceptions/AgentException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/exceptions/AgentException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/agents/SupervisedAgentTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/agents/SupervisedAgentTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/entities/NeuronTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/entities/NeuronTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/layers/DynamicLayerTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,16 +78,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -114,18 +110,11 @@
       <recent name="AILib.functions.parser" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DynamicLayerTest">
+  <component name="RunManager" selected="JUnit.All in AILib">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="App" />
-      <module name="AILib" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Audio" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Audio" />
       <module name="AILib" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -146,6 +135,14 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="App" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in AILib" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AILib" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -181,9 +178,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scratch" type="Java Scratch" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Scratch" />
-      <option name="SCRATCH_FILE_URL" value="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_1.java" />
+    <configuration name="SupervisedAgentTest.lines" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AILib" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="AILib.agents.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="AILib.agents" />
+      <option name="MAIN_CLASS_NAME" value="AILib.agents.SupervisedAgentTest" />
+      <option name="METHOD_NAME" value="lines" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -217,19 +223,19 @@
     <list>
       <item itemvalue="Application.App" />
       <item itemvalue="Application.DynamicLayerTest" />
-      <item itemvalue="Application.Audio" />
-      <item itemvalue="Java Scratch.Scratch" />
+      <item itemvalue="JUnit.All in AILib" />
+      <item itemvalue="JUnit.SupervisedAgentTest.lines" />
       <item itemvalue="JUnit.DynamicLayerTest" />
       <item itemvalue="JUnit.QAgentTest.setErrorTest" />
       <item itemvalue="Maven.AILib [clean,deploy]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in AILib" />
+        <item itemvalue="JUnit.SupervisedAgentTest.lines" />
+        <item itemvalue="JUnit.QAgentTest.setErrorTest" />
         <item itemvalue="Application.DynamicLayerTest" />
         <item itemvalue="JUnit.DynamicLayerTest" />
-        <item itemvalue="JUnit.QAgentTest.setErrorTest" />
-        <item itemvalue="Application.Audio" />
-        <item itemvalue="Java Scratch.Scratch" />
       </list>
     </recent_temporary>
   </component>
@@ -258,6 +264,9 @@
       <workItem from="1650922617121" duration="209000" />
       <workItem from="1650993628663" duration="1208000" />
       <workItem from="1651038103072" duration="14131000" />
+      <workItem from="1651150887814" duration="4903000" />
+      <workItem from="1651242626145" duration="12250000" />
+      <workItem from="1651303647812" duration="2911000" />
     </task>
     <task id="LOCAL-00001" summary="AIHandler base code">
       <created>1616514621077</created>

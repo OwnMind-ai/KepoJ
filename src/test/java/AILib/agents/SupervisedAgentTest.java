@@ -32,9 +32,9 @@ class SupervisedAgentTest {
                 {{0,0,0,0,0,0,0,0,0},{0.2d,0.2d}}};
 
         SupervisedAgent agent = new SupervisedAgent(9);
-        agent.addLayer(new StaticLayer(4, StandardFunctions.LEAKY_RELU));
-        agent.addLayer(new StaticLayer(3, StandardFunctions.LEAKY_RELU));
-        agent.addLayer(new StaticLayer(2, StandardFunctions.BOUNDED_LEAKY_RELU));
+        agent.addLayer(new StaticLayer(4, StandardFunctions.SIGMOID));
+        agent.addLayer(new StaticLayer(3, StandardFunctions.SIGMOID));
+        agent.addLayer(new StaticLayer(2, StandardFunctions.SIGMOID));
 
         // !! Long term action !!
         agent.train(example, 1);

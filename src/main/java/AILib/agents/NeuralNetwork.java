@@ -11,15 +11,32 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * Serializable class that provide passing data through a sequence of layers
+ * @see Agent
+ * @since 1.1
+ */
 public class NeuralNetwork implements Agent, Serializable {
     protected ArrayList<Layer> layers;
+    /**
+     * Permissible error during training
+     */
     public double fault = 0.0005d;
 
-    public NeuralNetwork(int inputNeurons){    //Initialization by pre-creating first layer
+    /**
+     * @param inputNeurons input layer length
+     * @since 1.1
+     */
+    public NeuralNetwork(int inputNeurons){
         this.layers = new ArrayList<>();
         this.layers.add(new InputLayer(inputNeurons));
     }
 
+    /**
+     * Read serializable neural network from file
+     * @param fileName path to file
+     * @since 1.1
+     */
     public NeuralNetwork(String fileName) throws IOException, ClassNotFoundException {
         ObjectInputStream stream = new ObjectInputStream(Files.newInputStream(Paths.get(fileName)));
         NeuralNetwork result = (NeuralNetwork) stream.readObject();
@@ -34,6 +51,11 @@ public class NeuralNetwork implements Agent, Serializable {
         this.fault = fault;
     }
 
+    /**
+     * Adds layer to end of list
+     * @param layer instance of Layer
+     * @since 1.1
+     */
     public void addLayer(Layer layer) {
         this.layers.add(layer);
         this.layers.get(this.layers.size() - 1).buildLayer(
@@ -41,14 +63,28 @@ public class NeuralNetwork implements Agent, Serializable {
         );
     }
 
+    /**
+     * Adds few layers at once
+     * @param layers layers array
+     * @since 1.1
+     */
     public void addAll(Layer... layers){
         for(Layer layer : layers)
             this.addLayer(layer);
     }
 
+    /**
+     * Runs input data through layers successively
+     * @param inputData input data
+     * @return output values on last layer
+     * @throws NeuralNetworkRuntimeException throws if length of input data and input layer not the same
+     * @since 1.1
+     */
+    @Override
     public double[] react(double... inputData){
-        assert inputData.length == this.layers.get(0).length() :
-                new NeuralNetworkRuntimeException("Invalid input data for NeuralNetwork: " + inputData.length);
+        if(inputData.length != this.layers.get(0).length()){
+            throw new NeuralNetworkRuntimeException("Invalid input data for NeuralNetwork: " + inputData.length);
+        }
         this.layers.get(0).setOutputs(inputData);
 
         for(int i = 1; i < this.layers.size(); i++)
@@ -57,11 +93,24 @@ public class NeuralNetwork implements Agent, Serializable {
         return this.layers.get(this.layers.size() - 1).getOutputs();
     }
 
+    /**
+     * @return length of last layer
+     * @since 1.2
+     */
     @Override
     public int outputLength() {
         return this.layers.get(this.layers.size() - 1).length();
     }
 
+    /**
+     * Returns 3d-array of neuron weights.
+     * First dimension - layers.
+     * Second dimension - neurons.
+     * Third dimension - weights with bias value at the end.
+     * @see NeuralNetwork#setWeights(double[])
+     * @deprecated
+     * @since 1.1
+     */
     @Deprecated
     public double[][][] getWeights() {
         double[][][] weights = new double[this.layers.size() - 1][][];
@@ -76,6 +125,15 @@ public class NeuralNetwork implements Agent, Serializable {
         return weights;
     }
 
+    /**
+     * Sets 3d-array weights into neurons.
+     * First dimension - layers
+     * Second dimension - neurons
+     * Third dimension - weights with bias value at the end
+     * @see NeuralNetwork#getWeights()
+     * @deprecated
+     * @since 1.1
+     */
     @Deprecated
     public void setWeights(double[] weights) {
         int index = 0;
@@ -85,12 +143,21 @@ public class NeuralNetwork implements Agent, Serializable {
                     this.layers.get(i).getNeuron(a).setWeight(b, weights[index++]);
     }
 
+    /**
+     * Writes neural network class to provided file
+     * @param fileName path to file
+     * @since 1.1
+     */
     public void save(String fileName) throws IOException {
         ObjectOutputStream stream = new ObjectOutputStream(Files.newOutputStream(Paths.get(fileName)));
         stream.writeObject(this);
         stream.close();
     }
 
+    /**
+     * Writes neural network to file named by hashcode
+     * @since 1.1
+     */
     public void save() throws IOException { this.save(this.hashCode() + ".bin");}
 
     @Override
