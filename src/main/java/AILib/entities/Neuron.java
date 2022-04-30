@@ -21,8 +21,8 @@ public class Neuron implements Serializable {
 
         assert weightsCount > 0 : new NeuralNetworkRuntimeException("Neuron haven't any weights");
         for(int i = 0; i < weightsCount; i++)
-            this.weights.add(Math.random() * 2 - 1);
-        this.bias = Math.random() * 2 - 1;
+            this.weights.add(Neuron.randomWeight());
+        this.bias = Neuron.randomWeight();
     }
 
     public Neuron(double[] weights, ActivationFunction activationFunc){
@@ -33,6 +33,10 @@ public class Neuron implements Serializable {
         for(int i = 0; i < weights.length - 1; i++)
             this.weights.add(weights[i]);
         this.bias = weights[weights.length - 1];
+    }
+
+    public static double randomWeight(){
+        return Math.random() * 2 - 1;
     }
 
     public double excite(double[] inputData){

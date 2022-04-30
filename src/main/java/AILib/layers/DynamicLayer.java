@@ -26,19 +26,18 @@ public class DynamicLayer implements Layer{
         this(initialSize, function.get(), nextLayer);
     }
 
-    public void addNeuron(double[] weights){
-        this.neurons.add(new Neuron(weightsCount, this.aiFunctions));
+    public void add(Neuron neuron, double[] weights){
+        this.neurons.add(neuron);
 
         for (int i = 0; i < this.nextLayer.length(); i++)
             this.nextLayer.getNeuron(i).weights.add(weights[i]);
     }
 
-    public void addNeuron(){
-        double[] weights = new double[this.nextLayer.length()];
-        for (int i = 0; i < weights.length; i++)
-            weights[i] = Math.random() * 2 - 1;
+    public void addNeuron(Neuron neuron){
+        this.neurons.add(neuron);
 
-        this.addNeuron(weights);
+        for (int i = 0; i < this.nextLayer.length(); i++)
+            this.nextLayer.getNeuron(i).weights.add(Neuron.randomWeight());
     }
 
     public void removeNeuron(int index){

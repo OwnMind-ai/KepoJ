@@ -10,12 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/QAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/QNeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/SupervisedAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/SupervisedNeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/agents/QAgentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/agents/QNeuralNetworkTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedAgentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedNeuralNetworkTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/utils/AnnotationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/utils/AnnotationsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/entities/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/entities/Neuron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/DynamicLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/DynamicLayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +253,7 @@
       <workItem from="1651038103072" duration="14131000" />
       <workItem from="1651150887814" duration="4903000" />
       <workItem from="1651242626145" duration="12250000" />
-      <workItem from="1651303647812" duration="13725000" />
+      <workItem from="1651303647812" duration="14132000" />
     </task>
     <task id="LOCAL-00001" summary="AIHandler base code">
       <created>1616514621077</created>
