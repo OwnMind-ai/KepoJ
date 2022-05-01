@@ -1,5 +1,6 @@
-package AILib.agents;
+package AILib.agents.deep;
 
+import AILib.agents.Agent;
 import AILib.exceptions.NeuralNetworkRuntimeException;
 import AILib.layers.InputLayer;
 import AILib.layers.Layer;

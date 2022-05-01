@@ -1,5 +1,6 @@
 package AILib.agents;
 
+import AILib.agents.deep.NeuralNetwork;
 import AILib.entities.Dataset;
 import AILib.functions.StandardFunctions;
 import AILib.layers.StaticLayer;

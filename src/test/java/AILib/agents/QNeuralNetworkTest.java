@@ -1,5 +1,6 @@
 package AILib.agents;
 
+import AILib.agents.deep.QNeuralNetwork;
 import AILib.functions.StandardFunctions;
 import AILib.layers.Layer;
 import AILib.layers.StaticLayer;

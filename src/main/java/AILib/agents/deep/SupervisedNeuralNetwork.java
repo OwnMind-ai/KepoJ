@@ -1,5 +1,6 @@
-package AILib.agents;
+package AILib.agents.deep;
 
+import AILib.agents.Agent;
 import AILib.entities.Dataset;
 import AILib.layers.Layer;
 

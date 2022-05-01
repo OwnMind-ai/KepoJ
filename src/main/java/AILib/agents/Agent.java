@@ -1,6 +1,8 @@
 package AILib.agents;
 
 
+import AILib.agents.deep.NeuralNetwork;
+
 /**
  * Classes that implement the Agent interface can process data and save themselves to a file
  * @see NeuralNetwork

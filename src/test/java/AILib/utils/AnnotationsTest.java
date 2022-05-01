@@ -1,7 +1,7 @@
 package AILib.utils;
 
 import AILib.agents.Agent;
-import AILib.agents.QNeuralNetwork;
+import AILib.agents.deep.QNeuralNetwork;
 import AILib.anotations.Action;
 import AILib.anotations.ActionsList;
 import AILib.anotations.Parameter;

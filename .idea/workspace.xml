@@ -10,8 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/entities/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/entities/Neuron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/DynamicLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/DynamicLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/Agent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/deep/NeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/QNeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/deep/QNeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/SupervisedNeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/deep/SupervisedNeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/agents/NeuralNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/agents/NeuralNetworkTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/agents/QNeuralNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/agents/QNeuralNetworkTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedNeuralNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedNeuralNetworkTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/utils/AnnotationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/utils/AnnotationsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/agents/NeuralNetwork.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/agents/NeuralNetworkTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/agents/NeuralNetworkTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/utils/AnnotationsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/utils/AnnotationsTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,14 +100,14 @@
       <recent name="AILib.entities" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="AILib.layers" />
       <recent name="AILib.agents" />
+      <recent name="AILib.layers" />
       <recent name="AILib.utills" />
       <recent name="AILib.functions.compiler" />
       <recent name="AILib.functions.parser" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.QTableTest">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -107,12 +117,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DynamicLayerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AILib.layers.DynamicLayerTest" />
+    <configuration name="QTableTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AILib.agents.QTableTest" />
       <module name="AILib" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AILib.layers.*" />
+          <option name="PATTERN" value="AILib.agents.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -134,7 +144,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QNeuralNetworkTest.setErrorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="QTableTest.train" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AILib" />
       <extension name="coverage">
         <pattern>
@@ -143,8 +153,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="AILib.agents" />
-      <option name="MAIN_CLASS_NAME" value="AILib.agents.QNeuralNetworkTest" />
-      <option name="METHOD_NAME" value="setErrorTest" />
+      <option name="MAIN_CLASS_NAME" value="AILib.agents.QTableTest" />
+      <option name="METHOD_NAME" value="train" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -154,7 +164,7 @@
       <module name="AILib" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AILib.agents.*" />
+          <option name="PATTERN" value="AILib.agents.deep.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -169,7 +179,7 @@
       <module name="AILib" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AILib.agents.*" />
+          <option name="PATTERN" value="AILib.agents.deep.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -209,20 +219,20 @@
     </configuration>
     <list>
       <item itemvalue="Application.App" />
-      <item itemvalue="Application.DynamicLayerTest" />
+      <item itemvalue="Application.QTableTest" />
+      <item itemvalue="JUnit.QTableTest.train" />
       <item itemvalue="JUnit.All in AILib" />
-      <item itemvalue="JUnit.QNeuralNetworkTest.setErrorTest" />
       <item itemvalue="JUnit.SupervisedNeuralNetworkTest" />
       <item itemvalue="JUnit.SupervisedNeuralNetworkTest.lines" />
       <item itemvalue="Maven.AILib [clean,deploy]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.QTableTest" />
+        <item itemvalue="JUnit.QTableTest.train" />
         <item itemvalue="JUnit.SupervisedNeuralNetworkTest.lines" />
         <item itemvalue="JUnit.SupervisedNeuralNetworkTest" />
         <item itemvalue="JUnit.All in AILib" />
-        <item itemvalue="JUnit.QNeuralNetworkTest.setErrorTest" />
-        <item itemvalue="Application.DynamicLayerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -254,6 +264,8 @@
       <workItem from="1651150887814" duration="4903000" />
       <workItem from="1651242626145" duration="12250000" />
       <workItem from="1651303647812" duration="14132000" />
+      <workItem from="1651396711748" duration="9812000" />
+      <workItem from="1651416156468" duration="315000" />
     </task>
     <task id="LOCAL-00001" summary="AIHandler base code">
       <created>1616514621077</created>
