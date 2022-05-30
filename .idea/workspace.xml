@@ -11,17 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/Agent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/Agent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/deep/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/QNeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/deep/QNeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/SupervisedNeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/deep/SupervisedNeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/agents/NeuralNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/agents/NeuralNetworkTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/agents/QNeuralNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/agents/QNeuralNetworkTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/deep/SupervisedNeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/deep/SupervisedNeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedNeuralNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedNeuralNetworkTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/utils/AnnotationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/utils/AnnotationsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AILib/agents/NeuralNetwork.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/agents/NeuralNetworkTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/agents/NeuralNetworkTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/utils/AnnotationsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/utils/AnnotationsTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +98,7 @@
       <recent name="AILib.functions.parser" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.QTableTest">
+  <component name="RunManager" selected="JUnit.SupervisedNeuralNetworkTest.lines">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -228,9 +219,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SupervisedNeuralNetworkTest.lines" />
         <item itemvalue="Application.QTableTest" />
         <item itemvalue="JUnit.QTableTest.train" />
-        <item itemvalue="JUnit.SupervisedNeuralNetworkTest.lines" />
         <item itemvalue="JUnit.SupervisedNeuralNetworkTest" />
         <item itemvalue="JUnit.All in AILib" />
       </list>
@@ -265,7 +256,12 @@
       <workItem from="1651242626145" duration="12250000" />
       <workItem from="1651303647812" duration="14132000" />
       <workItem from="1651396711748" duration="9812000" />
-      <workItem from="1651416156468" duration="315000" />
+      <workItem from="1651416156468" duration="945000" />
+      <workItem from="1651565726745" duration="590000" />
+      <workItem from="1651609074594" duration="122000" />
+      <workItem from="1653596405388" duration="177000" />
+      <workItem from="1653618121782" duration="299000" />
+      <workItem from="1653935981436" duration="299000" />
     </task>
     <task id="LOCAL-00001" summary="AIHandler base code">
       <created>1616514621077</created>

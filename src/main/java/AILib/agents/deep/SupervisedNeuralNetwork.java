@@ -14,6 +14,7 @@ import java.io.Serializable;
  * @since 1.2
  */
 public class SupervisedNeuralNetwork extends NeuralNetwork implements Serializable {
+    private boolean isPrinting = false;
     /**
      * @param inputNeurons input layer length
      * @since 1.1
@@ -29,6 +30,10 @@ public class SupervisedNeuralNetwork extends NeuralNetwork implements Serializab
      */
     public SupervisedNeuralNetwork(String fileName) throws IOException, ClassNotFoundException {
         super(fileName);
+    }
+
+    public void isPrinting(boolean isPrinting){
+        this.isPrinting = isPrinting;
     }
 
     /**
@@ -123,7 +128,7 @@ public class SupervisedNeuralNetwork extends NeuralNetwork implements Serializab
 
         for(long age = 0; age <= ages; age++) {
             loss = this.trainIteration(unpackedDataset, ratio);
-            System.out.println(age + " - " + loss);
+            if (this.isPrinting) System.out.println(age + " - " + loss);
         }
 
         return loss;

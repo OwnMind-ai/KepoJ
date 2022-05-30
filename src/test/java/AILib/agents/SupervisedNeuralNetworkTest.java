@@ -35,6 +35,7 @@ class SupervisedNeuralNetworkTest {
         agent.addLayer(new StaticLayer(4, StandardFunctions.SIGMOID));
         agent.addLayer(new StaticLayer(3, StandardFunctions.SIGMOID));
         agent.addLayer(new StaticLayer(2, StandardFunctions.SIGMOID));
+        agent.isPrinting(false);
 
         // !! Long term action !!
         agent.train(example, 1, 0.0005d);
