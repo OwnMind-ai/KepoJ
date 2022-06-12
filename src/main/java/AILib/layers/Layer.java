@@ -5,7 +5,7 @@ import AILib.entities.Neuron;
 import java.io.Serializable;
 
 public interface Layer extends Serializable {
-    void buildLayer(int weightsCount);
+    void buildLayer(double... data);
 
     void doLayer(double[] data);
     void trainLayer(double[] outputs, double ratio);

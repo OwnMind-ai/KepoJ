@@ -2,6 +2,7 @@ package AILib.agents.deep;
 
 import AILib.agents.Agent;
 import AILib.exceptions.NeuralNetworkRuntimeException;
+import AILib.layers.ConvolutionalLayer;
 import AILib.layers.InputLayer;
 import AILib.layers.Layer;
 
@@ -19,6 +20,7 @@ import java.util.Objects;
  */
 public class NeuralNetwork implements Agent, Serializable {
     protected ArrayList<Layer> layers;
+    public static boolean WARNINGS = true;
 
     /**
      * @param inputNeurons input layer length
@@ -49,9 +51,28 @@ public class NeuralNetwork implements Agent, Serializable {
      */
     public void addLayer(Layer layer) {
         this.layers.add(layer);
-        this.layers.get(this.layers.size() - 1).buildLayer(
-                this.layers.get(this.layers.size() - 2).length()
-        );
+
+        if(this.layers.get(this.layers.size() - 1) instanceof ConvolutionalLayer){
+            if (this.layers.get(this.layers.size() - 2) instanceof ConvolutionalLayer){
+                ConvolutionalLayer previous = (ConvolutionalLayer) this.layers.get(this.layers.size() - 2);
+                this.layers.get(this.layers.size() - 1).buildLayer(previous.getWidth(), previous.getHeight());
+            } else {
+                int width = (int) Math.floor(Math.sqrt(this.layers.get(this.layers.size() - 2).length()));
+                int height = this.layers.get(this.layers.size() - 2).length() / width;
+
+                this.layers.get(this.layers.size() - 1).buildLayer(width, height);
+                if (WARNINGS && !(this.layers.get(this.layers.size() - 2) instanceof InputLayer))
+                    System.err.printf(
+                            "AILib Warning: layer %d not a ConvolutionLayer and located before another ConvolutionLayer." +
+                                    "Size of next layer calculated as square of previous layer's length%n",
+                            this.layers.size() - 2
+                    );
+            }
+        } else {
+            this.layers.get(this.layers.size() - 1).buildLayer(
+                    this.layers.get(this.layers.size() - 2).length()
+            );
+        }
     }
 
     /**

@@ -10,9 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c12961d-2775-4410-bc33-fd9082521e7c" name="Default Changelist" comment="AIHandler base code">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/deep/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/deep/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AILib/agents/deep/SupervisedNeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/agents/deep/SupervisedNeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/entities/Neuron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/entities/Neuron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/ConvolutionalLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/ConvolutionalLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/DynamicLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/DynamicLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/InputLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/InputLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/Layer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/Layer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AILib/layers/StaticLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AILib/layers/StaticLayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedNeuralNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/agents/SupervisedNeuralNetworkTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/AILib/entities/NeuronTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AILib/entities/NeuronTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/entities/Neuron.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/entities/Neuron.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AILib/layers/DynamicLayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AILib/layers/DynamicLayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/agents/QAgentTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/agents/SupervisedAgentTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/agents/SupervisedNeuralNetworkTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/agents/SupervisedNeuralNetworkTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/AILib/entities/NeuronTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AILib/entities/NeuronTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +88,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ownmind/GitRepositories/Lucreet&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;
   }
 }</component>
@@ -98,7 +114,7 @@
       <recent name="AILib.functions.parser" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SupervisedNeuralNetworkTest.lines">
+  <component name="RunManager" selected="JUnit.All in AILib">
     <configuration name="App" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -219,11 +235,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in AILib" />
+        <item itemvalue="JUnit.SupervisedNeuralNetworkTest" />
         <item itemvalue="JUnit.SupervisedNeuralNetworkTest.lines" />
         <item itemvalue="Application.QTableTest" />
         <item itemvalue="JUnit.QTableTest.train" />
-        <item itemvalue="JUnit.SupervisedNeuralNetworkTest" />
-        <item itemvalue="JUnit.All in AILib" />
       </list>
     </recent_temporary>
   </component>
@@ -261,7 +277,10 @@
       <workItem from="1651609074594" duration="122000" />
       <workItem from="1653596405388" duration="177000" />
       <workItem from="1653618121782" duration="299000" />
-      <workItem from="1653935981436" duration="299000" />
+      <workItem from="1653935981436" duration="1411000" />
+      <workItem from="1654135455950" duration="262000" />
+      <workItem from="1654322548773" duration="74000" />
+      <workItem from="1654992200564" duration="5908000" />
     </task>
     <task id="LOCAL-00001" summary="AIHandler base code">
       <created>1616514621077</created>

@@ -5,45 +5,42 @@ import AILib.functions.ActivationFunction;
 import AILib.functions.StandardFunctions;
 
 import java.util.Collections;
-import java.util.Random;
 
 public class ConvolutionalLayer implements Layer {
     private final ActivationFunction aiFunctions;
-    private final Neuron[] neurons;
-
-    // TODO: clear this code
-    public final int layerSizeX;
-    public final int layerSizeY;
-    private final int previousLayerX;
-    private final int previousLayerY;
+    private Neuron[] neurons;
+    private int layerSizeX = Integer.MIN_VALUE;
+    private int layerSizeY = Integer.MIN_VALUE;
+    private int previousLayerX;
+    private int previousLayerY;
     private final int coreSizeX;
     private final int coreSizeY;
 
     public ConvolutionalLayer(int coreSizeX, int coreSizeY,
-                              int previousLayerX, int previousLayerY,
                               ActivationFunction aiFunctions){
         this.aiFunctions = aiFunctions;
 
         this.coreSizeX = coreSizeX;
         this.coreSizeY = coreSizeY;
-        this.previousLayerX = previousLayerX;
-        this.previousLayerY = previousLayerY;
-        this.layerSizeX = ConvolutionalLayer.calculateLayersSize(coreSizeX, previousLayerX);
-        this.layerSizeY = ConvolutionalLayer.calculateLayersSize(coreSizeY, previousLayerY);
-
-        this.neurons = new Neuron[this.layerSizeX * this.layerSizeY];
     }
 
     public ConvolutionalLayer(int coreSizeX, int coreSizeY,
-                              int previousLayerX, int previousLayerY,
                               StandardFunctions aiFunctions){
-        this(coreSizeX, coreSizeY, previousLayerX, previousLayerY, aiFunctions.get());
+        this(coreSizeX, coreSizeY, aiFunctions.get());
     }
 
     private static int calculateLayersSize(int coreSize, int previousLayerSize){
         return previousLayerSize - coreSize + 1;
     }
 
+    public void setSize(int width, int height){
+        this.layerSizeX = width;
+        this.layerSizeY = height;
+    }
+
+    public int getWidth() { return this.layerSizeX; }
+
+    public int getHeight() { return this.layerSizeY; }
     private int getIdByPosition(int x, int y){
         return y * this.previousLayerX + x;
     }
@@ -51,40 +48,39 @@ public class ConvolutionalLayer implements Layer {
     public double[] calculateWeights(int corePositionX, int corePositionY){
         double[] weights = new double[this.previousLayerX * this.previousLayerY];
 
-        for(int y = corePositionY; y < this.coreSizeY + corePositionY; y++){
-            for(int x = corePositionX; x < this.coreSizeX + corePositionX; x++){
-                weights[this.getIdByPosition(x, y)] = new Random().nextDouble();
-            }
-        }
+        for(int y = corePositionY; y < this.coreSizeY + corePositionY; y++)
+            for (int x = corePositionX; x < this.coreSizeX + corePositionX; x++)
+                weights[this.getIdByPosition(x, y)] = Neuron.random();
 
         return weights;
     }
 
     @Override
-    public void buildLayer(int weightsCount) {
+    public void buildLayer(double... data) {
+        assert data.length >= 2 : "Layer data in wrong format";
+        this.previousLayerX = (int) data[0];
+        this.previousLayerY = (int) data[1];
+        if (this.layerSizeX < 0 && this.layerSizeY < 0) {
+            this.layerSizeX = calculateLayersSize(this.coreSizeX, this.previousLayerX);
+            this.layerSizeY = calculateLayersSize(this.coreSizeY, this.previousLayerY);
+        }
+
+        this.neurons = new Neuron[layerSizeX * layerSizeY];
+
         for(int i = 0; i < this.neurons.length; i++){
             this.neurons[i] = new Neuron(
                 this.calculateWeights(
                         i % this.layerSizeX,
                         (int) Math.floor((double) i / this.layerSizeY)),
+                Neuron.random(),
                 this.aiFunctions
             );
         }
     }
 
-    /*
-     * data[0] and data[1] - core size
-     * data[2] and data[3] - previous layer size
-     * data[4] - AIFunction index
-     */
-
     @Override
     public void doLayer(double[] data) {
-        for(Neuron neuron : this.neurons) {
-            neuron.excite(data);
-        }
-
-        this.getOutputs();
+        for(Neuron neuron : this.neurons) neuron.excite(data);
     }
 
     @Override

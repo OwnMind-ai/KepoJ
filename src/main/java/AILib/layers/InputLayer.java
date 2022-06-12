@@ -10,7 +10,7 @@ public class InputLayer implements Layer{
     }
 
     @Override
-    public void buildLayer(int weightsCount) {
+    public void buildLayer(double... data) {
 
     }
 

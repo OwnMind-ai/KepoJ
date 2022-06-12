@@ -5,7 +5,6 @@ import AILib.functions.ActivationFunction;
 import AILib.functions.StandardFunctions;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class DynamicLayer implements Layer{
     private final ActivationFunction aiFunctions;
@@ -37,7 +36,7 @@ public class DynamicLayer implements Layer{
         this.neurons.add(neuron);
 
         for (int i = 0; i < this.nextLayer.length(); i++)
-            this.nextLayer.getNeuron(i).weights.add(Neuron.randomWeight());
+            this.nextLayer.getNeuron(i).weights.add(Neuron.random());
     }
 
     public void removeNeuron(int index){
@@ -48,10 +47,11 @@ public class DynamicLayer implements Layer{
     }
 
     @Override
-    public void buildLayer(int weightsCount){
-        this.weightsCount = weightsCount;
+    public void buildLayer(double... data){
+        assert data.length > 0 : "Build layer data is empty";
+
         for (int i = 0; i < initialSize; i++)
-            this.neurons.add(new Neuron(weightsCount, this.aiFunctions));
+            this.neurons.add(new Neuron((int) data[0], this.aiFunctions));
     }
 
     @Override

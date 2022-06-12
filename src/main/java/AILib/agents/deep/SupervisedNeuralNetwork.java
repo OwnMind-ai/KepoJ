@@ -106,8 +106,8 @@ public class SupervisedNeuralNetwork extends NeuralNetwork implements Serializab
         double[][][] unpackedDataset = dataset.toArray();
 
         for(long age = 0; loss >= fault; age++) {
-           loss = this.trainIteration(unpackedDataset, ratio);
-           System.out.println(age + " - " + loss);
+            loss = this.trainIteration(unpackedDataset, ratio);
+            if (this.isPrinting) System.out.println(age + " - " + loss);
         }
 
         return loss;

@@ -17,9 +17,10 @@ public class StaticLayer implements Layer {
         this(neuronsCount, function.get());
     }
 
-    public void buildLayer(int weightsCount){
+    public void buildLayer(double... data){
+        assert data.length > 0 : "Build layer data is empty";
         for (int i = 0; i < this.neurons.length; i++)
-            this.neurons[i] = new Neuron(weightsCount, this.aiFunctions);
+            this.neurons[i] = new Neuron((int) data[0], this.aiFunctions);
     }
 
     @Override

@@ -5,8 +5,6 @@ import AILib.functions.ActivationFunction;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
 
 public class Neuron implements Serializable {
     public double output, rawOutput = 0;
@@ -21,21 +19,20 @@ public class Neuron implements Serializable {
 
         assert weightsCount > 0 : new NeuralNetworkRuntimeException("Neuron haven't any weights");
         for(int i = 0; i < weightsCount; i++)
-            this.weights.add(Neuron.randomWeight());
-        this.bias = Neuron.randomWeight();
+            this.weights.add(Neuron.random());
+        this.bias = Neuron.random();
     }
 
-    public Neuron(double[] weights, ActivationFunction activationFunc){
+    public Neuron(double[] weights, double bias, ActivationFunction activationFunc){
         this.neuronFunctions = activationFunc;
         this.weights = new ArrayList<>();
 
         assert weights.length > 0 : new NeuralNetworkRuntimeException("Neuron haven't any weights");
-        for(int i = 0; i < weights.length - 1; i++)
-            this.weights.add(weights[i]);
-        this.bias = weights[weights.length - 1];
+        for (double weight : weights) this.weights.add(weight);
+        this.bias = bias;
     }
 
-    public static double randomWeight(){
+    public static double random(){
         return Math.random() * 2 - 1;
     }
 
