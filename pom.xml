@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ai.engine</groupId>
-    <artifactId>AILib</artifactId>
+    <artifactId>KepoJ</artifactId>
     <version>1.2</version>
     <dependencies>
         <dependency>
@@ -38,7 +38,7 @@
         <repository>
             <id>github</id>
             <name>GitHub OwnMind-ai Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/OwnMind-ai/AILib</url>
+            <url>https://maven.pkg.github.com/OwnMind-ai/KepoJ</url>
         </repository>
     </distributionManagement>
 
