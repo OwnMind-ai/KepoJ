@@ -1,21 +1,22 @@
 package ai.engine.kepoj.agents.deep;
 
 import ai.engine.kepoj.agents.Agent;
+import ai.engine.kepoj.agents.algorithms.QAlgorithm;
 import ai.engine.kepoj.utils.ArrayUtils;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Arrays;
 
-/**
- * Neural network class that provides Q-learning algorithms
+ /**
+ * Neural network class that implements Q-learning algorithms
  * @see NeuralNetwork
  * @see Agent
  * @since 1.2
  */
-public class QNeuralNetwork extends NeuralNetwork implements Serializable {
+public class QNeuralNetwork extends NeuralNetwork implements QAlgorithm, Serializable {
     /**
-     * Iteration counter. Self-increases only after learning iteration work
+     * Iteration counter. Self-increases after learning iteration work
      * @since 1.2
      * @see QNeuralNetwork#learningIteration(double, double[], double, double)
      */

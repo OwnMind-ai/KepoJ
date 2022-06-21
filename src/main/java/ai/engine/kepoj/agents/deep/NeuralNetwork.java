@@ -32,7 +32,7 @@ public class NeuralNetwork implements Agent, Serializable {
     }
 
     /**
-     * Read serializable neural network from file
+     * Read serialized neural network from file
      * @param fileName path to file
      * @since 1.1
      */

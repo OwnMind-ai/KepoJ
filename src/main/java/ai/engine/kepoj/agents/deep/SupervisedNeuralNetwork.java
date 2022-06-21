@@ -1,6 +1,7 @@
 package ai.engine.kepoj.agents.deep;
 
 import ai.engine.kepoj.agents.Agent;
+import ai.engine.kepoj.agents.algorithms.SupervisedAlgorithm;
 import ai.engine.kepoj.entities.Dataset;
 import ai.engine.kepoj.layers.Layer;
 
@@ -13,7 +14,7 @@ import java.io.Serializable;
  * @see Agent
  * @since 1.2
  */
-public class SupervisedNeuralNetwork extends NeuralNetwork implements Serializable {
+public class SupervisedNeuralNetwork extends NeuralNetwork implements SupervisedAlgorithm, Serializable {
     private boolean isPrinting = false;
     /**
      * @param inputNeurons input layer length
