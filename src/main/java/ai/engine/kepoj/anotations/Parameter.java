@@ -2,6 +2,10 @@ package ai.engine.kepoj.anotations;
 
 import java.lang.annotation.*;
 
+/**
+ * Refers to a field that will be used as an input parameter for agent
+ * @since 1.2
+ */
 @Documented
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)

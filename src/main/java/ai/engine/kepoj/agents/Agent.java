@@ -10,10 +10,9 @@ import ai.engine.kepoj.agents.deep.NeuralNetwork;
  */
 public interface Agent {
     /**
-     * Process data to some output
+     * Processes data to some output
      * @since 1.1
      * @param data input data
-     * @return processing result
      */
     double[] react(double[] data);   // Process environment state
 
