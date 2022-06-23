@@ -90,12 +90,6 @@ public class DynamicLayer implements Layer{
     }
 
     @Override
-    public void setErrors(double[] errors) {
-        for(int i = 0; i < this.neurons.size(); i++)
-            this.neurons.get(i).setError(errors[i]);
-    }
-
-    @Override
     public Neuron getNeuron(int index) {
         return this.neurons.get(index);
     }

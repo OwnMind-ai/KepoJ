@@ -71,12 +71,6 @@ public class StaticLayer implements Layer {
     }
 
     @Override
-    public void setErrors(double[] errors) {
-        for(int i = 0; i < this.neurons.length; i++)
-            this.neurons[i].setError(errors[i]);
-    }
-
-    @Override
     public Neuron getNeuron(int index) {
         return this.neurons[index];
     }

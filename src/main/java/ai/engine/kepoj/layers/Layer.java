@@ -4,6 +4,11 @@ import ai.engine.kepoj.entities.Neuron;
 
 import java.io.Serializable;
 
+/**
+ * Layer interface of a neural network. Each layer provides basic learning algorithms
+ * even if the neural network isn't going to be trained.
+ * @since 1.1
+ */
 public interface Layer extends Serializable {
     void buildLayer(double... data);
 
@@ -11,7 +16,6 @@ public interface Layer extends Serializable {
     void trainLayer(double[] outputs, double ratio);
     void setOutputs(double[] outputs);
     void findErrors(double[] errors, double[][] weights);
-    void setErrors(double[] errors);
     Neuron getNeuron(int index);
 
     double[][] getWeights();

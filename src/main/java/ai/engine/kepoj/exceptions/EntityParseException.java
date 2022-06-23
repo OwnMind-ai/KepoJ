@@ -1,5 +1,9 @@
 package ai.engine.kepoj.exceptions;
 
+/**
+ * Throws when the entity class created incorrectly and EntityController can't parse it
+ * @since 1.2
+ */
 public class EntityParseException extends AgentException{
     private final String name, message;
 

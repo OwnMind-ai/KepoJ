@@ -34,11 +34,6 @@ public class InputLayer implements Layer{
     }
 
     @Override
-    public void setErrors(double[] dataset) {
-
-    }
-
-    @Override
     public Neuron getNeuron(int index) {
         return null;
     }
