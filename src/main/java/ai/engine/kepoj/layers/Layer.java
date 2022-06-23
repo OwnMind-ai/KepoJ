@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @since 1.1
  */
 public interface Layer extends Serializable {
-    void buildLayer(double... data);
+    void buildLayer(Layer previous);
 
     void doLayer(double[] data);
     void trainLayer(double[] outputs, double ratio);

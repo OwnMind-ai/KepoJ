@@ -47,11 +47,11 @@ public class DynamicLayer implements Layer{
     }
 
     @Override
-    public void buildLayer(double... data){
-        assert data.length > 0 : "Build layer data is empty";
+    public void buildLayer(Layer previous){
+        assert previous != null : "Previous layer is null";
 
         for (int i = 0; i < initialSize; i++)
-            this.neurons.add(new Neuron((int) data[0], this.aiFunctions));
+            this.neurons.add(new Neuron(previous.length(), this.aiFunctions));
     }
 
     @Override

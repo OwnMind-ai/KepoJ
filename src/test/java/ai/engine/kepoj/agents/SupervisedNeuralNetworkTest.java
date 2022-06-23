@@ -32,8 +32,7 @@ class SupervisedNeuralNetworkTest {
                 {{0,0,1,0,0,1,1,1,1},{0.8d,0.8d}},
                 {{0,0,0,0,0,0,0,0,0},{0.2d,0.2d}}});
 
-        ConvolutionalLayer l = new ConvolutionalLayer(3, 1, StandardFunctions.SIGMOID);
-        l.setSize(1, 3);
+        ConvolutionalLayer l = new ConvolutionalLayer(3, 1, 1,3, StandardFunctions.SIGMOID);
 
         SupervisedNeuralNetwork agent = new SupervisedNeuralNetwork(9);
         agent.addLayer(l);

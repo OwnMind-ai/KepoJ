@@ -15,7 +15,7 @@ class StaticLayerTest {
 
     public StaticLayerTest() {
         this.layer = new StaticLayer(3, StandardFunctions.IDENTICAL);
-        this.layer.buildLayer(3);
+        this.layer.buildLayer(new StaticLayer(3, StandardFunctions.IDENTICAL));
 
         for (int i = 0; i < this.layer.length(); i++) {
             Collections.fill(this.layer.getNeuron(i).weights, 0.5d);

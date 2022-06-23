@@ -10,7 +10,7 @@ public class InputLayer implements Layer{
     }
 
     @Override
-    public void buildLayer(double... data) {
+    public void buildLayer(Layer previous) {
 
     }
 
