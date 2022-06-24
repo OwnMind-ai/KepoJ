@@ -7,12 +7,19 @@ import ai.engine.kepoj.exceptions.EntityParseException;
 import ai.engine.kepoj.agents.Agent;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
+/**
+ * Controls and performs the actions of the Entity class according to the agent. Can be inherited by
+ * the entity class or bound outside it.
+ * @see Agent
+ * @since 1.2
+ */
 public class EntityController {
     public static final String INACTION = "inaction";
 
@@ -23,6 +30,11 @@ public class EntityController {
     private Object entity;
     private final Agent agent;
 
+    /**
+     * Determines action type and adds to action list
+     * @param action method of action
+     * @since 1.2
+     */
     private void loadAction(Method action){
         action.setAccessible(true);
         if (action.getAnnotation(Action.class).name().equals(INACTION)){
@@ -40,6 +52,11 @@ public class EntityController {
         } else { actions.add(new ActionConfiguration(action.getAnnotation(Action.class), action)); }
     }
 
+    /**
+     * Adds field to parameter list
+     * @param parameter parameter field
+     * @since 1.2
+     */
     private void loadParameter(Field parameter){
         parameter.setAccessible(true);
         Parameter configuration = parameter.getAnnotation(Parameter.class);
@@ -48,6 +65,10 @@ public class EntityController {
         else this.parameters.add(parameter);
     }
 
+    /** Parses ActionsList method and add actions separately
+     * @param method actions list method
+     * @since 1.2
+     */
     private void loadActionsList(Method method){
         method.setAccessible(true);
         assert method.getParameterCount() == 1 :
@@ -69,6 +90,10 @@ public class EntityController {
         }
     }
 
+    /**
+     * Loads a components from the entity class
+     * @since 1.2
+     */
     private void load() {
         for (Method action : entity.getClass().getDeclaredMethods()) {
             if (action.isAnnotationPresent(Action.class))
@@ -90,11 +115,21 @@ public class EntityController {
                this.loadParameter(parameter);
     }
 
+    /** Binds and parses instance of entity class. After binding entity ready to use
+     * @param entity entity class instance
+     * @throws EntityParseException throws when the entity class creates incorrectly
+     * @since 1.2
+     */
     public void bind(Object entity) throws EntityParseException {
         this.entity = entity;
         this.load();
     }
 
+    /** Creates a controller from outside an entity class
+     * @param agent controlling agent
+     * @param entity entity instance
+     * @since 1.2
+     */
     public EntityController(Agent agent, Object entity) {
         this.agent = agent;
         this.entity = entity;
@@ -105,6 +140,11 @@ public class EntityController {
         this.load();
     }
 
+    /** Creates a controller from inside of entity class as super constructor.
+     * Use super.bind(this) after that.
+     * @param agent controlling agent
+     * @since 1.2
+     */
     public EntityController(Agent agent){
         this.agent = agent;
 
@@ -112,6 +152,11 @@ public class EntityController {
         this.parameters = new ArrayList<>();
     }
 
+    /**
+     * Takes parameters values and archives them to an array
+     * @return parameters states array
+     * @since 1.2
+     */
     public double[] getParametersState(){
         return parameters.stream().mapToDouble(x -> {
             try {
@@ -123,7 +168,13 @@ public class EntityController {
         }).toArray();
     }
 
-    public String rawReact(double... data) throws Exception {
+    /** Performs an action based on input data without including parameters values
+     * @param data input data
+     * @return name of performed action
+     * @throws InvocationTargetException can't invoke action method from the entity instance
+     * @since 1.2
+     */
+    public String rawReact(double... data) throws InvocationTargetException, IllegalAccessException {
         double[] result = agent.react(data);
 
         int maxId = ArrayUtils.getMaxIndex(result);
@@ -142,15 +193,27 @@ public class EntityController {
         else return null;
     }
 
-    public String react(double... data) throws Exception {
+    /** Performs an action based on parameters values and provided input data. Input data adds to the end of array
+     * @param data additional input data
+     * @return name of performed action
+     * @throws InvocationTargetException can't invoke action method from the entity instance
+     * @since 1.2
+     */
+    public String react(double... data) throws InvocationTargetException, IllegalAccessException {
         double[] input = Arrays.copyOf(this.getParametersState(), parameters.size() + data.length);
         System.arraycopy(data, 0, input, parameters.size(), data.length);
 
         return this.rawReact(input);
     }
 
-    public String react() throws Exception { return this.react(new double[0]); }
-
+    /** Performs an action based only on parameters values
+     * @return name of performed action
+     * @throws InvocationTargetException can't invoke action method from the entity instance
+     * @since 1.2
+     */
+    public String react() throws InvocationTargetException, IllegalAccessException {
+        return this.react(new double[0]);
+    }
 }
 
 class ActionConfiguration{

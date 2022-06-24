@@ -5,23 +5,46 @@ import ai.engine.kepoj.agents.Agent;
 
 import java.util.Arrays;
 
+/**
+ * Tests the agent for the correctness of answers according to the dataset
+ * @since 1.0
+ */
 public class AgentChecker {
     private final Agent agent;
     private boolean prints;
 
+    /**
+     * @param agent agent to test
+     * @since 1.1
+     */
     public AgentChecker(Agent agent){
         this.agent = agent;
     }
 
+    /**
+     * @param agent agent to test
+     * @param isPrints specifies that the checker will print checking result
+     * @since 1.1
+     */
     public AgentChecker(Agent agent, boolean isPrints){
         this.agent = agent;
         this.prints = isPrints;
     }
 
+    /**
+     * Specifies that the checker will print checking result
+     * @since 1.1
+     */
     public void isPrints(boolean prints){
         this.prints = prints;
     }
 
+    /**
+     * Test the agent according to the dataset
+     * @param dataset dataset with input values and correct answers
+     * @param roundRate specifies rounding level of results
+     * @return number of passed test
+     */
     public int check(Dataset dataset, double roundRate){
         int result = 0;
         for(double[][] data : dataset.toArray()){
