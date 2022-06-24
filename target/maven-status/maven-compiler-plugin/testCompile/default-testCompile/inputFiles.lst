@@ -1,0 +1,8 @@
+/home/ownmind/GitRepositories/KepoJ/src/test/java/ai/engine/kepoj/layers/StaticLayerTest.java
+/home/ownmind/GitRepositories/KepoJ/src/test/java/ai/engine/kepoj/agents/QNeuralNetworkTest.java
+/home/ownmind/GitRepositories/KepoJ/src/test/java/ai/engine/kepoj/layers/ConvolutionalLayerTest.java
+/home/ownmind/GitRepositories/KepoJ/src/test/java/ai/engine/kepoj/agents/NeuralNetworkTest.java
+/home/ownmind/GitRepositories/KepoJ/src/test/java/ai/engine/kepoj/layers/DynamicLayerTest.java
+/home/ownmind/GitRepositories/KepoJ/src/test/java/ai/engine/kepoj/entities/NeuronTest.java
+/home/ownmind/GitRepositories/KepoJ/src/test/java/ai/engine/kepoj/agents/SupervisedNeuralNetworkTest.java
+/home/ownmind/GitRepositories/KepoJ/src/test/java/ai/engine/kepoj/utils/AnnotationsTest.java
