@@ -2,6 +2,10 @@ package ai.engine.kepoj.layers;
 
 import ai.engine.kepoj.entities.Neuron;
 
+/**
+ * Used to store input data without any processing and also does not have neurons on the layer.
+ * @since 1.1
+ */
 public class InputLayer implements Layer{
     private double[] outputs;
 
@@ -10,7 +14,7 @@ public class InputLayer implements Layer{
     }
 
     @Override
-    public void buildLayer(Layer previous) {
+    public void buildLayer(Layer previous ) {
 
     }
 

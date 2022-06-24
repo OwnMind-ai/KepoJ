@@ -8,78 +8,132 @@ import java.util.Collections;
 
 import static ai.engine.kepoj.agents.deep.NeuralNetwork.WARNINGS;
 
+/**
+ * An implementation of a convolutional layer that restrict neurons weights to their scopes (core) in two dimensions.
+ * @since 1.1
+ */
 public class ConvolutionalLayer implements Layer {
     private final ActivationFunction aiFunctions;
     private Neuron[] neurons;
-    private int layerSizeX = Integer.MIN_VALUE;
-    private int layerSizeY = Integer.MIN_VALUE;
-    private int previousLayerX = -1;
-    private int previousLayerY = -1;
-    private final int coreSizeX;
-    private final int coreSizeY;
-    public ConvolutionalLayer(int coreSizeX, int coreSizeY,
-                              ActivationFunction aiFunctions){
-        this.aiFunctions = aiFunctions;
+    private int layerWidth = Integer.MIN_VALUE;
+    private int layerHeight = Integer.MIN_VALUE;
+    private int previousWidth = Integer.MIN_VALUE;
+    private int previousHeight = Integer.MIN_VALUE;
+    private final int coreWidth;
+    private final int coreHeight;
 
-        this.coreSizeX = coreSizeX;
-        this.coreSizeY = coreSizeY;
+    /**
+     * Creates a convolutional layer with a fixed core size
+     * @param coreWidth neuron's scope width
+     * @param coreHeight neuron's scope height
+     * @param functions activation function complex for this layer
+     * @since 1.1
+     */
+    public ConvolutionalLayer(int coreWidth, int coreHeight,
+                              ActivationFunction functions){
+        this.aiFunctions = functions;
+
+        this.coreWidth = coreWidth;
+        this.coreHeight = coreHeight;
     }
 
-    public ConvolutionalLayer(int coreSizeX, int coreSizeY,
-                              StandardFunctions aiFunctions){
-        this(coreSizeX, coreSizeY, aiFunctions.get());
+    /**
+     * Creates a convolutional layer with a fixed core size
+     * @param coreWidth neuron's scope width
+     * @param coreHeight neuron's scope height
+     * @param functions defined function from the StandardFunction enum
+     * @since 1.1
+     */
+    public ConvolutionalLayer(int coreWidth, int coreHeight,
+                              StandardFunctions functions){
+        this(coreWidth, coreHeight, functions.get());
     }
 
-    public ConvolutionalLayer(int coreSizeX, int coreSizeY, int layerSizeX, int layerSizeY,
-                              ActivationFunction aiFunctions){
-        this.aiFunctions = aiFunctions;
+    /**
+     * Creates a convolutional layer with a fixed core size and sets
+     * @param coreWidth neuron's scope width
+     * @param coreHeight neuron's scope height
+     * @param layerWidth constant layer width
+     * @param layerHeight constant layer height
+     * @param functions activation function complex for this layer
+     * @since 1.2
+     */
+    public ConvolutionalLayer(int coreWidth, int coreHeight, int layerWidth, int layerHeight,
+                              ActivationFunction functions){
+        this.aiFunctions = functions;
 
-        this.coreSizeX = coreSizeX;
-        this.coreSizeY = coreSizeY;
-        this.layerSizeX = layerSizeX;
-        this.layerSizeY = layerSizeY;
+        this.coreWidth = coreWidth;
+        this.coreHeight = coreHeight;
+        this.layerWidth = layerWidth;
+        this.layerHeight = layerHeight;
     }
 
-    public ConvolutionalLayer(int coreSizeX, int coreSizeY, int layerSizeX, int layerSizeY,
-                              StandardFunctions aiFunctions){
-        this(coreSizeX, coreSizeY, layerSizeX, layerSizeY, aiFunctions.get());
+    /**
+     * Creates a convolutional layer with a fixed core size and sets
+     * @param coreWidth neuron's scope width
+     * @param coreHeight neuron's scope height
+     * @param layerWidth constant layer width
+     * @param layerHeight constant layer height
+     * @param functions defined function from the StandardFunction enum
+     * @since 1.2
+     */
+    public ConvolutionalLayer(int coreWidth, int coreHeight, int layerWidth, int layerHeight,
+                              StandardFunctions functions){
+        this(coreWidth, coreHeight, layerWidth, layerHeight, functions.get());
     }
 
     private static int calculateLayersSize(int coreSize, int previousLayerSize){
         return previousLayerSize - coreSize + 1;
     }
 
+    /** Sets a constant layer size. Use only before layer building.
+     * @param width layer width
+     * @param height layer height
+     * @since 1.2
+     */
     public void setSize(int width, int height){
-        this.layerSizeX = width;
-        this.layerSizeY = height;
+        this.layerWidth = width;
+        this.layerHeight = height;
     }
 
-    public int getWidth() { return this.layerSizeX; }
+    public int getWidth() { return this.layerWidth; }
 
-    public int getHeight() { return this.layerSizeY; }
+    public int getHeight() { return this.layerHeight; }
     private int getIdByPosition(int x, int y){
-        return y * this.previousLayerX + x;
+        return y * this.previousWidth + x;
     }
 
-    public double[] calculateWeights(int corePositionX, int corePositionY){
-        double[] weights = new double[this.previousLayerX * this.previousLayerY];
+    /**
+     * Calculates weights array for the neuron on the provided position
+     * @param corePositionX neuron position x
+     * @param corePositionY neuron position y
+     * @return weights for neuron
+     * @since 1.1
+     */
+    private double[] calculateWeights(int corePositionX, int corePositionY){
+        double[] weights = new double[this.previousWidth * this.previousHeight];
 
-        for(int y = corePositionY; y < this.coreSizeY + corePositionY; y++)
-            for (int x = corePositionX; x < this.coreSizeX + corePositionX; x++)
+        for(int y = corePositionY; y < this.coreHeight + corePositionY; y++)
+            for (int x = corePositionX; x < this.coreWidth + corePositionX; x++)
                 weights[this.getIdByPosition(x, y)] = Neuron.random();
 
         return weights;
     }
 
+    /**
+     * Determines the size of the layer based on structure of the previous layer
+     * @param previous previous layer
+     * @since 1.2
+     */
     private void assignPreviousSize(Layer previous){
-        if(this.previousLayerX <= 0 && this.previousLayerY <= 0) {
+        if(this.previousWidth <= 0 && this.previousHeight <= 0) {
             if (previous instanceof ConvolutionalLayer) {
                 ConvolutionalLayer layer = (ConvolutionalLayer) previous;
-                this.previousLayerX = layer.layerSizeX;
-                this.previousLayerY = layer.layerSizeY;
+                this.previousWidth = layer.layerWidth;
+                this.previousHeight = layer.layerHeight;
             } else {
-                this.previousLayerX = (int) Math.floor(Math.sqrt(previous.length()));
-                this.previousLayerY = previous.length() / this.previousLayerX;
+                this.previousWidth = (int) Math.floor(Math.sqrt(previous.length()));
+                this.previousHeight = previous.length() / this.previousWidth;
 
                 if (WARNINGS && !(previous instanceof InputLayer))
                     System.err.println(
@@ -90,35 +144,52 @@ public class ConvolutionalLayer implements Layer {
         }
     }
 
+    /** Determines layer size and initializes neurons array. If previous layer is instance of the Convolution layer,
+     * size of current layer will be based on size of the previous layer. Otherwise, size of previous layer takes as
+     * rectangle with area equals layer length.
+     * Usually, Layer must be built in the neural network class.
+     * @param previous layer object before current layer
+     * @since 1.1
+     */
     @Override
     public void buildLayer(Layer previous) {
         assert previous != null : "Previous layer is null";
 
         this.assignPreviousSize(previous);
 
-        if (this.layerSizeX < 0 && this.layerSizeY < 0) {
-            this.layerSizeX = calculateLayersSize(this.coreSizeX, this.previousLayerX);
-            this.layerSizeY = calculateLayersSize(this.coreSizeY, this.previousLayerY);
+        if (this.layerWidth < 0 && this.layerHeight < 0) {
+            this.layerWidth = calculateLayersSize(this.coreWidth, this.previousWidth);
+            this.layerHeight = calculateLayersSize(this.coreHeight, this.previousHeight);
         }
 
-        this.neurons = new Neuron[layerSizeX * layerSizeY];
+        this.neurons = new Neuron[layerWidth * layerHeight];
 
         for(int i = 0; i < this.neurons.length; i++){
             this.neurons[i] = new Neuron(
                 this.calculateWeights(
-                        i % this.layerSizeX,
-                        (int) Math.floor((double) i / this.layerSizeY)),
+                        i % this.layerWidth,
+                        (int) Math.floor((double) i / this.layerHeight)),
                 Neuron.random(),
                 this.aiFunctions
             );
         }
     }
 
+    /**
+     * Processes data through every neuron
+     * @param data input data with the same size as length of previous layer
+     * @since 1.1
+     */
     @Override
     public void doLayer(double[] data) {
         for(Neuron neuron : this.neurons) neuron.excite(data);
     }
 
+    /** Updates neurons weights based on their errors
+     * @param outputs outputs values on the previous layer
+     * @param ratio learning decreasing ratio
+     * @since 1.1
+     */
     @Override
     public void trainLayer(double[] outputs, double ratio) {
         for (Neuron neuron : this.neurons) {
@@ -138,6 +209,12 @@ public class ConvolutionalLayer implements Layer {
             this.neurons[i].output = outputs[i];
     }
 
+    /**
+     * Calculates neuron errors based on the next layer's errors and weights between them
+     * @param errors errors on the next layer
+     * @param weights weights between current and next layers
+     * @since 1.1
+     */
     @Override
     public void findErrors(double[] errors, double[][] weights) {
         for(int i = 0; i < this.neurons.length; i++) {
@@ -190,6 +267,11 @@ public class ConvolutionalLayer implements Layer {
         return result;
     }
 
+    /**
+     * Returns count of the neurons on the layer
+     * @return layer length
+     * @since 1.1
+     */
     @Override
     public int length() {
         return this.neurons.length;
