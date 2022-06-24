@@ -1,0 +1,9 @@
+ai/engine/kepoj/layers/StaticLayerTest.class
+ai/engine/kepoj/agents/SupervisedNeuralNetworkTest.class
+ai/engine/kepoj/utils/AnnotationsTest.class
+ai/engine/kepoj/utils/Entity.class
+ai/engine/kepoj/agents/NeuralNetworkTest.class
+ai/engine/kepoj/layers/DynamicLayerTest.class
+ai/engine/kepoj/entities/NeuronTest.class
+ai/engine/kepoj/layers/ConvolutionalLayerTest.class
+ai/engine/kepoj/agents/QNeuralNetworkTest.class

@@ -2,11 +2,13 @@ package ai.engine.kepoj.agents.deep;
 
 import ai.engine.kepoj.agents.Agent;
 import ai.engine.kepoj.exceptions.NeuralNetworkRuntimeException;
-import ai.engine.kepoj.layers.ConvolutionalLayer;
 import ai.engine.kepoj.layers.InputLayer;
 import ai.engine.kepoj.layers.Layer;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;

@@ -4,9 +4,29 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>groupId</groupId>
-    <artifactId>AILib</artifactId>
-    <version>1.1</version>
+    <groupId>ai.engine</groupId>
+    <artifactId>KepoJ</artifactId>
+    <version>1.2</version>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>23.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
     <packaging>jar</packaging>
 
     <properties>
@@ -18,7 +38,7 @@
         <repository>
             <id>github</id>
             <name>GitHub OwnMind-ai Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/OwnMind-ai/AILib</url>
+            <url>https://maven.pkg.github.com/OwnMind-ai/KepoJ</url>
         </repository>
     </distributionManagement>
 
