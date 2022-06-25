@@ -1,6 +1,6 @@
 # KepoJ
 KepoJ is a library that provides creating, using, training and exporting ml-agents and neural networks.
-# Usage
+
 ## Maven dependency
     <dependency>
         <groupId>ai.engine</groupId>
