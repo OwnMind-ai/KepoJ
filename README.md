@@ -89,31 +89,31 @@ The Entity class must contain fields and methods that have these annotations:
 - @ActionList (not required) - used to specify a method that will take an action name as an argument and process it
 
 
-    // Extending EntityController used to attach agent exactly at entity class 
-    // and not required
-    class Entity extends EntityController {
-        public @Parameter int health;
-        public final @Parameter int attack;
+        // Extending EntityController used to attach agent exactly at entity class 
+        // and not required
+        class Entity extends EntityController {
+            public @Parameter int health;
+            public final @Parameter int attack;
         
-        public Entity(int health, int attack, Agent agent) {
-            super(agent);
-            this.health = health;
-            this.attack = attack;
+            public Entity(int health, int attack, Agent agent) {
+                super(agent);
+                this.health = health;
+                this.attack = attack;
         
-            try {
-                super.bind(this);
-            } catch (EntityParseException e) { /* ... */ }
-        }
+                try {
+                    super.bind(this);
+                } catch (EntityParseException e) { /* ... */ }
+            }
         
-        @Action(name = "attack")
-        public void attack(){ this.health-= this.attack; }
+            @Action(name = "attack")
+            public void attack(){ this.health-= this.attack; }
         
-        @Action(name = "dodge")
-        public void dodge(){ }
+            @Action(name = "dodge")
+            public void dodge(){ }
         
-        @ActionsList(names = {"left", "right"})
-        public void move(String action){ this.health -= 0.1; }
-    }
+            @ActionsList(names = {"left", "right"})
+            public void move(String action){ this.health -= 0.1; }
+       }
 
 #### Step #2: Attaching Controller
 There are two ways to attach controller to an entity: **internal** and **external**.
