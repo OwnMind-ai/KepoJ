@@ -148,7 +148,7 @@ The Entity Controller has several methods to execute that differ in how they get
     // Values 0, 1, 2 are taken from entity parameters
     controller.react(3, 4);
 
-    // Uses only enity parameters
+    // Uses only entity parameters
     controller.react();
 
 After using these methods, the object will call the action methods and return the name of the action that was performed.
