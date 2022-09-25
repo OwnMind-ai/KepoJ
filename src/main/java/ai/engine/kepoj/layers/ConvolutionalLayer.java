@@ -4,17 +4,13 @@ import ai.engine.kepoj.entities.Neuron;
 import ai.engine.kepoj.functions.ActivationFunction;
 import ai.engine.kepoj.functions.StandardFunctions;
 
-import java.util.Collections;
-
 import static ai.engine.kepoj.agents.deep.NeuralNetwork.WARNINGS;
 
 /**
  * An implementation of a convolutional layer that restrict neurons weights to their scopes (core) in two dimensions.
  * @since 1.1
  */
-public class ConvolutionalLayer implements Layer {
-    private final ActivationFunction aiFunctions;
-    private Neuron[] neurons;
+public class ConvolutionalLayer extends StaticLayerBase {
     private int layerWidth = Integer.MIN_VALUE;
     private int layerHeight = Integer.MIN_VALUE;
     private int previousWidth = Integer.MIN_VALUE;
@@ -31,7 +27,7 @@ public class ConvolutionalLayer implements Layer {
      */
     public ConvolutionalLayer(int coreWidth, int coreHeight,
                               ActivationFunction functions){
-        this.aiFunctions = functions;
+        super(functions);
 
         this.coreWidth = coreWidth;
         this.coreHeight = coreHeight;
@@ -60,7 +56,7 @@ public class ConvolutionalLayer implements Layer {
      */
     public ConvolutionalLayer(int coreWidth, int coreHeight, int layerWidth, int layerHeight,
                               ActivationFunction functions){
-        this.aiFunctions = functions;
+        super(functions);
 
         this.coreWidth = coreWidth;
         this.coreHeight = coreHeight;
@@ -173,107 +169,5 @@ public class ConvolutionalLayer implements Layer {
                 this.aiFunctions
             );
         }
-    }
-
-    /**
-     * Processes data through every neuron
-     * @param data input data with the same size as length of previous layer
-     * @since 1.1
-     */
-    @Override
-    public void doLayer(double[] data) {
-        for(Neuron neuron : this.neurons) neuron.excite(data);
-    }
-
-    /** Updates neurons weights based on their errors
-     * @param outputs outputs values on the previous layer
-     * @param ratio learning decreasing ratio
-     * @since 1.1
-     */
-    @Override
-    public void trainLayer(double[] outputs, double ratio) {
-        for (Neuron neuron : this.neurons) {
-            for (int j = 0; j < neuron.weights.size(); j++)
-                if (neuron.weights.get(j) != null) {
-                    neuron.weights.set(j,
-                            neuron.weights.get(j) + ratio * outputs[j] * neuron.error
-                    );
-                }
-            neuron.bias += ratio * neuron.error;
-        }
-    }
-
-    @Override
-    public void setOutputs(double[] outputs) {
-        for(int i = 0; i < this.neurons.length; i++)
-            this.neurons[i].output = outputs[i];
-    }
-
-    /**
-     * Calculates neuron errors based on the next layer's errors and weights between them
-     * @param errors errors on the next layer
-     * @param weights weights between current and next layers
-     * @since 1.1
-     */
-    @Override
-    public void findErrors(double[] errors, double[][] weights) {
-        for(int i = 0; i < this.neurons.length; i++) {
-            double error = 0;
-            for(int j = 0; j < errors.length;j++)
-                error+= errors[j] * (Collections.singletonList(weights[j][i]).get(0) == null ? 0 : weights[j][i]);
-
-            this.neurons[i].setError(error);
-        }
-    }
-
-    @Override
-    public Neuron getNeuron(int index) {
-        return this.neurons[index];
-    }
-
-    @Override
-    public double[][] getWeights() {
-        double[][] result = new double[this.neurons.length][];
-        for(int i = 0; i < this.neurons.length; i++)
-            result[i] = this.neurons[i].weights.stream().mapToDouble(Double::doubleValue).toArray();
-
-        return result;
-    }
-
-    @Override
-    public double[] getErrors() {
-        double[] result = new double[this.neurons.length];
-        for(int i = 0; i < this.neurons.length; i++)
-            result[i] = this.neurons[i].error;
-
-        return result;
-    }
-
-    @Override
-    public double[] getOutputs() {
-        double[] result = new double[this.neurons.length];
-        for(int i = 0; i < this.neurons.length; i++)
-            result[i] = this.neurons[i].output;
-
-        return result;
-    }
-
-    @Override
-    public double[] getBias() {
-        double[] result = new double[this.neurons.length];
-        for(int i = 0; i < this.neurons.length; i++)
-            result[i] = this.neurons[i].bias;
-
-        return result;
-    }
-
-    /**
-     * Returns count of the neurons on the layer
-     * @return layer length
-     * @since 1.1
-     */
-    @Override
-    public int length() {
-        return this.neurons.length;
     }
 }
