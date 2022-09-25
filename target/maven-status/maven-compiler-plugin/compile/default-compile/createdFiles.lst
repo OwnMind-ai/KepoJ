@@ -18,6 +18,7 @@ ai/engine/kepoj/functions/ActivationFunction.class
 ai/engine/kepoj/layers/StaticLayer.class
 ai/engine/kepoj/layers/ConvolutionalLayer.class
 ai/engine/kepoj/agents/deep/NeuralNetwork.class
+ai/engine/kepoj/entities/Selector.class
 ai/engine/kepoj/entities/Dataset.class
 ai/engine/kepoj/anotations/Action.class
 ai/engine/kepoj/layers/InputLayer.class

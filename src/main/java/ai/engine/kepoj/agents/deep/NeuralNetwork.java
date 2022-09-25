@@ -11,9 +11,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Serializable class that provide passing data through a sequence of layers
@@ -65,6 +63,14 @@ public class NeuralNetwork implements Agent, Serializable {
     public void addAll(Layer... layers){
         for(Layer layer : layers)
             this.addLayer(layer);
+    }
+
+    /**
+     * @return unmodifiable list of Layers
+     * @since 1.3
+     */
+    public List<Layer> getLayers() {
+        return Collections.unmodifiableList(new ArrayList<>(this.layers));
     }
 
     /**
