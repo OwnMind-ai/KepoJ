@@ -4,6 +4,7 @@ package ai.engine.kepoj.functions;
  * The most common activation functions that can used in neural networks as an ActivationFunction object
  * @since 1.0
  */
+@Deprecated
 public enum StandardFunctions {
     BOUNDED_LEAKY_RELU(ActivationFunction.create(
             (x) -> (Math.min(1 + 0.01 * x, Math.max(0.01 * x, x))),

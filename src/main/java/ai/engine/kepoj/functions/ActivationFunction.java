@@ -8,6 +8,32 @@ import java.io.Serializable;
  * @since 1.2
  */
 public interface ActivationFunction extends Serializable {
+    ActivationFunction BOUNDED_LEAKY_RELU = ActivationFunction.create(
+                        (x) -> (Math.min(1 + 0.01 * x, Math.max(0.01 * x, x))),
+                        (x) -> ((x <= 0 || x >= 1) ? 0.01 : 1));
+
+    ActivationFunction IDENTICAL = ActivationFunction.create((x) -> x, (x) -> 1);
+
+    ActivationFunction LEAKY_RELU = ActivationFunction.create(
+                        (x) -> Math.max(0.01 * x, x),
+                        (x) -> (x >= 0 ? 1 : 0.01));
+
+    ActivationFunction RELU = ActivationFunction.create(
+                        (x) -> Math.max(0, x),
+                        (x) -> (x >= 0 ? 1 : 0));
+
+    ActivationFunction SIGMOID = ActivationFunction.create(
+            (x) -> (1f / (1f + Math.pow(Math.E, -x))),
+            (x) -> (1f / (1f + Math.pow(Math.E, -x))) * (1 - (1f / (1f + Math.pow(Math.E, -x)))));
+
+    ActivationFunction TANH = ActivationFunction.create(
+            (x) -> ((Math.pow(Math.E, x) - Math.pow(Math.E, -x)) / (Math.pow(Math.E, x) + Math.pow(Math.E, -x))),
+            (x) -> (1 - Math.pow(((Math.pow(Math.E, x) - Math.pow(Math.E, -x)) / (Math.pow(Math.E, x) + Math.pow(Math.E, -x))), 2)));
+
+    ActivationFunction THRESHOLD = ActivationFunction.create(
+            (x) -> x >= 0 ? 1 : 0,
+            (x) -> x != 0 ? 0 : 1);
+    
     double activate(double input);
     double derivative(double input);
 
