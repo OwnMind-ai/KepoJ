@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.stream.Stream;
 
 /**
  * Dynamic data container that contains a bunch of input and expected output values
@@ -25,6 +26,10 @@ public class Dataset implements Serializable {
         Collections.addAll(this.dataset, dataset);
     }
 
+    public Dataset(){
+        this.dataset = new LinkedList<>();
+    }
+
     public void add(double[] input, double[] expected){
         this.dataset.add(new double[][]{input, expected});
     }
@@ -35,6 +40,11 @@ public class Dataset implements Serializable {
 
     public double[][] remove(int index){
         return this.dataset.remove(index);
+    }
+
+    public Dataset concat(Dataset other){
+        return new Dataset(Stream.concat(this.dataset.stream(), other.dataset.stream())
+                .toArray(double[][][]::new));
     }
 
     public int size(){
