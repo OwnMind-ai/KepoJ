@@ -6,7 +6,6 @@ import ai.engine.kepoj.entities.Dataset;
 import ai.engine.kepoj.layers.Layer;
 
 import java.io.IOException;
-import java.io.Serializable;
 
 /**
  * Neural network class that trains by example's dataset
@@ -14,7 +13,8 @@ import java.io.Serializable;
  * @see Agent
  * @since 1.2
  */
-public class SupervisedNeuralNetwork extends NeuralNetwork implements SupervisedAlgorithm, Serializable {
+public class SupervisedNeuralNetwork extends NeuralNetwork
+        implements SupervisedAlgorithm<SupervisedNeuralNetwork, NeuralNetwork> {
     private boolean isPrinting = false;
     /**
      * @param inputNeurons input layer length
@@ -133,5 +133,24 @@ public class SupervisedNeuralNetwork extends NeuralNetwork implements Supervised
         }
 
         return loss;
+    }
+
+    /**
+     * Wraps NeuralNetwork instance with supervised training algorithm.
+     * Wrapped instances still connected to the NeuralNetwork instance.
+     * If you want break that connection, use NeuralNetwork::clone() instead.
+     *
+     * @param network base neural network instance
+     * @return wrapped instance by supervised training algorithm
+     * @since 1.3
+     */
+    @Override
+    public SupervisedNeuralNetwork wrap(NeuralNetwork network) {
+         SupervisedNeuralNetwork result = new SupervisedNeuralNetwork(0);
+
+         result.layers.clear();
+         result.layers.addAll(network.layers);
+
+         return result;
     }
 }

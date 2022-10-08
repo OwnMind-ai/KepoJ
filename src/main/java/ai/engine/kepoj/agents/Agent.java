@@ -3,12 +3,14 @@ package ai.engine.kepoj.agents;
 
 import ai.engine.kepoj.agents.deep.NeuralNetwork;
 
+import java.io.Serializable;
+
 /**
  * Classes that implement the Agent interface can process data and save themselves to a file
  * @see NeuralNetwork
  * @since 1.1
  */
-public interface Agent {
+public interface Agent extends Cloneable, Serializable {
     /**
      * Processes data to some output
      * @since 1.1

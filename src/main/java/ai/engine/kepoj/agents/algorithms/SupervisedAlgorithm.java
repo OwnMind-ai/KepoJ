@@ -9,7 +9,7 @@ import ai.engine.kepoj.entities.Dataset;
  * @since 1.2
  * @see ai.engine.kepoj.agents.deep.SupervisedNeuralNetwork
  */
-public interface SupervisedAlgorithm extends Agent {
+public interface SupervisedAlgorithm<T extends SupervisedAlgorithm<T, A>, A extends Agent> extends TrainingAlgorithm<T, A> {
     double train(Dataset dataset, double ratio, double fault);
 
     double train(Dataset dataset, double ratio, long ages);

@@ -5,7 +5,6 @@ import ai.engine.kepoj.agents.algorithms.QAlgorithm;
 import ai.engine.kepoj.utils.ArrayUtils;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.Arrays;
 
  /**
@@ -14,7 +13,7 @@ import java.util.Arrays;
  * @see Agent
  * @since 1.2
  */
-public class QNeuralNetwork extends NeuralNetwork implements QAlgorithm, Serializable {
+public class QNeuralNetwork extends NeuralNetwork implements QAlgorithm<QNeuralNetwork, NeuralNetwork> {
     /**
      * Iteration counter. Self-increases after learning iteration work
      * @since 1.2
@@ -94,4 +93,23 @@ public class QNeuralNetwork extends NeuralNetwork implements QAlgorithm, Seriali
         for(int i = 1; i < this.layers.size(); i++)
             this.layers.get(i).trainLayer(this.layers.get(i - 1).getOutputs(), ratio);
     }
-}
+
+     /**
+      * Wraps a NeuralNetwork instance with Q training algorithm.
+      * Wrapped instances still connected to the neural network instance.
+      * If you want break that connection, use NeuralNetwork::clone() instead.
+      *
+      * @param network a base neural network instance
+      * @return wrapped instance by Q training algorithm
+      * @since 1.3
+      */
+     @Override
+     public QNeuralNetwork wrap(NeuralNetwork network) {
+         QNeuralNetwork result = new QNeuralNetwork(0);
+
+         result.layers.clear();
+         result.layers.addAll(network.layers);
+
+         return result;
+     }
+ }

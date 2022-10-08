@@ -8,7 +8,6 @@ import ai.engine.kepoj.layers.Layer;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -18,7 +17,7 @@ import java.util.*;
  * @see Agent
  * @since 1.1
  */
-public class NeuralNetwork implements Agent, Serializable {
+public class NeuralNetwork implements Agent {
     protected ArrayList<Layer> layers;
     public static boolean WARNINGS = true;
 
